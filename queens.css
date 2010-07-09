@@ -1,0 +1,69 @@
+#queens {
+
+  background: url(img/unisphere.jpg) no-repeat top fixed;
+
+  padding: 10px; }
+
+	
+
+#queens h4 {
+
+	font-size: 100%;
+
+	margin: 0 0 5px 0;
+
+	padding: 0; }
+
+	
+
+#intro {
+
+	background: url(img/frost.png) repeat;
+
+	padding: 10px;
+
+	margin: 10px; }
+
+	
+
+.frost {
+
+	background: url(img/frost.png) repeat;
+
+	padding: 10px;
+
+	margin: 10px; }
+
+	
+
+#stories .frost {
+
+  width: 280px;
+
+  float: left; }
+
+
+
+.frost img {
+
+	border: 5px solid #eee;
+
+	float: right;
+
+	margin: 5px; }
+
+	
+
+img#unisphere {
+
+	float: right; 
+
+	margin: 20px;
+
+	border: 5px solid #eee; }
+
+
+
+#post-417, #post-420, #post-452, #post-429 {
+
+  clear: both; }

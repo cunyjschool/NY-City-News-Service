@@ -1,0 +1,158 @@
+h2 {
+	margin: 10px 0; }
+
+h3 {
+	margin: 10px 0;
+	padding: 0;
+	text-transform: uppercase;
+	font-size: 125%; }
+	
+h3 a:link, h3 a:visited {
+	text-decoration: none; }
+
+#flickr h2 {
+	margin-top: 20px;
+	background: url(img/icons/flickr.jpg) no-repeat 0 3px;
+	padding: 0 0 0 20px; }
+
+#flickr img {
+	float: left;
+	margin: 5px;
+	border: 5px solid #eee; }
+	
+#notebook {
+	width: 250px; 
+	background: url(img/notebook.jpg) no-repeat top left; 
+	float: left; 
+	margin: 0 10px 10px 0;
+	padding: 0 10px 0 30px;
+	min-height: 350px; }
+	
+#notebook ul li {
+	margin-top: 10px; }
+	
+.timestamp {
+	font-size: 90%;
+	color: #999; }
+
+#elatest {
+	float: left; 
+	margin: 20px 0 0 20px;
+	width: 250px; }
+	
+#etags, #twitter {
+	background: url(img/icons/tag_blue.png) no-repeat 0 7px;
+	width: 960px; 
+	padding: 5px 5px 5px 20px; 
+	border-bottom: 1px solid #eee; 
+	margin: 5px; }
+	
+#twitter {
+	border-top: 0;
+	margin: 0 5px 30px 5px;
+	background: url(img/icons/twitter-icon.png) no-repeat 0 6px; }
+
+	
+#election a:link {color: #006699; }
+#election a:visited {color: #006699; }
+#election a:hover {color: #000; }
+
+h2#blogs {
+	background: url(img/icons/chart_organisation.png) no-repeat 0 3px;
+	padding: 0 0 0 20px; }
+
+#col1 {
+	float: left;
+	width: 530px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	border-right: 1px solid #eee; }
+	
+#col2 {
+	float: left; 
+	width: 400px;
+	padding-left: 20px; }
+	
+#col1 li, #col2 li {
+	margin-bottom: 3px;
+	border-bottom: 1px solid #eee; }
+	
+#col3 {
+	float: left;
+	width: 400px; }
+	
+#efeatured {
+	float: left;
+	width: 250px;
+	border-right: 1px solid #eee;
+	padding-top: 10px;
+	margin-top: 10px; }
+	
+#efeatured div {
+	margin: 20px 0;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #eee; }
+	
+#efeatured div img {
+	border: 5px solid #eee;
+	margin-bottom: 10px; }
+	
+img#ephoto {
+	width: 470px; 
+	border: 5px solid #eee;
+	margin-bottom: 10px; }
+	
+#snapshotmap div {
+	font-size: 90%;
+	padding: 10px;
+	margin-bottom: 40px;
+	background: #f9f9f9; }
+	
+#flickrrss {
+	margin-top: 10px; }
+
+#flickrrss img {
+	margin: 7px;
+	border: 5px solid #eee; }
+	
+h2#evideoshead {
+	background: url(img/icons/film_arrow.png) no-repeat 0 3px;
+	padding-left: 20px; }
+	
+h2#elatesthead {
+	margin-top: 40px;
+	background: url(img/icons/document_text_image.png) no-repeat 0 3px;
+	padding-left: 20px; }
+	
+h2#efeaturedhead {
+	background: url(img/icons/star_arrow.png) no-repeat 0 1px;
+	padding-left: 20px; }
+	
+h2#flickrhead {
+	margin-top: 40px;
+	background: url(img/icons/images_arrow.png) no-repeat 0 1px;
+	padding-left: 20px; }
+	
+h2#maphead {
+	margin-top: 20px;
+	background: url(img/icons/map.png) no-repeat 0 2px;
+	padding-left: 20px; }
+	
+h2#blogshead {
+	margin-top: 40px;
+	background: url(img/icons/blogs_arrow.png) no-repeat 0 2px;
+	padding-left: 20px; }
+	
+ul#bestofblogs li {
+	margin-bottom: 10px;
+	padding-bottom: 5px; }
+	
+#violin {
+	border-top: 5px solid #cc3300;
+	padding: 0 20px 5px 20px;
+	background: #013f7d url(img/flag.jpg) no-repeat top;
+	color: #fff;
+	margin-bottom: 20px; }
+	
+#violin a, #violin a:visited {
+	color: #6699ff; }
