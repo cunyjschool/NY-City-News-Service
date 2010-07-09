@@ -12,9 +12,9 @@
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
   <li>
   <a href="<?php the_permalink(); ?>"><h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2> 
-   <?php if(get_post_meta($post->ID, video_file, true) != "") { ?><span class="top-video"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/color_bars.png"></span><?php } ?>
-  <?php if(get_post_meta($post->ID, multimedia_url, true) != "") { ?><span class="top-multi"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/photos.png"></span><?php } ?>
-    <?php if(get_post_meta($post->ID, audio_url, true) != "") { ?><span class="top-audio"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/sound.png"></span><?php } ?>
+   <?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?><span class="top-video"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/color_bars.png"></span><?php } ?>
+  <?php if(get_post_meta($post->ID, 'multimedia_url', true) != "") { ?><span class="top-multi"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/photos.png"></span><?php } ?>
+    <?php if(get_post_meta($post->ID, 'audio_url', true) != "") { ?><span class="top-audio"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/sound.png"></span><?php } ?>
   </li>
     <?php endwhile; else: ?><p>There are currently no stories.</p>
 <?php endif; ?>
@@ -48,7 +48,7 @@
       <div class="featured-tease clearfix">
 <a href="<?php the_permalink(); ?>">
    
-   
+<?php if (function_exists('yapb_is_photoblog_post')) : ?>   
 <?php if (yapb_is_photoblog_post()): ?>
   <?php
     echo yapb_get_thumbnail(
@@ -63,8 +63,8 @@
     );
   ?>
 </a>
-  <?php else: ?>
-<?php endif ?>
+  <?php endif; ?>
+<?php endif; ?>
 
 
   <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -81,12 +81,14 @@
 
 
 <?php
+if (function_exists('SimplePieWP')) {
 echo SimplePieWP('http://isnapny.com/feed/', array(
 	'template' => 'isnapny',
 	'items' => 4,
 	'processing' => 'images_only',
 	'cache_duration' => 1800
 	));
+}
 ?>
 
 
@@ -97,6 +99,7 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
 
       <div class="featured-tease clearfix">
 <a href="<?php the_permalink(); ?>">
+	<?php if (function_exists('yapb_is_photoblog_post')) : ?>
 <?php if (yapb_is_photoblog_post()): ?>
   <?php
     echo yapb_get_thumbnail(
@@ -111,8 +114,8 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
     );
   ?>
 </a>
-  <?php else: ?>
-<?php endif ?>
+  <?php endif; ?>
+<?php endif; ?>
 
 
   <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -172,7 +175,7 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
      
-       <?php if(get_post_meta($post->ID, video_file, true) != "") { ?>
+       <?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?>
     <div id="video-player"> 
       <div id="container"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</div>
 	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/swfobject.js"></script>
@@ -181,13 +184,13 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 		var s1 = new SWFObject("<?php bloginfo('stylesheet_directory'); ?>/player.swf","ply","440","340","9","#FFFFFF");
 		s1.addParam("allowfullscreen","true");
 		s1.addParam("allowscriptaccess","always");
-		s1.addParam("flashvars","controlbar=over&stretching=fill&file=<?php echo get_post_meta( $post->ID,"video_file", $single=true ) ; ?>&image=<?php echo get_post_meta( $post->ID,"video_screenshot", $single=true ) ; ?>");
+		s1.addParam("flashvars","controlbar=over&stretching=fill&file=<?php echo get_post_meta( $post->ID, 'video_file', $single=true ) ; ?>&image=<?php echo get_post_meta( $post->ID,'video_screenshot', $single=true ) ; ?>");
 		s1.write("container");
 	</script>
     
       <div id="video-caption">
   <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-<?php if(get_post_meta($post->ID, video_headline, true) != "") { ?><h2>Video: <?php echo get_post_meta( $post->ID,"video_headline", $single=true ) ; ?></h2><?php } ?>
+<?php if(get_post_meta($post->ID, 'video_headline', true) != "") { ?><h2>Video: <?php echo get_post_meta( $post->ID,"video_headline", $single=true ) ; ?></h2><?php } ?>
 <?php echo get_post_meta( $post->ID,"video_caption", $single=true ) ; ?>
 <span class="side-credit">Reported by <?php echo get_post_meta( $post->ID,"video_credit", $single=true ) ; ?></span>
       </div>
@@ -207,6 +210,7 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 
       <div class="featured-tease clearfix">
 <a href="<?php the_permalink(); ?>">
+<?php if (function_exists('yapb_is_photoblog_post')) : ?>
 <?php if (yapb_is_photoblog_post()): ?>
   <?php
     echo yapb_get_thumbnail(
@@ -221,8 +225,8 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
     );
   ?>
 </a>
-  <?php else: ?>
-<?php endif ?>
+  <?php endif; ?>
+<?php endif; ?>
 
 
   <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -245,6 +249,7 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 
       <div class="featured-tease clearfix">
 <a href="<?php the_permalink(); ?>">
+<?php if (function_exists('yapb_is_photoblog_post')) : ?>
 <?php if (yapb_is_photoblog_post()): ?>
   <?php
     echo yapb_get_thumbnail(
@@ -259,8 +264,8 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
     );
   ?>
 </a>
-  <?php else: ?>
-<?php endif ?>
+  <?php endif; ?>
+<?php endif; ?>
 
 
   <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>

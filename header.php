@@ -63,7 +63,7 @@ A student-powered service at the <a href="http://www.journalism.cuny.edu">CUNY G
   <li id="mapnav"><a href="/news-map/">News Map</a></li>
   <li id="aboutnav"><a href="/about/">About</a></li>
   <li id="staffnav"><a href="/staff/">Staff</a></li>
-  <li id="rssnav"><a href="/rss-feeds/" style="background: #f28719;") no-repeat bottom left;">RSS Feeds</a></li>
+  <li id="rssnav"><a href="/rss-feeds/" style="background: #f28719; no-repeat bottom left;">RSS Feeds</a></li>
 </ul>
   </div>
 </div>
