@@ -4,7 +4,7 @@
       <div class="clearfix" id="brooklyn">
       
         <div id="brooklyn-intro">
-<p class="dropcap">In Sunset Park, Chinese and Latino congregations <a href="http://nycitynewsservice.com/2009/06/05/cd-7-praising-the-lord-in-mandarin/">share a church</a> built a century ago for Norwegians. In Canarsie, South Asian and Caribbean immigrants <a href="http://nycitynewsservice.com/2009/06/05/cd-13-staying-in-the-game/">flock to the city's only indoor cricket batting cage</a>. Nearby, at the Brooklyn Terminal Market, you'll <a href="http://nycitynewsservice.com/2009/06/05/cd-18-new-beginning-for-terminal/">find both West Indian and Italian products</a> on the shelves of A & J Wholesale Foods.</p>
+<p class="dropcap">In Sunset Park, Chinese and Latino congregations <a href="/2009/06/05/cd-7-praising-the-lord-in-mandarin/">share a church</a> built a century ago for Norwegians. In Canarsie, South Asian and Caribbean immigrants <a href="/2009/06/05/cd-13-staying-in-the-game/">flock to the city's only indoor cricket batting cage</a>. Nearby, at the Brooklyn Terminal Market, you'll <a href="/2009/06/05/cd-18-new-beginning-for-terminal/">find both West Indian and Italian products</a> on the shelves of A & J Wholesale Foods.</p>
 
 <p>One in six Americans, it's been said, can trace family roots to Brooklyn. The borough continues to be the first - and sometimes final - stopping point in the U.S. for new waves of immigrants.</p>
 

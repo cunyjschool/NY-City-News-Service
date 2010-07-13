@@ -1,23 +1,21 @@
 <?php get_header(); ?>
 
-
-
 <div id="content" class="clearfix">
-  <div id="col1">
+	<div id="col1">
   
-    <div id="violin">
-<?php query_posts('p=3407'); ?>
+		<div id="violin">
+		<?php query_posts('p=3407'); ?>
   	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-<?php global $more; $more = 0; the_content(); ?>
+			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+			<?php global $more; $more = 0; the_content(); ?>
     <?php endwhile; else: ?>
-<?php endif; ?>
+		<?php endif; ?>
     </div>
     
   
     <?php query_posts('cat=413&showposts=1'); ?>
   	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 
 
 <?php if (yapb_is_photoblog_post()): ?>

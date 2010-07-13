@@ -14,16 +14,6 @@
 <span style="color: #fff;">Icons courtesy <a href="http://www.famfamfam.com/">FamFamFam</a> and <a href="http://www.pinvoke.com/">Pinvoke</a>.</span>
 
 </div>
-
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-2366398-2");
-pageTracker._trackPageview();
-</script>
-
 <?php wp_footer(); ?>
 </body>
 </html>

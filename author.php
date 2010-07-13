@@ -2,13 +2,10 @@
 
 	<div id="content" class="clearfix">
       <div id="homeleft">
-	
-
 <?php
 	global $wp_query;
 	$curauth = $wp_query->get_queried_object();
 ?>
-
 
 <div style="float:right;">
 <?php echo get_avatar($curauth->user_email,'80'); ?>
@@ -53,12 +50,7 @@
 <?php endwhile; else: ?>
 <p><?php _e('No posts by this author.'); ?></p>
 <?php endif; ?>
-</ul>
-
-	
-
-
-  
+</ul>  
  
   </div>
 <?php include (TEMPLATEPATH . '/category-sidebar.php'); ?>

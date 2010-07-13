@@ -7,15 +7,17 @@
 <title><?php bloginfo('name'); ?> <?php if ( is_single() ) { ?> &raquo; Blog Archive <?php } ?> <?php wp_title(); ?></title>
 
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-<?php if (is_category(220)) { echo '<link rel="stylesheet" href="http://nycitynewsservice.com/wp-content/themes/newsservice-v2/election.css" type="text/css" media="screen" />'; } ?>
+<?php if (is_category(220)): ?>
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/election.css" type="text/css">	
+<?php endif; ?>
 
-<?php if (is_category(695)) { ?>
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/queens.css" type="text/css">
-<?php } ?>
+<?php if (is_category(695)): ?>
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/queens.css" type="text/css">
+<?php endif; ?>
 
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-<link rel="icon" href="http://nycitynewsservice.com/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
  
 
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA8p2YRvDm0VzJPo-GKHh1rBRdNiYMfyiyzlOLbu4XACNLPr1dfhSSENqUX1IXWb6cotmNwlu-iFpXGw" type="text/javascript"></script>
@@ -37,15 +39,15 @@ A student-powered service at the <a href="http://www.journalism.cuny.edu">CUNY G
 
 <div class="wrap clearfix" id="globalwrap">
   <div style="float: left; width: 476px;">
-<a href="/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo2.jpg" alt="New York News Service" id="logo" /></a>
+<a href="/"><img src="<?php bloginfo('template_directory'); ?>/img/logo2.jpg" alt="NY City News Service" id="logo" /></a>
   </div>
   
   <div id="partner-sites">
-<a href="http://219mag.com/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/219-logo-thumb.jpg" alt="219 Magazine" /></a>
-<a href="http://motthavenherald.com/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/mott-logo-thumb.jpg" alt="Mott Haven Herald" /></a>
-<a href="http://fort-greene.thelocal.nytimes.com/"><img src="http://nycitynewsservice.com/wp-content/uploads/2010/02/local-thumb.jpg" alt="The Local" /></a>
-<a href="http://isnapny.com/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/isnap-logo-thumb.jpg" alt="ISnapNY Photoblog" /></a>
-<a href="http://cuny.tv/series/219west/listen.lasso?year=2009"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/219-west-logo.jpg" alt="219 West" /></a>
+<a href="http://219mag.com/"><img src="<?php bloginfo('template_directory'); ?>/img/219-logo-thumb.jpg" alt="219 Magazine" /></a>
+<a href="http://motthavenherald.com/"><img src="<?php bloginfo('template_directory'); ?>/img/mott-logo-thumb.jpg" alt="Mott Haven Herald" /></a>
+<a href="http://fort-greene.thelocal.nytimes.com/"><img src="/wp-content/uploads/2010/02/local-thumb.jpg" alt="The Local" /></a>
+<a href="http://isnapny.com/"><img src="<?php bloginfo('template_directory'); ?>/img/isnap-logo-thumb.jpg" alt="ISnapNY Photoblog" /></a>
+<a href="http://cuny.tv/series/219west/listen.lasso?year=2009"><img src="<?php bloginfo('template_directory'); ?>/img/219-west-logo.jpg" alt="219 West" /></a>
   </div>
 </div>
 

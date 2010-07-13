@@ -3,8 +3,7 @@
 	<div id="content" class="clearfix">
       <div id="homeleft">
 	
-
-<h1><?php single_cat_title(''); ?></h1>
+			<h1><?php single_cat_title(''); ?></h1>
 
 
 <?php query_posts($query_string . "&showposts=1"); ?>
@@ -42,9 +41,6 @@
 <?php endif; ?>
 
 
-
-
-
 <?php query_posts($query_string . "&showposts=3&offset=1"); ?>
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
   
@@ -78,12 +74,6 @@
   <?php endwhile; else: ?><p>There are currently no stories.</p>
 <?php endif; ?>
 
-
-
-
-
-
-
 <?php query_posts($query_string . "&showposts=5&offset=4"); ?>
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
   
@@ -95,13 +85,6 @@
             
   <?php endwhile; else: ?><p>There are currently no other stories.</p>
 <?php endif; ?>
-
-
-
-	
-
-
-  
  
   </div>
 <?php include (TEMPLATEPATH . '/category-sidebar.php'); ?>

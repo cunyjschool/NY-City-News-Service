@@ -4,7 +4,7 @@
   <div id="queens" class="clearfix">
     <div id="intro">
     
-<img src="<?php bloginfo('stylesheet_directory'); ?>/img/unisphere2.jpg" id="unisphere">
+<img src="<?php bloginfo('template_directory'); ?>/img/unisphere2.jpg" id="unisphere">
 
 <h2 style="font-size: 200%;">Queens' Changing World <span style="font-size: 10px;">A NYCity News Service Special Report</span></h2>
 <p>Queens is the most diverse county in the country - and the borough's only constant is change.</p>
@@ -18,8 +18,8 @@
 
     <div style="width: 270px; float: left;">
       <div class="frost" style="margin-bottom: 20px;">
-<h2><a href="http://nycitynewsservice.com/2008/05/29/send-us-your-queens-stories/#respond">Got a Story? &raquo;</a></h2>
-Let us know what's happening in your neighborhood, tell us what's on your mind or feel free to share stories of days past. <a href="http://nycitynewsservice.com/2008/05/29/send-us-your-queens-stories/#respond">Leave a comment &raquo;</a>
+<h2><a href="/2008/05/29/send-us-your-queens-stories/#respond">Got a Story? &raquo;</a></h2>
+Let us know what's happening in your neighborhood, tell us what's on your mind or feel free to share stories of days past. <a href="/2008/05/29/send-us-your-queens-stories/#respond">Leave a comment &raquo;</a>
       </div>
 
       <div class="frost">

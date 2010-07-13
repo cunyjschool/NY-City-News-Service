@@ -4,10 +4,10 @@
   <?php if(get_post_meta($post->ID, video_file, true) != "") { ?>
     <div id="video-player"> 
       <div id="container"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</div>
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/swfobject.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/swfobject.js"></script>
 
 	<script type="text/javascript">
-		var s1 = new SWFObject("<?php bloginfo('stylesheet_directory'); ?>/player.swf","ply","450","340","9","#FFFFFF");
+		var s1 = new SWFObject("<?php bloginfo('template_directory'); ?>/player.swf","ply","450","340","9","#FFFFFF");
 		s1.addParam("allowfullscreen","true");
 		s1.addParam("allowscriptaccess","always");
 		s1.addParam("flashvars","controlbar=over&stretching=fill&file=<?php echo get_post_meta( $post->ID,"video_file", $single=true ) ; ?>&image=<?php echo get_post_meta( $post->ID,"video_screenshot", $single=true ) ; ?>");
@@ -28,10 +28,10 @@
     <?php if(get_post_meta($post->ID, video2_file, true) != "") { ?>
     <div id="video-player"> 
       <div id="container2"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</div>
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/swfobject.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/swfobject.js"></script>
 
 	<script type="text/javascript">
-		var s1 = new SWFObject("<?php bloginfo('stylesheet_directory'); ?>/player.swf","ply","450","340","9","#FFFFFF");
+		var s1 = new SWFObject("<?php bloginfo('template_directory'); ?>/player.swf","ply","450","340","9","#FFFFFF");
 		s1.addParam("allowfullscreen","true");
 		s1.addParam("allowscriptaccess","always");
 		s1.addParam("flashvars","controlbar=over&stretching=fill&file=<?php echo get_post_meta( $post->ID,"video2_file", $single=true ) ; ?>&image=<?php echo get_post_meta( $post->ID,"video2_screenshot", $single=true ) ; ?>");
