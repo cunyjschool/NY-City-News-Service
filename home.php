@@ -5,27 +5,27 @@
     <div id="topstories" class="clearfix">
 
       <div id="top-digest">
-<h3>Top Stories</h3>
 
-<ul>
-<?php query_posts('cat=1&showposts=8'); ?>
-  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-  <li>
-  <a href="<?php the_permalink(); ?>"><h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2> 
-   <?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?><span class="top-video"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/color_bars.png"></span><?php } ?>
-  <?php if(get_post_meta($post->ID, 'multimedia_url', true) != "") { ?><span class="top-multi"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/photos.png"></span><?php } ?>
-    <?php if(get_post_meta($post->ID, 'audio_url', true) != "") { ?><span class="top-audio"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/sound.png"></span><?php } ?>
-  </li>
-    <?php endwhile; else: ?><p>There are currently no stories.</p>
-<?php endif; ?>
-</ul>
+		<h3>Top Stories</h3>
+
+		<ul>
+		<?php query_posts('cat=1&showposts=8'); ?>
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<li><h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+			<?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?><span class="top-video"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/color_bars.png"></span><?php } ?>
+			<?php if(get_post_meta($post->ID, 'multimedia_url', true) != "") { ?><span class="top-multi"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/photos.png"></span><?php } ?>
+			<?php if(get_post_meta($post->ID, 'audio_url', true) != "") { ?><span class="top-audio"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/sound.png"></span><?php } ?>
+			</li>
+			<?php endwhile; else: ?><p>There are currently no stories.</p>
+			<?php endif; ?>
+		</ul>
 
       </div>
       <div id="networked">
 <h3>Networked</h3>
 <ul>
   <li id="blip"><a href="http://nycitynewsservice.blip.tv/">Blip.tv</a></li>
-  <li id="facebook"><a href="http://www.new.facebook.com/home.php#/pages/New-York-NY/CUNY-Graduate-School-of-Journalism/17117865082?ref=ts">Facebook</a></li>
+  <li id="facebook"><a href="http://www.facebook.com/cunyjschool">Facebook</a></li>
   <li id="flickr"><a href="http://www.flickr.com/groups/nycitysnapshot/">Flickr</a></li>
   <li id="twitter"><a href="http://twitter.com/nycitynews/">Twitter</a></li>
   <li id="youtube"><a href="http://www.youtube.com/user/nycitynewsservice">YouTube</a></li>
@@ -37,35 +37,36 @@
 <ul class="more clearfix">
   <li class="gomore"><a href="/category/top-stories/">More Top Stories</a></li>
   <li class="feed"><a href="/category/top-stories/feed/">Top Stories Feed</a></li>
-</ul>    
+</ul>
 
 
-    <div id="featured" class="clearfix">
-<h3>Featured</h3>
-<?php query_posts('cat=17&showposts=3'); ?>
-  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-      <div class="featured-tease clearfix">
-<a href="<?php the_permalink(); ?>">
-   
-<?php if (function_exists('yapb_is_photoblog_post')) : ?>   
-<?php if (yapb_is_photoblog_post()): ?>
-  <?php
-    echo yapb_get_thumbnail(
-      '', // HTML before image tag
-      array(
-        'alt' => '', // image tag alt attribute
-        'rel' => 'lightbox' // image tag rel attribute
-      ),
+	<div id="featured" class="clearfix">
+		<h3>Featured</h3>
+		<?php query_posts('cat=17&showposts=3'); ?>
+  		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<div class="featured-tease clearfix">
+<?php
+	// Only show the thumbnail image if it the functionality exists
+	if (function_exists('yapb_is_photoblog_post')) {
+ 		if (yapb_is_photoblog_post()) {
+			echo '<a href="';
+			the_permalink();
+			echo '">';
+    		echo yapb_get_thumbnail(
+      			'', // HTML before image tag
+      		array(
+        		'alt' => '', // image tag alt attribute
+        		'rel' => 'lightbox' // image tag rel attribute
+      			),
       '', // HTML after image tag
       array('w=150', 'h=100', 'q=100', 'zc=1'), // phpThumb configuration parameters
       'thumbnail' // image tag custom css class
+		
     );
-  ?>
-</a>
-  <?php endif; ?>
-<?php endif; ?>
-
+	echo '</a>';
+	}
+	}
+ 	?>
 
   <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
   <?php the_excerpt(); ?>  
@@ -93,16 +94,19 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
 
 
     <div id="multimedia">
-<h3>Multimedia</h3>
-<?php query_posts('cat=28&showposts=2'); ?>
-  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<h3>Multimedia</h3>
+		
+			<?php query_posts('cat=28&showposts=2'); ?>
+  		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
       <div class="featured-tease clearfix">
-<a href="<?php the_permalink(); ?>">
-	<?php if (function_exists('yapb_is_photoblog_post')) : ?>
-<?php if (yapb_is_photoblog_post()): ?>
-  <?php
-    echo yapb_get_thumbnail(
+	<?php
+	if (function_exists('yapb_is_photoblog_post')) {
+		if (yapb_is_photoblog_post()) {
+			echo '<a href="';
+			the_permalink();
+			echo '">';
+			echo yapb_get_thumbnail(
       '', // HTML before image tag
       array(
         'alt' => '', // image tag alt attribute
@@ -112,10 +116,9 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
       array('w=100', 'h=75', 'q=100', 'zc=1'), // phpThumb configuration parameters
       'thumbnail'             // image tag custom css class
     );
-  ?>
-</a>
-  <?php endif; ?>
-<?php endif; ?>
+		echo '</a>';
+   }
+	} ?>
 
 
   <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -135,12 +138,12 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
 <h3>Special Projects</h3>
 
       <div id="promos">
-<a href="http://2010stimulus.org/" target="_blank"><img src="http://nycitynewsservice.com/wp-content/uploads/2010/06/industry-thumb.gif" alt="Industry NYC" class="thumbnail" /></a>
-<a href="http://blogs.journalism.cuny.edu/industrynyc/" target="_blank"><img src="http://nycitynewsservice.com/wp-content/uploads/2010/06/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" /></a>
-<a href="http://homelesswithhomework.com/" target="_blank"><img src="http://nycitynewsservice.com/wp-content/uploads/2010/07/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" /></a>
-<a href="http://nycitynewsservice.com/category/election2008" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-election.jpg" alt="Election 2008" class="thumbnail" /></a>
-<a href="http://nycitynewsservice.com/category/queens-immigration-2008/" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-queens.jpg" alt="2008 Queens Immigration Project" class="thumbnail" /></a>
-<a href="http://nycitynewsservice.com/category/brooklyn-immigration-2009" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-brooklyn.jpg" alt="2009 Brooklyn Immigration Project" class="thumbnail" /></a>
+<a href="http://blogs.journalism.cuny.edu/industrynyc/" target="_blank"><img src="/wp-content/uploads/2010/06/industry-thumb.gif" alt="Industry NYC" class="thumbnail" /></a>
+<a href="http://2010stimulus.org/" target="_blank"><img src="/wp-content/uploads/2010/06/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" /></a>
+<a href="http://homelesswithhomework.com/" target="_blank"><img src="/wp-content/uploads/2010/07/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" /></a>
+<a href="/category/election2008/" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-election.jpg" alt="Election 2008" class="thumbnail" /></a>
+<a href="/category/queens-immigration-2008/" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-queens.jpg" alt="2008 Queens Immigration Project" class="thumbnail" /></a>
+<a href="/category/brooklyn-immigration-2009" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-brooklyn.jpg" alt="2009 Brooklyn Immigration Project" class="thumbnail" /></a>
       </div>
     </div>
 
@@ -210,10 +213,11 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
       <div class="featured-tease clearfix">
-<a href="<?php the_permalink(); ?>">
-<?php if (function_exists('yapb_is_photoblog_post')) : ?>
-<?php if (yapb_is_photoblog_post()): ?>
-  <?php
+<?php if (function_exists('yapb_is_photoblog_post')) {
+	 if (yapb_is_photoblog_post()) {
+		echo '<a href="';
+		the_permalink();
+		echo '">';
     echo yapb_get_thumbnail(
       '', // HTML before image tag
       array(
@@ -224,11 +228,9 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
       array('w=100', 'h=75', 'q=100', 'zc=1'), // phpThumb configuration parameters
       'thumbnail'             // image tag custom css class
     );
-  ?>
-</a>
-  <?php endif; ?>
-<?php endif; ?>
-
+		echo '</a>';
+  }
+} ?>
 
   <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
   <?php the_excerpt(); ?>  
@@ -250,9 +252,11 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 
       <div class="featured-tease clearfix">
 <a href="<?php the_permalink(); ?>">
-<?php if (function_exists('yapb_is_photoblog_post')) : ?>
-<?php if (yapb_is_photoblog_post()): ?>
-  <?php
+<?php if (function_exists('yapb_is_photoblog_post')) {
+	if (yapb_is_photoblog_post()) {
+		echo '<a href="';
+		the_permalink();
+		echo '">';
     echo yapb_get_thumbnail(
       '', // HTML before image tag
       array(
@@ -263,10 +267,9 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
       array('w=100', 'h=75', 'q=100', 'zc=1'), // phpThumb configuration parameters
       'thumbnail'             // image tag custom css class
     );
-  ?>
-</a>
-  <?php endif; ?>
-<?php endif; ?>
+		echo '</a>';
+  	}
+}?>
 
 
   <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
