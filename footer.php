@@ -1,8 +1,8 @@
 
 <div id="footer">
 
-<a href="http://www.cuny.edu/"><img src="http://nycitynewsservice.com/wp-content/themes/NYC%20News%20Service/img/cuny.jpg" style="float: right;"></a>
-<a href="http://www.journalism.cuny.edu/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/jschool-logo-blue.jpg" style="float: right; margin-right: 20px;"></a>
+<a href="http://www.cuny.edu/"><img src="<?php bloginfo('template_directory'); ?>/img/cuny-orange_s50.png" style="float: right;"></a>
+<a href="http://www.journalism.cuny.edu/"><img src="<?php bloginfo('template_directory'); ?>/img/jschool-logo-blue.jpg" style="float: right; margin-right: 20px;"></a>
 
   <div><a href="http://cuny.edu/">City University of New York</a> | <a href="http://journalism.cuny.edu/">Graduate School of Journalism</a> | <a href="/">New York City News Service</a></div>
   
