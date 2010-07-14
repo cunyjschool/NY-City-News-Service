@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php /* This is a test change */ ?>
+
 <div id="content" class="clearfix">
   <div id="homeleft">
     <div id="topstories" class="clearfix">
