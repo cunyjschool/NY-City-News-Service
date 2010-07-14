@@ -138,9 +138,9 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
 <h3>Special Projects</h3>
 
       <div id="promos">
-<a href="http://blogs.journalism.cuny.edu/industrynyc/" target="_blank"><img src="/wp-content/uploads/2010/06/industry-thumb.gif" alt="Industry NYC" class="thumbnail" /></a>
+<a href="http://nycitynewsservice.com/projects/industrynyc/" target="_blank"><img src="/wp-content/uploads/2010/06/industry-thumb.gif" alt="Industry NYC" class="thumbnail" /></a>
 <a href="http://2010stimulus.org/" target="_blank"><img src="/wp-content/uploads/2010/06/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" /></a>
-<a href="http://homelesswithhomework.com/" target="_blank"><img src="/wp-content/uploads/2010/07/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" /></a>
+<a href="http://nycitynewsservice.com/projects/homelesswithhomework/" target="_blank"><img src="/wp-content/uploads/2010/07/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" /></a>
 <a href="/category/election2008/" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-election.jpg" alt="Election 2008" class="thumbnail" /></a>
 <a href="/category/queens-immigration-2008/" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-queens.jpg" alt="2008 Queens Immigration Project" class="thumbnail" /></a>
 <a href="/category/brooklyn-immigration-2009" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-brooklyn.jpg" alt="2009 Brooklyn Immigration Project" class="thumbnail" /></a>
