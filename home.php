@@ -78,8 +78,8 @@
     </div>
 
 <ul class="more clearfix">
-  <li class="gomore"><a href="/category/featured/">More Featured Stories</a></li>
-  <li class="feed"><a href="/category/featured/feed/">Featured Stories Feed</a></li>
+  <li class="gomore"><a href="<?php bloginfo('url'); ?>/category/featured/">More Featured Stories</a></li>
+  <li class="feed"><a href="<?php bloginfo('url'); ?>/category/featured/feed/">Featured Stories Feed</a></li>
 </ul>  
 
 
@@ -130,24 +130,31 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
 <?php endif; ?>
 
 <ul class="more clearfix">
-  <li class="gomore"><a href="/category/multimedia/">More Multimedia</a></li>
-  <li class="feed"><a href="/category/multimedia/feed/">Multimedia Feed</a></li>
+  <li class="gomore"><a href="<?php bloginfo('url'); ?>/category/multimedia/">More Multimedia</a></li>
+  <li class="feed"><a href="<?php bloginfo('url'); ?>/category/multimedia/feed/">Multimedia Feed</a></li>
 </ul> 
     </div>
 
 
-    <div id="featured" class="clearfix">
-<h3>Special Projects</h3>
+		<div id="featured" class="clearfix">
+			
+			<h3>Special Projects</h3>
 
       <div id="promos">
-<a href="http://nycitynewsservice.com/projects/industrynyc/" target="_blank"><img src="/wp-content/uploads/2010/06/industry-thumb.gif" alt="Industry NYC" class="thumbnail" /></a>
-<a href="http://2010stimulus.org/" target="_blank"><img src="/wp-content/uploads/2010/06/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" /></a>
-<a href="http://nycitynewsservice.com/projects/homelesswithhomework/" target="_blank"><img src="/wp-content/uploads/2010/07/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" /></a>
-<a href="/category/election2008/" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-election.jpg" alt="Election 2008" class="thumbnail" /></a>
-<a href="/category/queens-immigration-2008/" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-queens.jpg" alt="2008 Queens Immigration Project" class="thumbnail" /></a>
-<a href="/category/brooklyn-immigration-2009" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/promo-brooklyn.jpg" alt="2009 Brooklyn Immigration Project" class="thumbnail" /></a>
+<a href="/projects/industrynyc/" target="_blank"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/06/industry-thumb.gif" alt="Industry NYC" class="thumbnail" /></a>
+<a href="http://2010stimulus.org/" target="_blank"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/06/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" /></a>
+
+<a href="http://nycitynewsservice.com/projects/homelesswithhomework/" target="_blank"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/07/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" /></a>
+<a href="<?php bloginfo('url'); ?>/projects/talkingnyc/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/talking-new-york_h200.png" alt="Talking New York" height="150px" width="200px" class="thumbnail" /></a>
+
+<a href="<?php bloginfo('url'); ?>/special-projects/nycity-snapshot-2009-economic-pulse/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/nycity-snapshot_h200.png" alt="NYCity Snapshot" class="thumbnail" /></a>
+<a href="<?php bloginfo('url'); ?>/category/election2008/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-election.jpg" alt="Election 2008" class="thumbnail" /></a>
+
+<a href="<?php bloginfo('url'); ?>/category/queens-immigration-2008/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-queens.jpg" alt="2008 Queens Immigration Project" class="thumbnail" /></a>
+<a href="<?php bloginfo('url'); ?>/category/brooklyn-immigration-2009" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-brooklyn.jpg" alt="2009 Brooklyn Immigration Project" class="thumbnail" /></a>
       </div>
-    </div>
+		
+		</div>
 
 <ul class="more clearfix">
   <li class="gomore"><a href="/special-projects/">More Special Projects</a></li>
