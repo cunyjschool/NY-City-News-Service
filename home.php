@@ -37,8 +37,8 @@
     </div>
 
 <ul class="more clearfix">
-  <li class="gomore"><a href="/category/top-stories/">More Top Stories</a></li>
-  <li class="feed"><a href="/category/top-stories/feed/">Top Stories Feed</a></li>
+  <li class="gomore"><a href="<?php bloginfo('url'); ?>/category/top-stories/">More Top Stories</a></li>
+  <li class="feed"><a href="<?php bloginfo('url'); ?>/category/top-stories/feed/">Top Stories Feed</a></li>
 </ul>
 
 
@@ -141,10 +141,10 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
 			<h3>Special Projects</h3>
 
       <div id="promos">
-<a href="/projects/industrynyc/" target="_blank"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/06/industry-thumb.gif" alt="Industry NYC" class="thumbnail" /></a>
-<a href="http://2010stimulus.org/" target="_blank"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/06/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" /></a>
+<a href="/projects/industrynyc/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/industry-thumb.gif" alt="Industry NYC" class="thumbnail" /></a>
+<a href="http://2010stimulus.org/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" /></a>
 
-<a href="http://nycitynewsservice.com/projects/homelesswithhomework/" target="_blank"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/07/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" /></a>
+<a href="http://nycitynewsservice.com/projects/homelesswithhomework/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" /></a>
 <a href="<?php bloginfo('url'); ?>/projects/talkingnewyork/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/talking-new-york_h200.png" alt="Talking New York" height="150px" width="200px" class="thumbnail" /></a>
 
 <a href="<?php bloginfo('url'); ?>/special-projects/nycity-snapshot-2009-economic-pulse/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/nycity-snapshot_h200.png" alt="NYCity Snapshot" class="thumbnail" /></a>
@@ -248,8 +248,8 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 <?php endif; ?>
 
 <ul class="more clearfix">
-  <li class="gomore"><a href="/category/video/">More Videos</a></li>
-  <li class="feed"><a href="/category/video/feed/">Videos Feed</a></li>
+  <li class="gomore"><a href="<?php bloginfo('url'); ?>/category/video/">More Videos</a></li>
+  <li class="feed"><a href="<?php bloginfo('url'); ?>/category/video/feed/">Videos Feed</a></li>
 </ul> 
     </div>
 
@@ -288,8 +288,8 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 <?php endif; ?>
 
 <ul class="more clearfix">
-  <li class="gomore"><a href="/category/audio/">More Audio</a></li>
-  <li class="feed"><a href="/category/audio/feed/">Audio Feed</a></li>
+  <li class="gomore"><a href="<?php bloginfo('url'); ?>/category/audio/">More Audio</a></li>
+  <li class="feed"><a href="<?php bloginfo('url'); ?>/category/audio/feed/">Audio Feed</a></li>
 </ul> 
     </div>
     
