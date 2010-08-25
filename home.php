@@ -9,10 +9,14 @@
       <div id="top-digest">
 
 		<h3>Top Stories</h3>
-
+		<?php
+			$top_args = array( 'category_name' => 'top-stories',
+									'showposts' => 8
+							);
+			$top_posts = new WP_Query( $top_args );
+		?>
 		<ul>
-		<?php query_posts('cat=1&showposts=8'); ?>
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<?php if ( $top_posts->have_posts() ) : while ( $top_posts->have_posts() ) : $top_posts->the_post(); ?>
 			<li><h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 			<?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?><span class="top-video"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/color_bars.png"></span><?php } ?>
 			<?php if(get_post_meta($post->ID, 'multimedia_url', true) != "") { ?><span class="top-multi"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/photos.png"></span><?php } ?>
@@ -44,8 +48,13 @@
 
 	<div id="featured" class="clearfix">
 		<h3>Featured</h3>
-		<?php query_posts('cat=17&showposts=3'); ?>
-  		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<?php
+			$featured_args = array( 'category_name' => 'featured',
+									'showposts' => 3
+							);
+			$featured_posts = new WP_Query( $featured_args );
+		?>
+  		<?php if ( $featured_posts->have_posts() ) : while ( $featured_posts->have_posts() ) : $featured_posts->the_post(); ?>
 			<div class="featured-tease clearfix">
 <?php
 	// Only show the thumbnail image if it the functionality exists
@@ -96,10 +105,14 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
 
 
     <div id="multimedia">
-			<h3>Multimedia</h3>
-		
-			<?php query_posts('cat=28&showposts=2'); ?>
-  		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<h3>Multimedia</h3>
+		<?php
+			$multimedia_args = array( 'category_name' => 'multimedia',
+									'showposts' => 2
+							);
+			$multimedia_posts = new WP_Query( $multimedia_args );
+		?>
+  		<?php if ( $multimedia_posts->have_posts() ) : while ( $multimedia_posts->have_posts() ) : $multimedia_posts->the_post(); ?>
 
       <div class="featured-tease clearfix">
 	<?php
@@ -168,24 +181,20 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
     </div>
   </div>
 
-
-
   <div id="homeright">
   
 <object width="480" height="320"><param name="movie" value="/mediaplayer.swf"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="/mediaplayer.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="320"></embed></object>
       
-
-
-
     <div id="video">
 
-  
-  
-<h3>Video</h3>
-
-
-<?php query_posts('cat=16&showposts=1'); ?>
-  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<h3>Video</h3>
+	<?php
+		$video_args = array( 'category_name' => 'video',
+								'showposts' => 1
+						);
+		$video_posts = new WP_Query( $video_args );
+	?>
+	<?php if ( $video_posts->have_posts() ) : while ( $video_posts->have_posts() ) : $video_posts->the_post(); ?>
 
      
        <?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?>
@@ -213,13 +222,14 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
   <?php endwhile; else: ?><p>There are currently no stories.</p>
 <?php endif; ?>
 
-
-
-
-
-
-<?php query_posts('cat=16&showposts=2&offset=1'); ?>
-  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php
+	$video_args = array(	'category_name' => 'video',
+							'showposts' => 2,
+							'offset' => 1
+					);
+	$video_posts = new WP_Query( $video_args );
+?>
+<?php if ( $video_posts->have_posts() ) : while ( $video_posts->have_posts() ) : $video_posts->the_post(); ?>
 
       <div class="featured-tease clearfix">
 <?php if (function_exists('yapb_is_photoblog_post')) {
@@ -256,8 +266,13 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 
     <div id="audio">
 <h3>Audio</h3>
-<?php query_posts('cat=18&showposts=2'); ?>
-  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php
+	$audio_args = array(	'category_name' => 'audio',
+							'showposts' => 2
+					);
+	$audio_posts = new WP_Query( $audio_args );
+?>
+<?php if ( $audio_posts->have_posts() ) : while ( $audio_posts->have_posts() ) : $audio_posts->the_post(); ?>
 
       <div class="featured-tease clearfix">
 <a href="<?php the_permalink(); ?>">
