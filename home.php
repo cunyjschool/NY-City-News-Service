@@ -154,11 +154,11 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
 			<h3>Special Projects</h3>
 
       <div id="promos">
-<a href="/projects/industrynyc/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/industry-thumb.gif" alt="Industry NYC" class="thumbnail" /></a>
+<a href="http://industrynyc.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/industry-thumb.gif" alt="Industry NYC" class="thumbnail" /></a>
 <a href="http://2010stimulus.org/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" /></a>
 
-<a href="http://nycitynewsservice.com/projects/homelesswithhomework/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" /></a>
-<a href="<?php bloginfo('url'); ?>/projects/talkingnewyork/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/talking-new-york_h200.png" alt="Talking New York" height="150px" width="200px" class="thumbnail" /></a>
+<a href="http://homelesswithhomework.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" /></a>
+<a href="http://talkingnewyork.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/talking-new-york_h200.png" alt="Talking New York" height="150px" width="200px" class="thumbnail" /></a>
 
 <a href="<?php bloginfo('url'); ?>/special-projects/nycity-snapshot-2009-economic-pulse/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/nycity-snapshot_h200.png" alt="NYCity Snapshot" class="thumbnail" /></a>
 <a href="<?php bloginfo('url'); ?>/category/election2008/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-election.jpg" alt="Election 2008" class="thumbnail" /></a>
