@@ -4,7 +4,7 @@
   <div id="queens" class="clearfix">
     <div id="intro">
     
-<img src="<?php bloginfo('template_directory'); ?>/img/unisphere2.jpg" id="unisphere">
+<img src="<?php bloginfo('template_directory'); ?>/img/unisphere2.jpg" id="unisphere" />
 
 <h2 style="font-size: 200%;">Queens' Changing World <span style="font-size: 10px;">A NYCity News Service Special Report</span></h2>
 <p>Queens is the most diverse county in the country - and the borough's only constant is change.</p>
@@ -35,9 +35,14 @@ Show us how Queens is changing. Upload photos of your neighborhood and neighbors
 
    
     <div id="stories">
-    
-<?php query_posts('cat=695,-840&showposts=14'); ?>
-  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<?php
+			$queens_args = array( 
+							'category_name' => '2008-queens-immigration-project',
+							'showposts' => 14
+							);
+			$queens_posts = new WP_Query( $queens_args );
+		?>
+  <?php if ( $queens_posts->have_posts() ) : while ( $queens_posts->have_posts() ) : $queens_posts->the_post(); ?>
       <div class="frost" id="post-<?php the_ID(); ?>">
 <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 <img src="<?php echo get_post_meta( $post->ID,"alt_thumb", $single=true ) ; ?>">

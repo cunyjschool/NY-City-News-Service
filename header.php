@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/election.css" type="text/css">	
 <?php endif; ?>
 
-<?php if (is_category(695)): ?>
+<?php if (is_category(2307)): ?>
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/queens.css" type="text/css">
 <?php endif; ?>
 
