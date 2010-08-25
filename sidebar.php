@@ -1,7 +1,7 @@
   <div id="sidebar">
    
   
-  <?php if(get_post_meta($post->ID, video_file, true) != "") { ?>
+  <?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?>
     <div id="video-player"> 
       <div id="container"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</div>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/swfobject.js"></script>
@@ -15,7 +15,7 @@
 	</script>
     
       <div id="video-caption">
-<?php if(get_post_meta($post->ID, video_headline, true) != "") { ?><h2>Video: <?php echo get_post_meta( $post->ID,"video_headline", $single=true ) ; ?></h2><?php } ?>
+<?php if(get_post_meta($post->ID, 'video_headline', true)) { ?><h2>Video: <?php echo get_post_meta( $post->ID,"video_headline", $single=true ) ; ?></h2><?php } ?>
 <?php echo get_post_meta( $post->ID,"video_caption", $single=true ) ; ?>
 <span class="side-credit">Reported by <?php echo get_post_meta( $post->ID,"video_credit", $single=true ) ; ?></span>
       </div>
@@ -25,7 +25,7 @@
   
   
   
-    <?php if(get_post_meta($post->ID, video2_file, true) != "") { ?>
+    <?php if(get_post_meta($post->ID, 'video2_file', true) != "") { ?>
     <div id="video-player"> 
       <div id="container2"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</div>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/swfobject.js"></script>
@@ -338,16 +338,20 @@ AudioPlayer.embed("audioplayer_side_4", {
    <?php } ?>
    
    
-    <div id="global-side">
-      <div id="latest-news">
-<h2>Latest News</h2>
+	<div id="global-side">
+		<div id="latest-news">
+			<h2>Latest News</h2>
 
-<ul id="latest-images" style="margin-bottom: 10px;">
-  <?php query_posts('cat=1&showposts=2'); ?>
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-  <li>
-  
-<a href="<?php the_permalink(); ?>"> 
+			<ul id="latest-images" style="margin-bottom: 10px;">
+				<?php
+					$latest_args = array(	'category_name' => 'top-stories',
+											'showposts' => 2
+										);
+	
+					$latest_posts = new WP_Query( $latest_args );
+				?>
+    		<?php if ( $latest_posts->have_posts() ) : while ( $latest_posts->have_posts() ) : $latest_posts->the_post(); ?>
+  			<li><a href="<?php the_permalink(); ?>"> 
 <?php if (yapb_is_photoblog_post()): ?>
   <?php
     echo yapb_get_thumbnail(

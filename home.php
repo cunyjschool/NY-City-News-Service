@@ -183,7 +183,7 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 
   <div id="homeright">
   
-<object width="480" height="320"><param name="movie" value="/mediaplayer.swf"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="/mediaplayer.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="320"></embed></object>
+<object width="480" height="320"><param name="movie" value="<?php bloginfo('url'); ?>/files/mediaplayer.swf"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<?php bloginfo('url'); ?>/files/mediaplayer.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="320"></embed></object>
       
     <div id="video">
 
