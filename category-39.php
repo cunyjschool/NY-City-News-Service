@@ -16,9 +16,14 @@
         </div>
           
         <div style="margin: 0 auto; width: 930px;" class="clearfix">        
-  <ul>   
-<?php query_posts($query_string . "&cat=1998,-2011&showposts=18"); ?>
-  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+  <ul>
+	<?php $args = array( 'category_name' => '2009-brooklyn-immigration-project',
+							'showposts' => 18
+					);
+	$posts = new WP_Query( $args );
+	
+	?>
+  <?php if ( $posts->have_posts() ) : while ( $posts->have_posts() ) : $posts->the_post(); ?>
   <li>
 <a href="<?php the_permalink(); ?>">
 <?php
