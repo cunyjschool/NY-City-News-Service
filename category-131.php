@@ -45,7 +45,8 @@
 
     <div id="efeatured">
 <h2 id="efeaturedhead">Featured</h2>
-     <?php $my_query = new WP_Query('cat=413&showposts=3&offset=1'); while ($my_query->have_posts()) : $my_query->the_post(); ?>
+     <?php $my_query = new WP_Query('cat=413&showposts=3&offset=1');
+	while ($my_query->have_posts()) : $my_query->the_post(); ?>
       <div><a href="<?php the_permalink(); ?>">
 
 <?php if (yapb_is_photoblog_post()): ?>
