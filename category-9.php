@@ -4,17 +4,23 @@
 	<div id="col1">
   
 		<div id="violin">
-		<?php query_posts('p=3407'); ?>
-  	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<?php $lead_arg = array( 'p'=>3407 );
+			$lead_page = new WP_Query( $lead_arg );
+			?>
+  	<?php if ( $lead_page->have_posts() ) : while ( $lead_page->have_posts() ) : $lead_page->the_post(); ?>
 			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 			<?php global $more; $more = 0; the_content(); ?>
     <?php endwhile; else: ?>
 		<?php endif; ?>
     </div>
     
-  
-    <?php query_posts('cat=413&showposts=1'); ?>
-  	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+  	<?php $featured_arg = array(
+							'category_name'=>'featured-election-2008',
+							'showposts'=>1
+						);
+	$featured_post = new WP_Query( $featured_arg );
+	?>
+  	<?php if ( $featured_post->have_posts() ) : while ( $featured_post->have_posts() ) : $featured_post->the_post(); ?>
 			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 
 
@@ -45,8 +51,13 @@
 
     <div id="efeatured">
 <h2 id="efeaturedhead">Featured</h2>
-     <?php $my_query = new WP_Query('cat=413&showposts=3&offset=1');
-	while ($my_query->have_posts()) : $my_query->the_post(); ?>
+	<?php $featured_arg = array(
+							'category_name'=>'featured-election-2008',
+							'showposts'=>3,
+							'offset'=>1
+						);
+	$featured_posts = new WP_Query( $featured_arg );
+	while ($featured_posts->have_posts()) : $featured_posts->the_post(); ?>
       <div><a href="<?php the_permalink(); ?>">
 
 <?php if (yapb_is_photoblog_post()): ?>
@@ -74,7 +85,7 @@
 
 <h2 id="blogshead">Best of the Blogs</h2>
 <ul id="bestofblogs">
-<?php wp_list_bookmarks('title_li=0&limit=10&categorize=0&orderby=id&order=DESC&category=1227&before=<li>&after=</li>&title_li=&show_description=1&between=<br />'); ?>
+<?php wp_list_bookmarks('title_li=0&limit=10&categorize=0&orderby=id&order=DESC&category=2308&before=<li>&after=</li>&title_li=&show_description=1&between=<br />'); ?>
 </ul>
     </div>
     
@@ -82,8 +93,12 @@
     
     <h2 id="evideoshead">Videos</h2>
      <ul style="margin-top: 5px;">
-<?php query_posts('cat=414&showposts=2'); ?>
-  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<?php $video_arg = array(
+								'category_name'=>'election-2008-video',
+								'showposts'=>2
+							);
+		$video_posts = new WP_Query( $video_arg );
+ 		if ( $video_posts->have_posts() ) : while ( $video_posts->have_posts() ) : $video_posts->the_post(); ?>
   
     <li style="margin-bottom: 20px; padding-bottom: 5px;">
   <?php if (yapb_is_photoblog_post()): ?>
@@ -114,8 +129,12 @@
 
 <h2 id="elatesthead">Latest Election News</h2>
 <ul>
-<?php query_posts('cat=220&showposts=35'); ?>
-  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<?php $args = array(
+							'category_name'=>'election2008',
+							'showposts'=>35
+						);
+	$latest_posts = new WP_Query( $args );
+	if ( $latest_posts->have_posts() ) : while ( $latest_posts->have_posts() ) : $latest_posts->the_post(); ?>
   <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
     <?php endwhile; else: ?>
 <?php endif; ?>

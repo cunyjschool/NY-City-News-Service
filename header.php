@@ -26,7 +26,7 @@
 ?>" />
 
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-<?php if (is_category(220)): ?>
+<?php if (is_category('election2008')): ?>
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/election.css" type="text/css">	
 <?php endif; ?>
 
@@ -44,8 +44,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body onunload="GUnload()">
-
+<body>
 
 <div class="clearfix" id="jlogo">
   <div style="float: left; width: 500px;">
