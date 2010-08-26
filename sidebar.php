@@ -375,8 +375,15 @@ AudioPlayer.embed("audioplayer_side_4", {
 </ul>
 
 <ul id="latest">
-  <?php query_posts('cat=1&showposts=6&offset=2'); ?>
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<?php
+		$latest_args = array(	'category_name' => 'top-stories',
+								'showposts' => 6,
+								'offset' => 2
+							);
+
+		$latest_posts = new WP_Query( $latest_args );
+	?>
+    <?php if ( $latest_posts->have_posts() ) : while ( $latest_posts->have_posts() ) : $latest_posts->the_post(); ?>
   <li><a href="<?php the_permalink(); ?>" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></li>
     <?php endwhile; else: ?>
   <?php endif; ?>
