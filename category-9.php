@@ -85,7 +85,7 @@
 
 <h2 id="blogshead">Best of the Blogs</h2>
 <ul id="bestofblogs">
-<?php wp_list_bookmarks('title_li=0&limit=10&categorize=0&orderby=id&order=DESC&category=2308&before=<li>&after=</li>&title_li=&show_description=1&between=<br />'); ?>
+<?php wp_list_bookmarks('title_li=0&limit=10&categorize=0&orderby=id&order=ASC&category=2308&before=<li>&after=</li>&title_li=&show_description=1&between=<br />'); ?>
 </ul>
     </div>
     

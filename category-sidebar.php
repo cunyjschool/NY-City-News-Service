@@ -3,17 +3,17 @@
 
 
 <?php
-if ( is_category(array(2,3,4,5,6)) ) {
+if ( is_category(array('bronx','brooklyn','manhattan','queens','staten-island')) ) {
 	echo '<ul id="blogroll">';
 	echo single_cat_title('<h2>') . " Blogroll</h2>";
 } ?>
 
   <?php 
-if ( is_category('2') ) { wp_list_bookmarks('title_li=0&categorize=0&category=2&before=<li>&after=</li>&title_li='); }
-elseif ( is_category('3') ) { wp_list_bookmarks('title_li=0&categorize=0&category=3&before=<li>&after=</li>&title_li='); }
-elseif ( is_category('4') ) { wp_list_bookmarks('title_li=0&categorize=0&category=4&before=<li>&after=</li>&title_li='); }
-elseif ( is_category('5') ) { wp_list_bookmarks('title_li=0&categorize=0&category=5&before=<li>&after=</li>&title_li='); }
-elseif ( is_category('6') ) { wp_list_bookmarks('title_li=0&categorize=0&category=6&before=<li>&after=</li>&title_li='); }
+if ( is_category('bronx') ) { wp_list_bookmarks('title_li=0&categorize=0&category=5&before=<li>&after=</li>&title_li='); }
+elseif ( is_category('brooklyn') ) { wp_list_bookmarks('title_li=0&categorize=0&category=6&before=<li>&after=</li>&title_li='); }
+elseif ( is_category('manhattan') ) { wp_list_bookmarks('title_li=0&categorize=0&category=20&before=<li>&after=</li>&title_li='); }
+elseif ( is_category('queens') ) { wp_list_bookmarks('title_li=0&categorize=0&category=28&before=<li>&after=</li>&title_li='); }
+elseif ( is_category('staten-island') ) { wp_list_bookmarks('title_li=0&categorize=0&category=31&before=<li>&after=</li>&title_li='); }
   ?>
   
 <?php
