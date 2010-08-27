@@ -29,9 +29,9 @@ Template Name: Special Project - 2009 Economic Pulse
 
 
 <h2>Related Stories</h2>
-<?php $my_query = new WP_Query('cat=479&showposts=9'); ?>
+<?php $posts = new WP_Query('category_name=nycity-snapshots&showposts=9'); ?>
 <ul id="pulse-related">
-<?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
+<?php while ($posts->have_posts()) : $posts->the_post(); ?>
 
  <li>
 <?php if (yapb_is_photoblog_post()): ?>
