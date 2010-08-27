@@ -39,7 +39,7 @@
 <link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico" />
  
 
-<!-- <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA8p2YRvDm0VzJPo-GKHh1rBRdNiYMfyiyzlOLbu4XACNLPr1dfhSSENqUX1IXWb6cotmNwlu-iFpXGw" type="text/javascript"></script> -->
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA8p2YRvDm0VzJPo-GKHh1rBRdNiYMfyiyzlOLbu4XACNLPr1dfhSSENqUX1IXWb6cotmNwlu-iFpXGw" type="text/javascript"></script>
 
 <?php wp_head(); ?>
 </head>
