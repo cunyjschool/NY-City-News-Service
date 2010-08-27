@@ -29,7 +29,7 @@ Template Name: Special Project - 2009 Economic Pulse
 
 
 <h2>Related Stories</h2>
-<?php $posts = new WP_Query('category_name=nycity-snapshots&showposts=9'); ?>
+<?php $posts = new WP_Query('category_name=recession&showposts=9'); ?>
 <ul id="pulse-related">
 <?php while ($posts->have_posts()) : $posts->the_post(); ?>
 
