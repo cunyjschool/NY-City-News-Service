@@ -36,7 +36,7 @@
 
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico" />
  
 
 <!-- <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA8p2YRvDm0VzJPo-GKHh1rBRdNiYMfyiyzlOLbu4XACNLPr1dfhSSENqUX1IXWb6cotmNwlu-iFpXGw" type="text/javascript"></script> -->
