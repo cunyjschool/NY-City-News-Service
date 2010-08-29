@@ -71,7 +71,7 @@
   </div>
   
   <div style="width: 100px; margin-top: 20px; float: left;">
-  <?php wp_list_categories('child_of=131&hide_empty=0&title_li=Sort By'); ?> 
+  <?php wp_list_categories('child_of=1444&title_li=Sort By'); ?> 
   </div>
 </div>
 
