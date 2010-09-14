@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div id="content" class="narrowcolumn">
+<div id="content" class="clearfix">
 
     <?php if (have_posts()) : ?>
 
@@ -32,8 +32,8 @@
     <h2 class="center">No posts found. Try a different search?</h2>
     <?php include (TEMPLATEPATH . '/searchform.php'); ?><?php endif; ?>
 
-</div>
+    <?php get_sidebar(); ?>
 
-<?php get_sidebar(); ?>
+</div>
 
 <?php get_footer(); ?>
