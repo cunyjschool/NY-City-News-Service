@@ -37,9 +37,8 @@
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico" />
- 
 
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA8p2YRvDm0VzJPo-GKHh1rBRdNiYMfyiyzlOLbu4XACNLPr1dfhSSENqUX1IXWb6cotmNwlu-iFpXGw" type="text/javascript"></script>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAT2bDbwEKVzCFUBFEpSN_QBQm8H9qC3jB5bWWopYgeCkZ0FTgHRQY_bvprvoRIw3Rv54Tpws22l4RPg&sensor=false" type="text/javascript"></script>
 
 <?php wp_head(); ?>
 </head>

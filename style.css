@@ -660,3 +660,19 @@ ul#pulse-related li h2 {
 	color: #666; 
 	padding-left: 20px;
 	padding-top: 10px; }
+
+.locationinfo.post-location-info{
+  width:500px;
+  height:auto;
+}
+
+.locationinfo h1{
+margin:0 0 5px 0;}
+
+.info-window-max h1{
+margin:10px 0 5px 0;}
+
+
+.storycontent{
+  font-size:1.3em;
+}
