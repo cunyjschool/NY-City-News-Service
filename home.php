@@ -218,7 +218,7 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
       <div id="video-caption">
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 <?php if ( isset($vimeo_data['description']) ) { echo $vimeo_data['description']; } ?>
-<span class="side-credit">Reported by <?php echo get_post_meta( $post->ID,"video_credit", $single=true ) ; ?></span>
+<?php if ( $video_credit = get_post_meta( $post->ID,"video_credit", true ) ) { ?><span class="side-credit">Reported by <?php echo $video_credit; ?></span><?php } ?>
       </div>
     </div>
   <?php } ?>
