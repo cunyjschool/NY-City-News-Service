@@ -200,8 +200,8 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
  
 	<?php if ( $vimeo_url = get_post_meta($post->ID, 'vimeo_url', true) ) { ?>
 	<?php
-		$args = array(	'width' => 435,
-						'height' => 275,
+		$args = array(	'width' => 450,
+						'height' => 340,
 				);
 	
 		$vimeo_data = cunyj_get_vimeo_data( $vimeo_url, $args );
