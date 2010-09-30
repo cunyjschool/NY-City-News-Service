@@ -19,11 +19,11 @@
 
 		      <div id="video-caption">
 		<?php if ( isset($vimeo_data['description']) ) { echo $vimeo_data['description']; } ?>
-		<?php if ( $video_credit = get_post_meta( $post->ID,"video_credit", true ) )?><span class="side-credit">Reported by <?php echo $video_credit; ?></span><?php endif; ?>
+		<?php if ( $video_credit = get_post_meta( $post->ID,"video_credit", true ) ) : ?><span class="side-credit">Reported by <?php echo $video_credit; ?></span><?php endif; ?>
 		      </div>
 		    </div>
 	
-	<?php else: ?>
+	<?php else:  ?>
 		<?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?>
 		<div id="video-player"> 
 		  <div id="container"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</div>
