@@ -35,6 +35,39 @@ add_action('template_redirect', 'inherit_template', 1);
 
 // end inherit template
 
+function cunyj_get_vimeo_data( $url, $args = null ) {
+
+	$defaults = array(	'height' => 300,
+						'width' => 500,
+						'maxheight' => null,
+						'maxwidth' => null,
+				);
+	if ( $args ) {
+		$args = array_merge( $defaults, $args );
+	} else {
+		$args = $defaults;
+	}
+	extract( $args );
+	
+	$url = urlencode( $url );
+	$request_url = "http://vimeo.com/api/oembed.json?url=$url&width=$width&height=$height";
+	
+	// @todo Cache results with transient API
+	// @todo ability to not return the title
+	if ( class_exists('WP_Http') ) {
+		$request = new WP_Http;
+		$result = $request->request( $request_url );
+		if ( is_wp_error($result) ) {
+			return array();
+		} else {
+			return json_decode( $result['body'], true );
+		}
+	} else {
+		return array();
+	}
+	
+}
+
 
 if ( function_exists('wp_register_sidebar') )
     wp_register_sidebar(array(

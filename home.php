@@ -194,26 +194,30 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 						);
 		$video_posts = new WP_Query( $video_args );
 	?>
+	
+	
 	<?php if ( $video_posts->have_posts() ) : while ( $video_posts->have_posts() ) : $video_posts->the_post(); ?>
-
-     
-       <?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?>
-    <div id="video-player"> 
-      <div id="container"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</div>
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/swfobject.js"></script>
-
-	<script type="text/javascript">
-		var s1 = new SWFObject("<?php bloginfo('stylesheet_directory'); ?>/player.swf","ply","440","340","9","#FFFFFF");
-		s1.addParam("allowfullscreen","true");
-		s1.addParam("allowscriptaccess","always");
-		s1.addParam("flashvars","controlbar=over&stretching=fill&file=<?php echo get_post_meta( $post->ID, 'video_file', $single=true ) ; ?>&image=<?php echo get_post_meta( $post->ID,'video_screenshot', $single=true ) ; ?>");
-		s1.write("container");
-	</script>
+ 
+	<?php if ( $vimeo_url = get_post_meta($post->ID, 'vimeo_url', true) ) { ?>
+	<?php
+		$args = array(	'width' => 435,
+						'height' => 275,
+				);
+	
+		$vimeo_data = cunyj_get_vimeo_data( $vimeo_url, $args );
+	
+	?>	
+		
+    <div id="video-player">
+	
+		<?php if ( isset($vimeo_data['html']) ) {
+			echo $vimeo_data['html'];
+			
+		} ?>
     
       <div id="video-caption">
-  <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-<?php if(get_post_meta($post->ID, 'video_headline', true) != "") { ?><h2>Video: <?php echo get_post_meta( $post->ID,"video_headline", $single=true ) ; ?></h2><?php } ?>
-<?php echo get_post_meta( $post->ID,"video_caption", $single=true ) ; ?>
+		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+<?php if ( isset($vimeo_data['description']) ) { echo $vimeo_data['description']; } ?>
 <span class="side-credit">Reported by <?php echo get_post_meta( $post->ID,"video_credit", $single=true ) ; ?></span>
       </div>
     </div>
