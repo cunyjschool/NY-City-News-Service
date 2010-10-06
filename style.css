@@ -666,12 +666,13 @@ ul#pulse-related li h2 {
   height:auto;
 }
 
-.locationinfo h1{
-margin:0 0 5px 0;}
+.locationinfo.post-location-info h2 a, .locationinfo.post-location-info h2, .info-window-max h2 a, .info-window-max h2{
+margin-top:5px;
+font-size:100%;
 
-.info-window-max h1{
-margin:10px 0 5px 0;}
-
+.locationinfo.post-location-info p.meta{
+font-size:100%;
+}
 
 .storycontent{
   font-size:1.3em;
