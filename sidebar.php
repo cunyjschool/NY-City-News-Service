@@ -1,54 +1,76 @@
-  <div id="sidebar">
+<div id="sidebar">
    
-  
-  <?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?>
-    <div id="video-player"> 
-      <div id="container"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</div>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/swfobject.js"></script>
+	<?php if ( $vimeo_url = get_post_meta( $post->ID, 'vimeo_url', true ) ) : ?>
+		<?php
+			$args = array(	'width' => 450,
+							'height' => 340,
+					);
 
-	<script type="text/javascript">
-		var s1 = new SWFObject("<?php bloginfo('template_directory'); ?>/player.swf","ply","450","340","9","#FFFFFF");
-		s1.addParam("allowfullscreen","true");
-		s1.addParam("allowscriptaccess","always");
-		s1.addParam("flashvars","controlbar=over&stretching=fill&file=<?php echo get_post_meta( $post->ID,"video_file", $single=true ) ; ?>&image=<?php echo get_post_meta( $post->ID,"video_screenshot", $single=true ) ; ?>");
-		s1.write("container");
-	</script>
+			$vimeo_data = cunyj_get_vimeo_data( $vimeo_url, $args );
+
+		?>	
+
+		<div id="video-player">
+
+		<?php if ( isset($vimeo_data['html']) ) {
+			echo $vimeo_data['html'];
+
+				} ?>
+
+		      <div id="video-caption">
+		<?php if ( isset($vimeo_data['description']) ) { echo $vimeo_data['description']; } ?>
+		<?php if ( $video_credit = get_post_meta( $post->ID,"video_credit", true ) ) : ?><span class="side-credit">Reported by <?php echo $video_credit; ?></span><?php endif; ?>
+		      </div>
+		    </div>
+	
+	<?php else:  ?>
+		<?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?>
+		<div id="video-player"> 
+		  <div id="container"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</div>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/swfobject.js"></script>
+
+		<script type="text/javascript">
+			var s1 = new SWFObject("<?php bloginfo('template_directory'); ?>/player.swf","ply","450","340","9","#FFFFFF");
+			s1.addParam("allowfullscreen","true");
+			s1.addParam("allowscriptaccess","always");
+			s1.addParam("flashvars","controlbar=over&stretching=fill&file=<?php echo get_post_meta( $post->ID,"video_file", $single=true ) ; ?>&image=<?php echo get_post_meta( $post->ID,"video_screenshot", $single=true ) ; ?>");
+			s1.write("container");
+		</script>
+	
+		  <div id="video-caption">
+	<?php if(get_post_meta($post->ID, 'video_headline', true)) { ?><h2>Video: <?php echo get_post_meta( $post->ID,"video_headline", $single=true ) ; ?></h2><?php } ?>
+	<?php echo get_post_meta( $post->ID,"video_caption", $single=true ) ; ?>
+	<span class="side-credit">Reported by <?php echo get_post_meta( $post->ID,"video_credit", $single=true ) ; ?></span>
+		  </div>
+		</div>
+		<?php } ?>
+
+	    <?php if(get_post_meta($post->ID, 'video2_file', true) != "") { ?>
+	    <div id="video-player"> 
+	      <div id="container2"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</div>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/swfobject.js"></script>
+
+		<script type="text/javascript">
+			var s1 = new SWFObject("<?php bloginfo('template_directory'); ?>/player.swf","ply","450","340","9","#FFFFFF");
+			s1.addParam("allowfullscreen","true");
+			s1.addParam("allowscriptaccess","always");
+			s1.addParam("flashvars","controlbar=over&stretching=fill&file=<?php echo get_post_meta( $post->ID,"video2_file", $single=true ) ; ?>&image=<?php echo get_post_meta( $post->ID,"video2_screenshot", $single=true ) ; ?>");
+			s1.write("container2");
+		</script>
     
-      <div id="video-caption">
-<?php if(get_post_meta($post->ID, 'video_headline', true)) { ?><h2>Video: <?php echo get_post_meta( $post->ID,"video_headline", $single=true ) ; ?></h2><?php } ?>
-<?php echo get_post_meta( $post->ID,"video_caption", $single=true ) ; ?>
-<span class="side-credit">Reported by <?php echo get_post_meta( $post->ID,"video_credit", $single=true ) ; ?></span>
-      </div>
-    </div>
-  <?php } ?>
-  
-  
-  
-  
-    <?php if(get_post_meta($post->ID, 'video2_file', true) != "") { ?>
-    <div id="video-player"> 
-      <div id="container2"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</div>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/swfobject.js"></script>
+	      <div id="video-caption">
+	<?php if(get_post_meta($post->ID, 'video2_headline', true) != "") { ?><h2>Video: <?php echo get_post_meta( $post->ID,"video2_headline", true ) ; ?></h2><?php } ?>
+	<?php echo get_post_meta( $post->ID,"video2_caption", true ) ; ?>
+	<span class="side-credit">Reported by <?php echo get_post_meta( $post->ID,"video2_credit", $single=true ) ; ?></span>
+	      </div>
+	    </div>
+	  <?php } ?>
 
-	<script type="text/javascript">
-		var s1 = new SWFObject("<?php bloginfo('template_directory'); ?>/player.swf","ply","450","340","9","#FFFFFF");
-		s1.addParam("allowfullscreen","true");
-		s1.addParam("allowscriptaccess","always");
-		s1.addParam("flashvars","controlbar=over&stretching=fill&file=<?php echo get_post_meta( $post->ID,"video2_file", $single=true ) ; ?>&image=<?php echo get_post_meta( $post->ID,"video2_screenshot", $single=true ) ; ?>");
-		s1.write("container2");
-	</script>
-    
-      <div id="video-caption">
-<?php if(get_post_meta($post->ID, video2_headline, true) != "") { ?><h2>Video: <?php echo get_post_meta( $post->ID,"video2_headline", $single=true ) ; ?></h2><?php } ?>
-<?php echo get_post_meta( $post->ID,"video2_caption", $single=true ) ; ?>
-<span class="side-credit">Reported by <?php echo get_post_meta( $post->ID,"video2_credit", $single=true ) ; ?></span>
-      </div>
-    </div>
-  <?php } ?>
+	<?php endif; // END: $vimeo_url check ?>
   
   
 
-  <?php if(get_post_meta($post->ID, multimedia_url, true) != "") { ?>
+  <?php if(get_post_meta($post->ID, 'multimedia_url', true) != "") { ?>
 <a href="<?php echo get_post_meta( $post->ID,"multimedia_url", $single=true ) ; ?>"><img src="<?php echo get_post_meta( $post->ID,"multimedia_screenshot", $single=true ) ; ?>" class="multimedia-screenshot"></a>
 
     <div id="multimedia-caption">
