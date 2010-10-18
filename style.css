@@ -418,7 +418,7 @@ img#isnaplogo {
 	
 #sidebar2 {
 	float: left;
-	width: 250px; }  
+	width: 250px; } 
 	
 .entry h3 {
 	color: #222;
@@ -676,4 +676,20 @@ font-size:100%;
 
 .storycontent{
   font-size:1.3em;
+}
+
+/* Styling for Special Events Coverage */
+#special-event-content {
+	float: left;
+	width: 670px;
+	display:none;
+	margin: 0 10px 20px 0;
+}
+
+#sidebar-special{
+	float: left;
+	width: 250px;
+	border-left: 1px solid #eee;
+	margin-left: 20px;
+	padding-left: 20px; }
 }
