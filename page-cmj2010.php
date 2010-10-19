@@ -10,7 +10,7 @@ Template Name: Special Project Template
     <div id="special-event-content">
       <h1><?php the_title(); ?></h1>
       
-      <?php query_posts("cat=3"); ?>
+      <?php query_posts("category_name=cmj-2010"); ?>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
       	  <div class="post-special-event">
       	    <?php if(get_post_meta($post->ID, band_date, true) != "") { ?><div class="show_date"><small>Date: <?php echo get_post_meta( $post->ID,"band_date", $single=true ) ; ?></small></div><?php } ?>
