@@ -17,8 +17,7 @@ Template Name: Special Project Template
             <div id="band-photo">
               <h2 class="special-project-post-title" id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
               <a href="<?php the_permalink(); ?>">
-                <img style="width:315px;height:236px;" src="http://newsservice.joe.dev.journalism.cuny.edu/wp-content/themes/ny-city-news-service/img/promo-brooklyn.jpg" />
-                <!-- <?php
+                <?php
                                   echo yapb_get_thumbnail(
                                     '', // HTML before image tag
                                     array(
@@ -29,7 +28,7 @@ Template Name: Special Project Template
                                     array('w=315', 'h=236', 'q=100', 'zc=1'), // phpThumb configuration parameters
                                     ''             // image tag custom css class
                                   );
-                                ?> -->
+                                ?>
               </a>
             </div>
             <div class="entry">
