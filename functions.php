@@ -35,6 +35,20 @@ add_action('template_redirect', 'inherit_template', 1);
 
 // end inherit template
 
+/**
+ * Add a custom stylesheet reference to the <head> if it exists in a custom field
+ * @author danielbachhuber
+ */
+function cunyj_custom_page_stylesheet() {
+	global $post;
+	
+	if ( ( is_page() || is_single() ) && $stylesheet = get_post_meta( $post->ID, 'stylesheet', true ) ) {
+		echo '<link rel="stylesheet" href="' . get_bloginfo('template_directory') . '/css/' . $stylesheet . '" type="text/css" media="all" />';
+	}
+}
+
+add_action( 'wp_head', 'cunyj_custom_page_stylesheet' );
+
 function cunyj_get_vimeo_data( $url, $args = null ) {
 
 	$defaults = array(	'height' => 300,
