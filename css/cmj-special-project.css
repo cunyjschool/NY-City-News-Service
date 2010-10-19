@@ -34,7 +34,7 @@ div.show_date{
   position:absolute;
   padding:10px;
   margin-top:170px;
-  background:url(/wp-content/themes/ny-city-news-service/img/transparent-lower-third.png) repeat;
+  background:url(../img/transparent-lower-third.png) repeat;
   z-index:100;
   width:295px;
 }
