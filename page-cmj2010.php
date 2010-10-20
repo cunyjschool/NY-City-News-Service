@@ -48,8 +48,8 @@ Template Name: Special Project Template
   </div>
   <div id="sidebar-special">
     <h1><?php if( $subhead_1 = get_post_meta($post->ID, 'subhead_1', true) ) { ?><?php echo $subhead_1; ?><?php } ?></h1>
-    <h1><?php if( $subhead_1 = get_post_meta($post->ID, 'subhead_2', true) ) { ?><?php echo $subhead_2; ?><?php } ?></h1>
-    <h1><?php if( $subhead_1 = get_post_meta($post->ID, 'subhead_3', true) ) { ?><?php echo $subhead_3; ?><?php } ?></h1>
+    <h1><?php if( $subhead_2 = get_post_meta($post->ID, 'subhead_2', true) ) { ?><?php echo $subhead_2; ?><?php } ?></h1>
+    <h1><?php if( $subhead_3 = get_post_meta($post->ID, 'subhead_3', true) ) { ?><?php echo $subhead_3; ?><?php } ?></h1>
     <?php the_content(); ?>
   </div>
 </div>
