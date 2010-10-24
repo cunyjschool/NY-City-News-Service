@@ -19,6 +19,28 @@ class nycitynewsservice {
 		$this->details = get_theme_data(get_bloginfo('template_directory') . '/style.css');
 		$this->version = $this->details['Version'];
 		
+		// Enqueue our stylesheets		
+		$this->enqueue_stylesheets();
+	}
+	
+	/**
+	 * Queue up any stylesheets we have
+	 */
+	function enqueue_stylesheets() {
+		
+		if ( !is_admin() ) {
+			wp_enqueue_style( 'nycitynewsservice_primary', get_bloginfo('template_directory') . '/style.css', false, $this->version);
+			
+			// Only load the Election2008 stylesheet on relevant views
+			if ( is_category('election2008') ) {
+				wp_enqueue_style( 'nycitynewsservice_election2008', get_bloginfo('template_directory') . '/css/election2008.css', false, $this->version);
+			}
+			
+			if ( is_category(2307) ) {
+				wp_enqueue_style( 'nycitynewsservice_queens', get_bloginfo('template_directory') . '/css/queens.css', false, $this->version);
+			}
+			
+		}
 	}
 	
 }
