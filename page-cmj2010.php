@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Special Project Template
+Template Name: Special Project - CMJ 2010
 */
 ?>
 
