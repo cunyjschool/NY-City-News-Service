@@ -211,6 +211,16 @@ small {
 	float: left;
 	width: 470px;
 	margin: 0 10px 20px 0; }
+
+#special-recent-project {
+	margin-bottom: 15px;
+}
+
+#special-recent-project a {
+	color: #647E8B;
+	background-color:#FFF7A6;
+	padding:4px 10px;
+}
 		
 #topstories li {
 	line-height: 150%;
