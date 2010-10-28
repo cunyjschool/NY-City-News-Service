@@ -22,17 +22,16 @@ ul.mug-shot-list, ul.mug-shot-list-feature{
 	margin-top:15px;
 }
 #mosaic{
-	background:#eeeeee;
-	border:1px solid #dddddd;
+	background:#f9f9f9;
+	border:1px solid #eeeeee;
 	margin:20px 10px;
-	display:block;
 }
 #mosaic > p, #mosaic #mug-shot-filters{
 	margin-left: 20px;
 }
 ul.mug-shot-list{
-	padding-left:18px;
-	height:510px;
+	padding:0 0 10px 18px;
+	display:block;
 }
 li.mug-shot-link{
 	float:left;
@@ -55,7 +54,7 @@ li.mug-shot-link-feature a, li.mug-shot-link-feature a img{
 li.mug-shot-link-feature p{
 	margin-top:5;
 }
-.the_video{
+.the_content{
 	padding:0 10px;
 }
 </style>
@@ -67,17 +66,22 @@ li.mug-shot-link-feature p{
 		<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 		<h1><?php the_title(); ?></h1>
-      
-		<?php if( $video_code = get_post_meta($post->ID, 'video_code', true) ) { ?>
-			<div class="the_video">
+      	<div class="the_content">
+			<?php if( $video_code = get_post_meta($post->ID, 'video_code', true) ) { ?>
 				<iframe src="http://player.vimeo.com/video/<?php echo $video_code; ?>?title=0&amp;byline=0&amp;portrait=0" width="650" height="488" frameborder="0"></iframe>
-			</div>
-		<?php } ?>
-		
+			<?php } ?>
+			
+			<?php if( $audio_code = get_post_meta($post->ID, 'audio_code', true) ) { ?>
+				<!-- Audio code here? Not sure how to pull this in! -->
+			<?php } ?>
+
+			<!-- Otherwise, pull in the content? -->
+
+		</div>		
 		<div id="mosaic">
 			<p><?php the_content(); endwhile; endif; ?></p>
 			<?php if ( function_exists('wp_tag_cloud') ) : ?><ul id="mug-shot-filters"><?php wp_tag_cloud(); ?></ul><?php endif; ?>
-			<ul class="mug-shot-list" style="clear:both">
+			<ul class="mug-shot-list">
 				<?php $recentPosts = new WP_Query(); $recentPosts->query("posts_per_page=15&category_name=election-2010&paged=$paged"); ?>
 					<?php while ($recentPosts->have_posts()) : $recentPosts->the_post(); ?>
 						<li class="mug-shot-link">
@@ -86,13 +90,13 @@ li.mug-shot-link-feature p{
 							</a>
 						</li>
 					<?php endwhile; ?>
-				<?php next_posts_link('« Older Entries'); ?>
-				<?php previous_posts_link('Newer Entries »'); ?>
+				<div style="clear:both;width:100%;"></div>
 			</ul>
 		</div>
 	</div>
 	<div id="sidebar-special">
-		<!-- <h1>Tag Cloud!</h1>
+		<!-- Should we put this here or just make the list of tags the filters above the videos? 
+		<h1>Tag Cloud!</h1>
 			<?php if ( function_exists('wp_tag_cloud') ) : ?>
 				<ul>
 					<?php wp_tag_cloud('smallest=8&largest=22&include=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,21,23,24,25,26'); ?>
