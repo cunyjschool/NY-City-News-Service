@@ -4,6 +4,30 @@ Template Name: Election 2010
 */
 ?>
 
+<style>
+#special-event-content{
+	float: left;
+	width: 670px;
+	margin: 0 10px 20px 0;
+	
+}
+#sidebar-special{
+	float: left;
+	width: 250px;
+	border-left: 1px solid #eee;
+	margin-left: 0;
+	padding-left: 20px;
+}
+li.mug-shot-link{
+	float:left;
+	margin:5px 10px;
+}
+li.mug-shot-link a, li.mug-shot-link a img{
+	width:112px;
+	height:112px;
+}
+</style>
+
 <?php get_header(); ?>
 
 	<div id="content" class="clearfix">
@@ -12,27 +36,24 @@ Template Name: Election 2010
       
       <?php query_posts("category_name=election-2010"); ?>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-      	  <div class="post-special-event">
-            <div id="band-photo">
-              <h2 class="special-project-post-title" id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+      	  <ul class="mug-shot-list">
+            <li class="mug-shot-link">
               <a href="<?php the_permalink(); ?>">
-                <?php echo get_the_post_thumbnail(); ?>
+				<img class="size-medium wp-image-73" title="Antennae" src="http://nycitynewsservice.com/files/2010/10/Saturn-Cassini.jpg" alt="" />
               </a>
-            </div>
-            <div class="entry">
-              <span class="byline">By <?php the_author_posts_link('namefl'); ?><?php if($add_author = get_post_meta($post->ID, 'add_author', true) ) { ?>, <?php echo $add_author; ?><?php } ?><?php if($add_author2 = get_post_meta($post->ID, 'add_author2', true) ) { ?>, <?php echo $add_author2; ?><?php } ?></span>
-              <?php the_excerpt() ?>
-              <p><a href="<?php the_permalink() ?>" title="Permanent Link to <?php the_title_attribute(); ?>">Read More</a></p>
-            </div>
-          </div>
+            </li>
+          </ul>
           <?php endwhile; else: ?><p>There are currently no stories.</p>
           <?php endif; wp_reset_query(); ?>
   </div>
   <div id="sidebar-special">
-    <h1><?php if( $subhead_1 = get_post_meta($post->ID, 'subhead_1', true) ) { ?><?php echo $subhead_1; ?><?php } ?></h1>
-    <h1><?php if( $subhead_2 = get_post_meta($post->ID, 'subhead_2', true) ) { ?><?php echo $subhead_2; ?><?php } ?></h1>
-    <h1><?php if( $subhead_3 = get_post_meta($post->ID, 'subhead_3', true) ) { ?><?php echo $subhead_3; ?><?php } ?></h1>
-    <?php the_content(); ?>
+	<?php the_content(); ?>
+    <h1>Tag Cloud!</h1>
+	<?php if ( function_exists('wp_tag_cloud') ) : ?>
+		<ul>
+			<?php wp_tag_cloud('smallest=8&largest=22'); ?>
+		</ul>
+	<?php endif; ?>
   </div>
 </div>
 <?php get_footer(); ?>
