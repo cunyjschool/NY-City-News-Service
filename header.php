@@ -25,20 +25,15 @@
 
 ?>" />
 
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-<?php if (is_category('election2008')): ?>
-<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/election.css" type="text/css">	
-<?php endif; ?>
-
-<?php if (is_category(2307)): ?>
-<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/queens.css" type="text/css">
-<?php endif; ?>
+<?php
+/**
+ * All stylesheets are enqueued in functions.php
+ */
+?>
 
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico" />
-
-<?php /* <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAT2bDbwEKVzCFUBFEpSN_QBQm8H9qC3jB5bWWopYgeCkZ0FTgHRQY_bvprvoRIw3Rv54Tpws22l4RPg&sensor=false" type="text/javascript"></script> */ ?>
 
 <?php wp_head(); ?>
 </head>

@@ -2,7 +2,7 @@
 Theme Name: NYCity News Service 
 Theme URI: http://www.nycitynewsservice.com/
 Description: A news-based theme for the CUNY Graduate School of Journalism
-Version: 1.0
+Version: 1.0.1
 Author: Drew Geraets
 Author URI: http://www.journalism.cuny.edu
 Tags: journalism, news
@@ -211,6 +211,16 @@ small {
 	float: left;
 	width: 470px;
 	margin: 0 10px 20px 0; }
+
+#special-recent-project {
+	margin-bottom: 15px;
+}
+
+#special-recent-project a {
+	color: #647E8B;
+	background-color:#FFF7A6;
+	padding:4px 10px;
+}
 		
 #topstories li {
 	line-height: 150%;

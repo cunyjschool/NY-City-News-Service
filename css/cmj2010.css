@@ -17,14 +17,15 @@
    color:#F28719;
 }
 #special-event-content .post-special-event{
-  width:315px;
-  padding:20px 0;
-  border-top:1px solid #eee;
-  margin-right:20px;
-  float:left;
+	width:315px;
+	padding:20px 0;
+	border-top:1px solid #eee;
+	margin-right:20px;
+	float:left;
+	min-height: 550px;
 }
 #special-event-content .post-special-event .entry{
-  padding:0 10px;
+	padding:0 10px;
 }
 div.show_date{
   padding:0 10px;

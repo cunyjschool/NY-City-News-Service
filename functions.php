@@ -4,6 +4,52 @@
 // and we don't have to go through the whole conditionals thing every time we add a category
 // to be sure the right template is pulled
 
+if ( !class_exists('nycitynewsservice') ) {
+	
+class nycitynewsservice {
+	
+	function __construct() {
+		
+		add_action( 'init', array(&$this, 'init') );
+		
+	}
+	
+	function init() {
+		
+		$this->details = get_theme_data(get_bloginfo('template_directory') . '/style.css');
+		$this->version = $this->details['Version'];
+		
+		// Enqueue our stylesheets		
+		$this->enqueue_stylesheets();
+	}
+	
+	/**
+	 * Queue up any stylesheets we have
+	 */
+	function enqueue_stylesheets() {
+		
+		if ( !is_admin() ) {
+			wp_enqueue_style( 'nycitynewsservice_primary', get_bloginfo('template_directory') . '/style.css', false, $this->version);
+			
+			// Only load the Election2008 stylesheet on relevant views
+			if ( is_category('election2008') ) {
+				wp_enqueue_style( 'nycitynewsservice_election2008', get_bloginfo('template_directory') . '/css/election2008.css', false, $this->version);
+			}
+			
+			if ( is_category(2307) ) {
+				wp_enqueue_style( 'nycitynewsservice_queens', get_bloginfo('template_directory') . '/css/queens.css', false, $this->version);
+			}
+			
+		}
+	}
+	
+}
+	
+}
+
+global $nycitynewsservice;
+$nycitynewsservice = new nycitynewsservice();
+
 function inherit_template() {
 
 	if (is_category()) {
@@ -40,10 +86,10 @@ add_action('template_redirect', 'inherit_template', 1);
  * @author danielbachhuber
  */
 function cunyj_custom_page_stylesheet() {
-	global $post;
+	global $post, $nycitynewsservice;
 	
 	if ( ( is_page() || is_single() ) && $stylesheet = get_post_meta( $post->ID, 'stylesheet', true ) ) {
-		echo '<link rel="stylesheet" href="' . get_bloginfo('template_directory') . '/css/' . $stylesheet . '" type="text/css" media="all" />';
+		echo '<link rel="stylesheet" href="' . get_bloginfo('template_directory') . '/css/' . $stylesheet . '?v=' . $nycitynewsservice->version . '" type="text/css" media="all" />';
 	}
 }
 
