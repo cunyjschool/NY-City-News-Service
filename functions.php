@@ -11,6 +11,10 @@ class nycitynewsservice {
 	function __construct() {
 		
 		add_action( 'init', array(&$this, 'init') );
+		// Add support for post thumbnails
+		add_theme_support( 'post-thumbnails' );
+		
+		add_image_size( 'election-2010-thumb', 100, 100, true );
 		
 	}
 	
