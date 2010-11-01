@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Election 2010
+Template Name: Special Project - Election 2010
 */
 ?>
 
@@ -82,7 +82,7 @@ li.mug-shot-link-feature p{
 					<?php while ($recentPosts->have_posts()) : $recentPosts->the_post(); ?>
 						<li class="mug-shot-link">
 							<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
-								<img class="size-medium wp-image-73" title="Antennae" src="http://nycitynewsservice.com/files/2010/10/Saturn-Cassini.jpg" alt="" />
+							<img class="size-medium wp-image-73" title="Antennae" src="http://nycitynewsservice.com/files/2010/10/Saturn-Cassini.jpg" alt="" />
 							</a>
 						</li>
 						<div id="light" class="white_content the_content">
