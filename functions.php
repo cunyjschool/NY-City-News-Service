@@ -26,6 +26,7 @@ class nycitynewsservice {
 		// Enqueue our stylesheets		
 		//$this->enqueue_stylesheets();
 		add_action( 'wp_print_styles', array( &$this, 'enqueue_public_stylesheets' ) );
+		add_action( 'wp_print_scripts', array( &$this, 'enqueue_public_scripts' ) );
 	}
 	
 	/**
@@ -53,6 +54,21 @@ class nycitynewsservice {
 		}
 		
 	} // END - enqueue_public_stylesheets()
+	
+	/**
+	 * Queue up any public scripts we have
+	 */
+	function enqueue_public_scripts() {
+		
+		wp_enqueue_script( 'jquery' );
+		
+		// Only load the Election2010 script on relevant views
+		if ( is_page( 'election-2010' ) ) {
+			wp_enqueue_script( 'nycitynewsservice_election2010', get_bloginfo('template_directory') . '/js/election2010.js', array( 'jquery' ), $this->version, true );
+
+		}
+		
+	} // END - enqueue_public_scripts()
 	
 }
 	
