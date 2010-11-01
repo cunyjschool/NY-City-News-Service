@@ -20,28 +20,35 @@ class nycitynewsservice {
 		$this->version = $this->details['Version'];
 		
 		// Enqueue our stylesheets		
-		$this->enqueue_stylesheets();
+		//$this->enqueue_stylesheets();
+		add_action( 'wp_print_styles', array( &$this, 'enqueue_public_stylesheets' ) );
 	}
 	
 	/**
-	 * Queue up any stylesheets we have
+	 * Queue up any public stylesheets we have
 	 */
-	function enqueue_stylesheets() {
+	function enqueue_public_stylesheets() {
 		
-		if ( !is_admin() ) {
-			wp_enqueue_style( 'nycitynewsservice_primary', get_bloginfo('template_directory') . '/style.css', false, $this->version);
+		// Primary News Service stylesheet
+		wp_enqueue_style( 'nycitynewsservice_primary', get_bloginfo('template_directory') . '/style.css', false, $this->version);
 			
-			// Only load the Election2008 stylesheet on relevant views
-			if ( is_category('election2008') ) {
-				wp_enqueue_style( 'nycitynewsservice_election2008', get_bloginfo('template_directory') . '/css/election2008.css', false, $this->version);
-			}
-			
-			if ( is_category(2307) ) {
-				wp_enqueue_style( 'nycitynewsservice_queens', get_bloginfo('template_directory') . '/css/queens.css', false, $this->version);
-			}
-			
+		// Only load the Election2008 stylesheet on relevant views
+		if ( is_category('election2008') ) {
+			wp_enqueue_style( 'nycitynewsservice_election2008', get_bloginfo('template_directory') . '/css/election2008.css', false, $this->version);
 		}
-	}
+			
+		if ( is_category(2307) ) {
+			wp_enqueue_style( 'nycitynewsservice_queens', get_bloginfo('template_directory') . '/css/queens.css', false, $this->version);
+		}
+			
+		
+		// Only load the Election2010 stylesheet on relevant views
+		if ( is_page( 'election-2010' ) ) {
+			wp_enqueue_style( 'nycitynewsservice_election2010', get_bloginfo('template_directory') . '/css/election2010.css', false, $this->version);
+
+		}
+		
+	} // END - enqueue_public_stylesheets()
 	
 }
 	
