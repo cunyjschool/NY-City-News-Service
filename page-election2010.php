@@ -16,6 +16,7 @@ Template Name: Special Project - Election 2010
 			
 			<?php
 				$args = array(	'category_name' => 'election-2010',
+								'showposts' => 100
 							);
 			
 				$election_mosaic = new WP_Query( $args );
@@ -42,8 +43,8 @@ Template Name: Special Project - Election 2010
 						$all_filters['first_time_voter'][$meta['first_time_voter']][] = get_the_id();
 						$all_filters['the_age'][$meta['the_age']][] = get_the_id();
 						$all_filters['the_gender'][$meta['the_gender']][] = get_the_id();
+						$all_filters['the_party'][$meta['the_party']][] = get_the_id();						
 						$all_filters['the_nabe'][$meta['the_nabe']][] = get_the_id();
-						$all_filters['the_party'][$meta['the_party']][] = get_the_id();
 						
 						if ( $row_counter <= 3 && $column_counter <= 3 ) {
 							$bg_color = 'blue';
