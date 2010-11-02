@@ -70,6 +70,10 @@
 	display: none;
 }
 
+#election2010 #content-single-zone p iframe {
+	text-align: 40px;
+}
+
 #election2010 #content-single-zone .actions {
 	color: #666666;
 }
