@@ -5,12 +5,18 @@ jQuery(document).ready(function() {
 			jQuery(this).parent().removeClass('active');
 		} else {
 			jQuery('li.mug-shot-link').removeClass('active');
-			jQuery(this).parent().addClass('active');	
-			jQuery('#sidebar-election2010 #intro').hide();
+			jQuery(this).parent().addClass('active');
 			var media_content = jQuery(this).parent().find('.content-single').html();
-			jQuery('#sidebar-election2010 #content-single-zone').empty().html(media_content);
-			jQuery('#sidebar-election2010 #content-single-zone').show();
+			jQuery('#content-single-zone').empty().html(media_content);
+			jQuery('#content-single-zone').show();
 		}
+		
+		jQuery('#content-single-zone .actions a.back').click(function() {
+			jQuery('li.mug-shot-link').removeClass('active');			
+			jQuery('#content-single-zone').hide();		
+			return false;
+		});
+		
 		return false;		
 	});
 	

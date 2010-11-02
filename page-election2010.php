@@ -9,8 +9,11 @@ Template Name: Special Project - Election 2010
 <div id="content" class="clearfix">
 	
     <div id="election2010" class="page">
+
+		<h2><?php the_title(); ?></h2>
 		
 		<div id="mosaic">
+			
 			<?php
 				$args = array(	'category_name' => 'election-2010',
 							);
@@ -56,9 +59,9 @@ Template Name: Special Project - Election 2010
 					<?php the_post_thumbnail( 'election-2010-thumb' ); ?>
 					<div class="content-single">
 						<h3><?php the_title(); ?></h3>
-						<div class="meta">First time voter: 
-						<?php the_content(); ?>
-						<div class="byline-pubdate">By <?php the_author_posts_link(); ?></div>						
+						<?php the_content(); ?>				
+						<div class="byline-pubdate">By <?php the_author_posts_link(); ?></div>
+						<div class="actions"><a href="#" class="back">&#60; Back</a> | <a href="<?php the_permalink(); ?>">Permalink</a></div>
 					</div>
 					</li>
 				<?php 
@@ -71,24 +74,23 @@ Template Name: Special Project - Election 2010
 				</ul>					
 				<?php endif; ?>
 		</div><!-- END - #mosaic -->
-	</div>
-	<div id="sidebar-election2010" class="sidebar">
 		
 		<div id="content-single-zone">
 			
-		</div>
+		</div>		
+		
+	</div>
+	<div id="sidebar-election2010" class="sidebar">
 		
 		<div id="intro">
 			<?php if ( have_posts() ) : 
 				while ( have_posts() ) : the_post();
-				echo '<h3>' . get_the_title() . '</h3>';
 				the_content();
 				endwhile;
 				endif; ?>
-		</div>	
+		</div>
 		
 		<div id="filters">
-		<h3>Filters</h3>
 		<dl>
 			<?php
 			if ( isset( $all_filters ) ):

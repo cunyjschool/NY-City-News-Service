@@ -1,6 +1,15 @@
 #election2010.page {
 	float: left;
-	width: 640px;	
+	width: 640px;
+	position: relative;
+}
+
+#election2010 h2 {
+	font-size: 24px;
+}
+
+#election2010 #mosaic {
+	margin-top: 20px;
 }
 
 #election2010 #mosaic ul li.mug-shot-link {
@@ -50,6 +59,19 @@
 
 #election2010 #mosaic ul li div.content-single {
 	display:none;
+}
+
+#election2010 #content-single-zone {
+	position: absolute;
+	top: 0;
+	padding: 20px;
+	background-color: #FFFFFF;
+	border: 5px solid #FFF7A6;
+	display: none;
+}
+
+#election2010 #content-single-zone .actions {
+	color: #666666;
 }
 
 #sidebar-election2010 {
