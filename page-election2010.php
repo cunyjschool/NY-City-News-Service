@@ -59,10 +59,46 @@ Template Name: Special Project - Election 2010
 					<li class="mug-shot-link<?php echo ' ' . implode( ' ', $meta ); echo ' ' . $bg_color; ?>">
 					<?php the_post_thumbnail( 'election-2010-thumb' ); ?>
 					<div class="content-single">
-						<h3><?php the_title(); ?></h3>
-						<?php the_content(); ?>				
-						<div class="byline-pubdate">By <?php the_author_posts_link(); ?></div>
-						<div class="actions"><a href="#" class="back">&#60; Back</a> | <a href="<?php the_permalink(); ?>">Permalink</a></div>
+						<h3><?php the_title(); ?></h3>	
+						<?php the_content(); ?>
+						<?php
+							$meta_html = '<p class="meta">';
+							foreach ( $meta as $key => $value ):
+								$meta_label = '';
+								switch ( $key ):
+									case 'first_time_voter':
+										$meta_label = 'First time voter';
+										break;
+									case 'the_age':
+										$meta_label = 'Age';
+										break;
+									case 'the_gender':
+										$meta_label = 'Gender';
+										break;
+									case 'the_nabe':
+										$meta_label = 'Community district';
+										break;
+									case 'the_party':
+										$meta_label = 'Political affiliation';
+										break;
+									case 'the_occupation':
+										$meta_label = 'Occupation';
+										break;																													
+									default:
+										$meta_label = 'Fix this field';
+										break;
+								endswitch;
+
+								$meta_html .= '<label>' . $meta_label . ':</label> ';
+								$meta_html .= '<span>' . $value . '</span>, ';
+
+							endforeach;
+							$meta_html = rtrim( $meta_html, ', ' );
+							$meta_html .= '</p>';
+							echo $meta_html;
+						
+						?>					
+						<div class="actions"><a href="#" class="back">&#60; Back</a> | Interview by <?php the_author_posts_link(); ?> | <a href="<?php the_permalink(); ?>">Permalink</a></div>
 					</div>
 					</li>
 				<?php 
