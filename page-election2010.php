@@ -60,7 +60,7 @@ Template Name: Special Project - Election 2010
 					<div class="mug-shot-overlay"><?php the_title(); echo ', <span class="meta-party">' . $meta['the_party'] . '</span>'; ?></div>
 					<?php the_post_thumbnail( 'election-2010-thumb', array( 'title' => false, ) ); ?>
 					<div class="content-single">
-						<h3><?php the_title(); ?></h3>	
+						<h3><a href="#" class="back">Close</a><?php the_title(); ?></h3>	
 						<?php the_content(); ?>
 						<?php
 							$meta_html = '<p class="meta">';

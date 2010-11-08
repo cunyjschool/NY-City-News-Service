@@ -87,6 +87,11 @@
 	width: 600px;
 }
 
+#election2010 #content-single-zone h3 a.back {
+	float: right;
+	
+}
+
 #election2010 #content-single-zone p {
 	font-size: 14px;
 }

@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
 			jQuery('#content-single-zone').show();
 		}
 		
-		jQuery('#content-single-zone .actions a.back').click(function() {
+		jQuery('#content-single-zone a.back').click(function() {
 			jQuery('li.mug-shot-link').removeClass('active');			
 			jQuery('#content-single-zone').hide();		
 			return false;
