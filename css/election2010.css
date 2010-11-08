@@ -29,6 +29,7 @@
 	bottom: 0;
 	visibility:hidden;
 	color: #FFFFFF;
+	opacity: 0.8;
 }
 
 #election2010 #mosaic ul li.mug-shot-link:hover {
