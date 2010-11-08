@@ -105,7 +105,7 @@ Template Name: Special Project - Election 2010
 							echo $meta_html;
 						
 						?>					
-						<div class="actions"><a href="#" class="back">&#60; Back</a> | Interview by <?php the_author_posts_link(); ?> | <a href="<?php the_permalink(); ?>">Permalink</a></div>
+						<div class="actions"><a href="#" class="back">&#60; Back</a> | Interview by <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_links(); } else { the_author_posts_link(); } ?> | <a href="<?php the_permalink(); ?>">Permalink</a></div>
 					</div>
 					</li>
 				<?php
