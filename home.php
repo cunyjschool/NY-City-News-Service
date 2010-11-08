@@ -6,7 +6,7 @@
   <div id="homeleft">
     <div id="topstories" class="clearfix">
 	
-		<div id="special-recent-project"><a href="<?php bloginfo('url'); ?>/special-projects/cmj-2010/">Recent project - CMJ 2010: Time to Face the Music</a></div>
+		<div id="special-recent-project"><a href="<?php bloginfo('url'); ?>/special-projects/election-2010/">Recent project - NYCity Snapshot: Issues and Impact of Election 2010</a></div>
 
       <div id="top-digest">
 
