@@ -18,6 +18,25 @@
 	border-style: solid;
 	height: 80px;
 	width: 80px;
+	position: relative;
+}
+
+#election2010 #mosaic ul li.mug-shot-link .mug-shot-overlay {
+	position: absolute;
+	padding: 5px;
+	font-size: 12px;
+	line-height: 18px;
+	bottom: 0;
+	visibility:hidden;
+	color: #FFFFFF;
+}
+
+#election2010 #mosaic ul li.mug-shot-link:hover {
+	cursor:pointer;
+}
+
+#election2010 #mosaic ul li.mug-shot-link:hover .mug-shot-overlay {
+	visibility: visible;
 }
 
 #election2010 #mosaic ul li.mug-shot-link img.attachment-election-2010-thumb {
@@ -51,10 +70,6 @@
 
 #election2010 #mosaic ul li.mug-shot-link.hidden-filter img.attachment-election-2010-thumb {
 	opacity: 0.1;
-}
-
-#election2010 #mosaic ul li.mug-shot-link img.attachment-election-2010-thumb:hover {
-	cursor: pointer;
 }
 
 #election2010 #mosaic ul li div.content-single {

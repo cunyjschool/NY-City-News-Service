@@ -1,12 +1,12 @@
 jQuery(document).ready(function() {
 
-	jQuery('li.mug-shot-link img').click(function() {
-		if ( jQuery(this).parent().hasClass('active') ) {
-			jQuery(this).parent().removeClass('active');
+	jQuery('li.mug-shot-link').click(function() {
+		if ( jQuery(this).hasClass('active') ) {
+			jQuery(this).removeClass('active');
 		} else {
 			jQuery('li.mug-shot-link').removeClass('active');
-			jQuery(this).parent().addClass('active');
-			var media_content = jQuery(this).parent().find('.content-single').html();
+			jQuery(this).addClass('active');
+			var media_content = jQuery(this).find('.content-single').html();
 			jQuery('#content-single-zone').empty().html(media_content);
 			jQuery('#content-single-zone').show();
 		}

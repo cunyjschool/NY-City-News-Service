@@ -57,7 +57,8 @@ Template Name: Special Project - Election 2010
 						// Adding the meta fields is what drives our filtering										
 					?>
 					<li class="mug-shot-link<?php echo ' ' . implode( ' ', $meta ); echo ' ' . $bg_color; ?>">
-					<?php the_post_thumbnail( 'election-2010-thumb' ); ?>
+					<div class="mug-shot-overlay"><?php the_title(); echo ', <span class="meta-party">' . $meta['the_party'] . '</span>'; ?></div>
+					<?php the_post_thumbnail( 'election-2010-thumb', array( 'title' => false, ) ); ?>
 					<div class="content-single">
 						<h3><?php the_title(); ?></h3>	
 						<?php the_content(); ?>
