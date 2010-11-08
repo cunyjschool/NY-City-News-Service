@@ -164,7 +164,7 @@ Template Name: Special Project - Election 2010
 				echo '</dd>';
 			
 				endforeach;
-				echo '<dt class="filter-label"></dt><dd class="filters-list"><a href="#" class="reset-filters">Reset filters</a></dd>';
+				echo '<dt class="filter-label"></dt><dd class="filters-list"><a href="#" class="reset-filters">See all posts</a></dd>';
 				endif;
 			?>
 		</dl>
