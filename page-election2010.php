@@ -136,26 +136,27 @@ Template Name: Special Project - Election 2010
 				$filter_type_label = '';
 				switch ( $key ):
 					case 'first_time_voter':
-						$filter_type_label = 'First time voter';
+						$filter_type_label = 'First time voter:';
 						break;
 					case 'the_age':
-						$filter_type_label = 'Age';
+						$filter_type_label = 'Age:';
 						break;
 					case 'the_gender':
-						$filter_type_label = 'Gender';
+						$filter_type_label = 'Gender:';
 						break;
 					case 'the_nabe':
-						$filter_type_label = 'Community district';
+						$filter_type_label = 'Community district:';
+						$filter_type_label .= '<br /><a class="help" href="' . get_bloginfo('url') . '/category/nycsnapshots/election-nycsnapshots/">What are these CDs?</a>';
 						break;
 					case 'the_party':
-						$filter_type_label = 'Political affiliation';
+						$filter_type_label = 'Political affiliation:';
 						break;																				
 					default:
 						$filter_type_label = 'Fix this field';
 						break;
 				endswitch;
 			
-				echo '<dt class="filter-label">' . $filter_type_label . ':</dt> <dd class="filters-list">';
+				echo '<dt class="filter-label">' . $filter_type_label . '</dt> <dd class="filters-list">';
 				$filters_html = '';
 				foreach ( $filters as $filter_label => $filter_posts ):
 					$filters_html .= '<a href="#" class="filter" id="' . $filter_label . '">';

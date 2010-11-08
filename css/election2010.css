@@ -127,6 +127,15 @@
 	display: block;
 }
 
+#sidebar-election2010 div#filters dl dt.filter-label a.help {
+	font-weight: normal;
+	color: #999999;
+	text-decoration: underline;
+	font-size: 10px;
+	float:right;
+	margin-right: 10px;
+}
+
 #sidebar-election2010 div#filters dl dd.filters-list {
 	margin-left: 130px;
 	margin-bottom: 10px;
