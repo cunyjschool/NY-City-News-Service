@@ -321,7 +321,7 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 <li><a href="http://fort-greene.blogs.nytimes.com/" target="_blank">NYTimes - The Local: Fort Greene</a></li>
 <li><a href="http://www.theluvbiz.com/" target="_blank">The Luv Biz</a></li>
 <li><a href="http://www.quirkynyc.com/" target="_blank">Quirky NYC</a></li>
-<li><a href="http://www.nyctracks.com/" target="_blank">NYC Tracks</a></li>
+<li><a href="http://nyctracks.journalism.cuny.edu/" target="_blank">NYC Tracks</a></li>
 <li><a href="http://www.explaintheplan.com/" target="_blank">Explain the Plan</a></li>
 <li><a href="http://www.dirtyhandsny.com/" target="_blank">Dirty Hands NY</a></li>
 <li><a href="http://www.deportationdialogue.com/" target="_blank">Deportation Dialogue</a></li>
