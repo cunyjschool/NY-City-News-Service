@@ -43,11 +43,21 @@ Template Name: Special Project - Election 2010
 						$meta['the_party'] = get_post_meta( get_the_id(), 'the_party', true );
 						
 						// Add metadata to our counts of posts
-						$all_filters['first_time_voter'][$meta['first_time_voter']][] = get_the_id();
-						$all_filters['the_age'][$meta['the_age']][] = get_the_id();
-						$all_filters['the_gender'][$meta['the_gender']][] = get_the_id();
-						$all_filters['the_party'][$meta['the_party']][] = get_the_id();						
-						$all_filters['the_nabe'][$meta['the_nabe']][] = get_the_id();
+						if ( $meta['first_time_voter'] ) {
+							$all_filters['first_time_voter'][$meta['first_time_voter']][] = get_the_id();
+						}
+						if ( $meta['the_age'] ) {
+							$all_filters['the_age'][$meta['the_age']][] = get_the_id();
+						}
+						if ( $meta['the_gender'] ) {
+							$all_filters['the_gender'][$meta['the_gender']][] = get_the_id();
+						}
+						if ( $meta['the_party'] ) {
+							$all_filters['the_party'][$meta['the_party']][] = get_the_id();
+						}
+						if ( $meta['the_nabe'] ) {
+							$all_filters['the_nabe'][$meta['the_nabe']][] = get_the_id();
+						}
 						
 						// Add a background color to the thumbnail based on it's position
 						if ( $row_counter <= 3 && $column_counter <= 3 ) {
