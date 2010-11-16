@@ -154,9 +154,10 @@ Template Name: Special Project - Election 2010
 			 * Build our filtering functionality. Each filter is an empty link with
 			 * the appropriate filter class. Filtering is handled by Javascript
 			 */
-			if ( isset( $all_filters ) ):
+			if ( isset( $all_filters ) ): 
 			foreach ( $all_filters as $key => $filters ):
 				$filter_type_label = '';
+				ksort( $filters );
 				switch ( $key ):
 					case 'first_time_voter':
 						$filter_type_label = 'First time voter:';
