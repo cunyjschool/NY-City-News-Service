@@ -12,6 +12,8 @@
         <div id="featured-photo">
 <a href="<?php the_permalink(); ?>">
 <?php
+if ( function_exists('yapb_get_thumbnail') ) {
+	
     echo yapb_get_thumbnail(
       '', // HTML before image tag
       array(
@@ -22,10 +24,11 @@
       array('w=485', 'h=250', 'q=100', 'zc=1'), // phpThumb configuration parameters
       ''             // image tag custom css class
     );
+}
 ?>
 </a>
-  <?php if(get_post_meta($post->ID, photo_credit, true) != "") { ?><div class="credit"><?php echo get_post_meta( $post->ID,"photo_credit", $single=true ) ; ?></div><?php } ?>
-  <?php if(get_post_meta($post->ID, photo_caption, true) != "") { ?><div class="caption"><?php echo get_post_meta( $post->ID,"photo_caption", $single=true ) ; ?>  </div><?php } ?>      
+  <?php if( get_post_meta($post->ID, 'photo_credit', true) ) { ?><div class="credit"><?php echo get_post_meta( $post->ID,"photo_credit", $single=true ) ; ?></div><?php } ?>
+  <?php if( get_post_meta($post->ID, 'photo_caption', true) ) { ?><div class="caption"><?php echo get_post_meta( $post->ID,"photo_caption", $single=true ) ; ?>  </div><?php } ?>      
           </div>
 
 	      <div class="post">
@@ -49,6 +52,7 @@
 
 <a href="<?php the_permalink(); ?>">
 <?php
+if ( function_exists('yapb_get_thumbnail') ) {
     echo yapb_get_thumbnail(
       '', // HTML before image tag
       array(
@@ -59,6 +63,7 @@
       array('w=150', 'h=150', 'q=100', 'zc=1'), // phpThumb configuration parameters
       'archive-thumb'             // image tag custom css class
     );
+}
 ?>
 </a>     
 

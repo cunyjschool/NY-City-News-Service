@@ -1,17 +1,20 @@
 jQuery(document).ready(function() {
 
-	jQuery('li.mug-shot-link img').click(function() {
-		if ( jQuery(this).parent().hasClass('active') ) {
-			jQuery(this).parent().removeClass('active');
+	/**
+	 * If a user clicks on a mug shot, load the content for that mugshot in an overlay
+	 */
+	jQuery('li.mug-shot-link').click(function() {
+		if ( jQuery(this).hasClass('active') ) {
+			jQuery(this).removeClass('active');
 		} else {
 			jQuery('li.mug-shot-link').removeClass('active');
-			jQuery(this).parent().addClass('active');
-			var media_content = jQuery(this).parent().find('.content-single').html();
+			jQuery(this).addClass('active');
+			var media_content = jQuery(this).find('.content-single').html();
 			jQuery('#content-single-zone').empty().html(media_content);
 			jQuery('#content-single-zone').show();
 		}
 		
-		jQuery('#content-single-zone .actions a.back').click(function() {
+		jQuery('#content-single-zone a.back').click(function() {
 			jQuery('li.mug-shot-link').removeClass('active');			
 			jQuery('#content-single-zone').hide();		
 			return false;
@@ -20,7 +23,11 @@ jQuery(document).ready(function() {
 		return false;		
 	});
 	
-	
+	/**
+	 * If a user clicks on a filter, then add the 'active-filter' class to all of the
+	 * mug shots with the same value and 'hidden-filter' class to all of the mugshots
+	 * without
+	 */
 	jQuery('dd.filters-list a.filter').click(function() {
 		jQuery('dd.filters-list a.filter').removeClass('active');
 		jQuery(this).addClass('active');
@@ -37,6 +44,9 @@ jQuery(document).ready(function() {
 		return false;
 	});
 	
+	/**
+	 * Reset all filters
+	 */
 	jQuery('dd.filters-list a.reset-filters').click(function() {
 		jQuery('dd.filters-list a.filter').removeClass('active');
 		jQuery('li.mug-shot-link').removeClass('active-filter');

@@ -6,7 +6,7 @@
   <div id="homeleft">
     <div id="topstories" class="clearfix">
 	
-		<div id="special-recent-project"><a href="<?php bloginfo('url'); ?>/special-projects/cmj-2010/">Recent project - CMJ 2010: Time to Face the Music</a></div>
+		<div id="special-recent-project"><a href="<?php bloginfo('url'); ?>/special-projects/election-2010/">Recent project - NYCity Snapshot: Issues and Impact of Election 2010</a></div>
 
       <div id="top-digest">
 
@@ -156,17 +156,17 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
 			<h3>Special Projects</h3>
 
       <div id="promos">
-<a href="http://industrynyc.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/industry-thumb.gif" alt="Industry NYC" class="thumbnail" /></a>
-<a href="http://2010stimulus.org/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" /></a>
+<a href="<?php bloginfo('url'); ?>/special-projects/election-2010/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/election2010_h200_v2.jpg" alt="Election 2010" class="thumbnail" height="150px" width="200px" /></a>
+<a href="http://industrynyc.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/industry-thumb.gif" alt="Industry NYC" class="thumbnail" height="150px" width="200px" /></a>
 
-<a href="http://homelesswithhomework.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" /></a>
+<a href="http://2010stimulus.org/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" height="150px" width="200px" /></a>
+<a href="http://homelesswithhomework.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" height="150px" width="200px" /></a>
+
 <a href="http://talkingnewyork.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/talking-new-york_h200.png" alt="Talking New York" height="150px" width="200px" class="thumbnail" /></a>
+<a href="<?php bloginfo('url'); ?>/category/2008-election/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-election.jpg" alt="Election 2008" class="thumbnail" height="150px" width="200px" /></a>
 
-<a href="<?php bloginfo('url'); ?>/special-projects/nycity-snapshot-2009-economic-pulse/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/nycity-snapshot_h200.png" alt="NYCity Snapshot" class="thumbnail" /></a>
-<a href="<?php bloginfo('url'); ?>/category/2008-election/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-election.jpg" alt="Election 2008" class="thumbnail" /></a>
-
-<a href="<?php bloginfo('url'); ?>/category/queens-immigration-2008/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-queens.jpg" alt="2008 Queens Immigration Project" class="thumbnail" /></a>
-<a href="<?php bloginfo('url'); ?>/category/brooklyn-immigration-2009" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-brooklyn.jpg" alt="2009 Brooklyn Immigration Project" class="thumbnail" /></a>
+<a href="<?php bloginfo('url'); ?>/category/queens-immigration-2008/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-queens.jpg" alt="2008 Queens Immigration Project" class="thumbnail" height="150px" width="200px" /></a>
+<a href="<?php bloginfo('url'); ?>/category/brooklyn-immigration-2009" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-brooklyn.jpg" alt="2009 Brooklyn Immigration Project" class="thumbnail" height="150px" width="200px" /></a>
       </div>
 		
 		</div>
@@ -185,7 +185,7 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 
   <div id="homeright">
   
-<object width="480" height="320"><param name="movie" value="<?php bloginfo('url'); ?>/mediaplayer.swf"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<?php bloginfo('url'); ?>/mediaplayer.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="320"></embed></object>
+	<?php echo do_shortcode('[nggallery id=1 template="newsservice" images=0]'); ?>
       
     <div id="video">
 
@@ -321,7 +321,7 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 <li><a href="http://fort-greene.blogs.nytimes.com/" target="_blank">NYTimes - The Local: Fort Greene</a></li>
 <li><a href="http://www.theluvbiz.com/" target="_blank">The Luv Biz</a></li>
 <li><a href="http://www.quirkynyc.com/" target="_blank">Quirky NYC</a></li>
-<li><a href="http://www.nyctracks.com/" target="_blank">NYC Tracks</a></li>
+<li><a href="http://nyctracks.journalism.cuny.edu/" target="_blank">NYC Tracks</a></li>
 <li><a href="http://www.explaintheplan.com/" target="_blank">Explain the Plan</a></li>
 <li><a href="http://www.dirtyhandsny.com/" target="_blank">Dirty Hands NY</a></li>
 <li><a href="http://www.deportationdialogue.com/" target="_blank">Deportation Dialogue</a></li>

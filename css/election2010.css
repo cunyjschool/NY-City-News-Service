@@ -5,7 +5,7 @@
 }
 
 #election2010 h2 {
-	font-size: 24px;
+	font-size: 30px;
 }
 
 #election2010 #mosaic {
@@ -18,6 +18,26 @@
 	border-style: solid;
 	height: 80px;
 	width: 80px;
+	position: relative;
+}
+
+#election2010 #mosaic ul li.mug-shot-link .mug-shot-overlay {
+	position: absolute;
+	padding: 5px;
+	font-size: 12px;
+	line-height: 18px;
+	bottom: 0;
+	visibility:hidden;
+	color: #FFFFFF;
+	opacity: 0.8;
+}
+
+#election2010 #mosaic ul li.mug-shot-link:hover {
+	cursor:pointer;
+}
+
+#election2010 #mosaic ul li.mug-shot-link:hover .mug-shot-overlay {
+	visibility: visible;
 }
 
 #election2010 #mosaic ul li.mug-shot-link img.attachment-election-2010-thumb {
@@ -53,10 +73,6 @@
 	opacity: 0.1;
 }
 
-#election2010 #mosaic ul li.mug-shot-link img.attachment-election-2010-thumb:hover {
-	cursor: pointer;
-}
-
 #election2010 #mosaic ul li div.content-single {
 	display:none;
 }
@@ -69,6 +85,11 @@
 	border: 5px solid #FFF7A6;
 	display: none;
 	width: 600px;
+}
+
+#election2010 #content-single-zone h3 a.back {
+	float: right;
+	
 }
 
 #election2010 #content-single-zone p {
@@ -110,6 +131,15 @@
 	width: 130px;
 	float: left;
 	display: block;
+}
+
+#sidebar-election2010 div#filters dl dt.filter-label a.help {
+	font-weight: normal;
+	color: #999999;
+	text-decoration: underline;
+	font-size: 10px;
+	float:right;
+	margin-right: 10px;
 }
 
 #sidebar-election2010 div#filters dl dd.filters-list {
