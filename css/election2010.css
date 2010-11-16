@@ -40,6 +40,10 @@
 	visibility: visible;
 }
 
+#election2010 #mosaic ul li.mug-shot-link.hidden-filter:hover .mug-shot-overlay {
+	visibility: hidden;
+}
+
 #election2010 #mosaic ul li.mug-shot-link img.attachment-election-2010-thumb {
 	height: 80px;
 	width: 80px;	
