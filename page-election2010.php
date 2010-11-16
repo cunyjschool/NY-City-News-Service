@@ -74,9 +74,8 @@ Template Name: Special Project - Election 2010
 					<div class="mug-shot-overlay"><?php the_title(); echo ', <span class="meta-party">' . $meta['the_party'] . '</span>'; ?></div>
 					<?php the_post_thumbnail( 'election-2010-thumb', array( 'title' => false, ) ); ?>
 					<?php /* Build the presentation of the content to be manipulated by JS */ ?>
-					<div class="content-single">
-						<h3><a href="#" class="back">Close</a><?php the_title(); ?></h3>	
-						<?php the_content(); ?>
+					<div class="content-single" id="<?php the_id(); ?>">
+						<h3><a href="#" class="back">Close</a><?php the_title(); ?></h3>
 						<?php
 							// List out all of the labels and values for election metadata
 							$meta_html = '<p class="meta">';
