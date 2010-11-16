@@ -34,6 +34,8 @@ jQuery(document).ready(function() {
 		var filter = jQuery(this).attr('id');
 		jQuery('li.mug-shot-link').removeClass('active-filter');
 		jQuery('li.mug-shot-link').removeClass('hidden-filter');
+		jQuery('li.mug-shot-link').removeClass('active');			
+		jQuery('#content-single-zone').hide();
 		jQuery('li.mug-shot-link').each(function(index) {
 			if ( jQuery(this).hasClass(filter) ) {
 				jQuery(this).addClass('active-filter');
@@ -49,6 +51,8 @@ jQuery(document).ready(function() {
 	 */
 	jQuery('dd.filters-list a.reset-filters').click(function() {
 		jQuery('dd.filters-list a.filter').removeClass('active');
+		jQuery('li.mug-shot-link').removeClass('active');			
+		jQuery('#content-single-zone').hide();
 		jQuery('li.mug-shot-link').removeClass('active-filter');
 		jQuery('li.mug-shot-link').removeClass('hidden-filter');
 		return false;		
