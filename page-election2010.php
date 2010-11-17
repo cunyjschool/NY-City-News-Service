@@ -76,6 +76,11 @@ Template Name: Special Project - Election 2010
 					<?php /* Build the presentation of the content to be manipulated by JS */ ?>
 					<div class="content-single" id="<?php the_id(); ?>">
 						<h3><a href="#" class="back">Close</a><?php the_title(); ?></h3>
+						<?php if ( !strpos( $post->post_content, 'http://player.vimeo.com' ) ): ?>
+							<div class="the-content">
+								<?php the_content(); ?>
+							</div>
+						<?php endif; ?>
 						<?php
 							// List out all of the labels and values for election metadata
 							$meta_html = '<p class="meta">';
