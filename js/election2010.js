@@ -12,7 +12,7 @@ jQuery(document).ready(function() {
 			var media_content = jQuery(this).find('.content-single').html();
 			jQuery('#content-single-zone').empty().html(media_content);
 			jQuery('#content-single-zone').show();
-			if ( !jQuery('#content-single-zone').find('.the-content') ) {				
+			if ( !jQuery('#content-single-zone').find('.the-content').length ) {				
 				// Generate a request for the post content so we can insert the video player
 				request_url = '/api/get_post/?post_id=' + jQuery(this).find('.content-single').attr('id');
 				jQuery.ajax({
