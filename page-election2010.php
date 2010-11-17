@@ -71,7 +71,7 @@ Template Name: Special Project - Election 2010
 						// Adding the meta fields is what drives our filtering										
 					?>
 					<li class="mug-shot-link<?php echo ' ' . implode( ' ', $meta ); echo ' ' . $bg_color; ?>">
-					<div class="mug-shot-overlay"><?php the_title(); echo ', <span class="meta-party">' . $meta['the_party'] . '</span>'; ?></div>
+					<div class="mug-shot-overlay"><?php the_title(); if ( $meta['the_party'] ) { echo ', <span class="meta-party">' . $meta['the_party'] . '</span>'; } ?></div>
 					<?php the_post_thumbnail( 'election-2010-thumb', array( 'title' => false, ) ); ?>
 					<?php /* Build the presentation of the content to be manipulated by JS */ ?>
 					<div class="content-single" id="<?php the_id(); ?>">
@@ -109,9 +109,11 @@ Template Name: Special Project - Election 2010
 										$meta_label = 'Fix this field';
 										break;
 								endswitch;
-
-								$meta_html .= '<label>' . $meta_label . ':</label> ';
-								$meta_html .= '<span>' . $value . '</span>, ';
+								
+								if ( $value ) {
+									$meta_html .= '<label>' . $meta_label . ':</label> ';
+									$meta_html .= '<span>' . $value . '</span>, ';
+								}
 
 							endforeach;
 							$meta_html = rtrim( $meta_html, ', ' );
