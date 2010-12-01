@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php /* This is a test change */ ?>
+	<!-- Pingdom check -->
 
 <div id="content" class="clearfix">
   <div id="homeleft">
