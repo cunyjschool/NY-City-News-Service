@@ -60,7 +60,7 @@ A student-powered service at the <a href="http://www.journalism.cuny.edu">CUNY G
 <a href="http://motthavenherald.com/"><img src="<?php bloginfo('template_directory'); ?>/img/sites/mott-logo-thumb.jpg" alt="Mott Haven Herald" /></a>
 <a href="http://fort-greene.thelocal.nytimes.com/"><img src="<?php bloginfo('template_directory'); ?>/img/sites/nyt-local-thumb.jpg" alt="The Local" /></a>
 <a href="http://isnapny.com/"><img src="<?php bloginfo('template_directory'); ?>/img/sites/isnap-logo-thumb.jpg" alt="ISnapNY Photoblog" /></a>
-<a href="http://cuny.tv/series/219west/listen.lasso?year=2009"><img src="<?php bloginfo('template_directory'); ?>/img/sites/219-west-logo.jpg" alt="219 West" /></a>
+<a href="http://219tvmagazine.journalism.cuny.edu/"><img src="<?php bloginfo('template_directory'); ?>/img/sites/219-west-logo.jpg" alt="219 West" /></a>
   </div>
 </div>
 
