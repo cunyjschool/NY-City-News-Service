@@ -20,9 +20,9 @@
 		<ul>
 			<?php if ( $top_posts->have_posts() ) : while ( $top_posts->have_posts() ) : $top_posts->the_post(); ?>
 			<li><h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-			<?php if(get_post_meta($post->ID, 'video_file', true) != "") { ?><span class="top-video"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/color_bars.png"></span><?php } ?>
-			<?php if(get_post_meta($post->ID, 'multimedia_url', true) != "") { ?><span class="top-multi"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/photos.png"></span><?php } ?>
-			<?php if(get_post_meta($post->ID, 'audio_url', true) != "") { ?><span class="top-audio"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/sound.png"></span><?php } ?>
+			<?php if ( get_post_meta( $post->ID, 'video_file', true ) ) : ?><span class="top-video"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/color_bars.png"></span><?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'multimedia_url', true ) ) : ?><span class="top-multi"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/photos.png"></span><?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'audio_url', true ) ) : ?><span class="top-audio"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/sound.png"></span><?php endif; ?>
 			</li>
 			<?php endwhile; else: ?><p>There are currently no stories.</p>
 			<?php endif; ?>
@@ -57,35 +57,16 @@
 			$featured_posts = new WP_Query( $featured_args );
 		?>
   		<?php if ( $featured_posts->have_posts() ) : while ( $featured_posts->have_posts() ) : $featured_posts->the_post(); ?>
-			<div class="featured-tease clearfix">
-<?php
-	// Only show the thumbnail image if it the functionality exists
-	if (function_exists('yapb_is_photoblog_post')) {
- 		if (yapb_is_photoblog_post()) {
-			echo '<a href="';
-			the_permalink();
-			echo '">';
-    		echo yapb_get_thumbnail(
-      			'', // HTML before image tag
-      		array(
-        		'alt' => '', // image tag alt attribute
-        		'rel' => 'lightbox' // image tag rel attribute
-      			),
-      '', // HTML after image tag
-      array('w=150', 'h=100', 'q=100', 'zc=1'), // phpThumb configuration parameters
-      'thumbnail' // image tag custom css class
-		
-    );
-	echo '</a>';
-	}
-	}
- 	?>
-
-  <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-  <?php the_excerpt(); ?>  
-      </div>
-  <?php endwhile; else: ?><p>There are currently no stories.</p>
-<?php endif; ?>
+		<div class="featured-tease clearfix">
+			<?php if ( has_post_thumbnail() ) : ?>
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail-primary', array( 'class' => 'thumbnail' ) ); ?></a>
+			<?php endif; ?>
+			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+			<?php the_excerpt(); ?>  
+		</div>
+  	<?php endwhile; else: ?>
+		<p>There are currently no stories.</p>
+	<?php endif; ?>
     </div>
 
 <ul class="more clearfix">

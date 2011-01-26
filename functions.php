@@ -13,7 +13,7 @@ class nycitynewsservice {
 		add_theme_support( 'post-thumbnails' );
 		
 		add_image_size( 'election-2010-thumb', 100, 100, true );
-		
+		add_image_size( 'thumbnail-primary', 150, 100, true );
 	}
 	
 	function init() {
