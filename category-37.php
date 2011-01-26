@@ -26,23 +26,9 @@
 			<?php while (have_posts()) : the_post(); ?>
         
 				<div class="clearfix" style="border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 20px;">
-
-        <?php 
-				if (function_exists('yapb_is_photoblog_post')) {
-				if (yapb_is_photoblog_post()) {
-    			echo yapb_get_thumbnail(
-      			'', // HTML before image tag
-      		array(
-        		'alt' => '', // image tag alt attribute
-        		'rel' => 'lightbox' // image tag rel attribute
-      			),
-      		'', // HTML after image tag
-      array('w=100', 'h=150', 'q=100', 'zc=1'), // phpThumb configuration parameters
-      'election-mug' // image tag custom css class
-    	);
-			}	
-		}
-  ?>
+					<?php if ( has_post_thumbnail() ) : ?>
+						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array( 100, 150 ), array( 'class' => 'election-mug' ) ); ?></a>
+					<?php endif; ?>
 
 
 				<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h3>
@@ -52,8 +38,6 @@
 				</div>
 
 	      </div>
-
-
 
 		<?php endwhile; ?>
 

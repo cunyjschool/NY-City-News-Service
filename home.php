@@ -89,34 +89,18 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
 
     <div id="multimedia">
 		<h3>Multimedia</h3>
-		<?php
-			$multimedia_args = array( 'category_name' => 'multimedia',
+	<?php
+		$multimedia_args = array( 	'category_name' => 'multimedia',
 									'showposts' => 2
 							);
-			$multimedia_posts = new WP_Query( $multimedia_args );
-		?>
-  		<?php if ( $multimedia_posts->have_posts() ) : while ( $multimedia_posts->have_posts() ) : $multimedia_posts->the_post(); ?>
+		$multimedia_posts = new WP_Query( $multimedia_args );
+	?>
+  	<?php if ( $multimedia_posts->have_posts() ) : while ( $multimedia_posts->have_posts() ) : $multimedia_posts->the_post(); ?>
 
-      <div class="featured-tease clearfix">
-	<?php
-	if (function_exists('yapb_is_photoblog_post')) {
-		if (yapb_is_photoblog_post()) {
-			echo '<a href="';
-			the_permalink();
-			echo '">';
-			echo yapb_get_thumbnail(
-      '', // HTML before image tag
-      array(
-        'alt' => '', // image tag alt attribute
-        'rel' => 'lightbox'                      // image tag rel attribute
-      ),
-      '',               // HTML after image tag
-      array('w=100', 'h=75', 'q=100', 'zc=1'), // phpThumb configuration parameters
-      'thumbnail'             // image tag custom css class
-    );
-		echo '</a>';
-   }
-	} ?>
+	<div class="featured-tease clearfix">
+		<?php if ( has_post_thumbnail() ) : ?>
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail-secondary', array( 'class' => 'thumbnail' ) ); ?></a>
+		<?php endif; ?>
 
 
   <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -217,39 +201,26 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 					);
 	$video_posts = new WP_Query( $video_args );
 ?>
-<?php if ( $video_posts->have_posts() ) : while ( $video_posts->have_posts() ) : $video_posts->the_post(); ?>
 
-      <div class="featured-tease clearfix">
-<?php if (function_exists('yapb_is_photoblog_post')) {
-	 if (yapb_is_photoblog_post()) {
-		echo '<a href="';
-		the_permalink();
-		echo '">';
-    echo yapb_get_thumbnail(
-      '', // HTML before image tag
-      array(
-        'alt' => '', // image tag alt attribute
-        'rel' => 'lightbox'                      // image tag rel attribute
-      ),
-      '',               // HTML after image tag
-      array('w=100', 'h=75', 'q=100', 'zc=1'), // phpThumb configuration parameters
-      'thumbnail'             // image tag custom css class
-    );
-		echo '</a>';
-  }
-} ?>
+	<?php if ( $video_posts->have_posts() ) : while ( $video_posts->have_posts() ) : $video_posts->the_post(); ?>
+		<div class="featured-tease clearfix">
+		
+			<?php if ( has_post_thumbnail() ) : ?>
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail-secondary', array( 'class' => 'thumbnail' ) ); ?></a>
+			<?php endif; ?>
 
-  <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-  <?php the_excerpt(); ?>  
-      </div>
-  <?php endwhile; else: ?><p>There are currently no stories.</p>
-<?php endif; ?>
+ 			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+				<?php the_excerpt(); ?>  
+      	</div>
+	<?php endwhile; else: ?>
+		<p>There are currently no stories.</p>
+	<?php endif; ?>
 
-<ul class="more clearfix">
-  <li class="gomore"><a href="<?php bloginfo('url'); ?>/category/video/">More Videos</a></li>
-  <li class="feed"><a href="<?php bloginfo('url'); ?>/category/video/feed/">Videos Feed</a></li>
-</ul> 
-    </div>
+	<ul class="more clearfix">
+		<li class="gomore"><a href="<?php bloginfo('url'); ?>/category/video/">More Videos</a></li>
+		<li class="feed"><a href="<?php bloginfo('url'); ?>/category/video/feed/">Videos Feed</a></li>
+	</ul> 
+</div>
 
 
     <div id="audio">
@@ -260,40 +231,24 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 					);
 	$audio_posts = new WP_Query( $audio_args );
 ?>
-<?php if ( $audio_posts->have_posts() ) : while ( $audio_posts->have_posts() ) : $audio_posts->the_post(); ?>
+	<?php if ( $audio_posts->have_posts() ) : while ( $audio_posts->have_posts() ) : $audio_posts->the_post(); ?>
+	<div class="featured-tease clearfix">
 
-      <div class="featured-tease clearfix">
-<a href="<?php the_permalink(); ?>">
-<?php if (function_exists('yapb_is_photoblog_post')) {
-	if (yapb_is_photoblog_post()) {
-		echo '<a href="';
-		the_permalink();
-		echo '">';
-    echo yapb_get_thumbnail(
-      '', // HTML before image tag
-      array(
-        'alt' => '', // image tag alt attribute
-        'rel' => 'lightbox'                      // image tag rel attribute
-      ),
-      '',               // HTML after image tag
-      array('w=100', 'h=75', 'q=100', 'zc=1'), // phpThumb configuration parameters
-      'thumbnail'             // image tag custom css class
-    );
-		echo '</a>';
-  	}
-}?>
+		<?php if ( has_post_thumbnail() ) : ?>
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail-secondary', array( 'class' => 'thumbnail' ) ); ?></a>
+		<?php endif; ?>
 
+		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+			<?php the_excerpt(); ?>  
+	</div>
+	<?php endwhile; else: ?>
+		<p>There are currently no stories.</p>
+	<?php endif; ?>
 
-  <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-  <?php the_excerpt(); ?>  
-      </div>
-  <?php endwhile; else: ?><p>There are currently no stories.</p>
-<?php endif; ?>
-
-<ul class="more clearfix">
-  <li class="gomore"><a href="<?php bloginfo('url'); ?>/category/audio/">More Audio</a></li>
-  <li class="feed"><a href="<?php bloginfo('url'); ?>/category/audio/feed/">Audio Feed</a></li>
-</ul> 
+		<ul class="more clearfix">
+			<li class="gomore"><a href="<?php bloginfo('url'); ?>/category/audio/">More Audio</a></li>
+			<li class="feed"><a href="<?php bloginfo('url'); ?>/category/audio/feed/">Audio Feed</a></li>
+		</ul> 
     </div>
     
     <div id="audio">

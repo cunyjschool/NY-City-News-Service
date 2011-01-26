@@ -35,23 +35,11 @@ By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_lin
       </div>
 	  <?php } ?>
       
-      
-      
-      <div id="featured-photo">
-<?php
-	if ( function_exists('yapb_get_thumbnail') ) {
-	    echo yapb_get_thumbnail(
-	      '', // HTML before image tag
-	      array(
-	        'alt' => '', // image tag alt attribute
-	        'rel' => 'lightbox'                      // image tag rel attribute
-	      ),
-	      '',               // HTML after image tag
-	      array('w=485', 'h=250', 'q=100', 'zc=1'), // phpThumb configuration parameters
-	      'thumbnail'             // image tag custom css class
-	    );
-	}	
-?>
+	<div id="featured-photo">
+		<?php if ( has_post_thumbnail() ) : ?>
+			<?php the_post_thumbnail( array( 485, 250 ), array( 'class' => 'thumbnail' ) ); ?>
+		<?php endif; ?>
+
   <?php if ( $photo_credit = get_post_meta( $post->ID, 'photo_credit', true ) ) { ?><div class="credit"><?php echo $photo_credit; ?></div><?php } ?>
   <?php if( $photo_caption = get_post_meta( $post->ID, 'photo_caption', true ) ) { ?><div class="caption"><?php echo $photo_caption; ?></div><?php } ?>      </div>
 

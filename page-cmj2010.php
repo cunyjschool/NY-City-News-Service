@@ -15,23 +15,11 @@ Template Name: Special Project - CMJ 2010
       	  <div class="post-special-event">
       	    <?php if( $band_date = get_post_meta($post->ID, 'band_date', true) ) { ?><div class="show_date"><small>Date: <?php echo $band_date; ?></small></div><?php } ?>
             <div id="band-photo">
-              <h2 class="special-project-post-title" id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-              <a href="<?php the_permalink(); ?>">
-                <?php
-                if ( function_exists('yapb_get_thumbnail') ) {
-                                  echo yapb_get_thumbnail(
-                                    '', // HTML before image tag
-                                    array(
-                                      'alt' => '', // image tag alt attribute
-                                      'rel' => 'lightbox'                      // image tag rel attribute
-                                    ),
-                                    '',               // HTML after image tag
-                                    array('w=315', 'h=236', 'q=100', 'zc=1'), // phpThumb configuration parameters
-                                    ''             // image tag custom css class
-                                  );
-                  }
-                                ?>
-              </a>
+				<h2 class="special-project-post-title" id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+				<?php if ( has_post_thumbnail() ) : ?>
+					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array( 315, 236 ) ); ?></a>
+				<?php endif; ?>
+              
             </div>
             <div class="entry">
               <ul class="band-details">

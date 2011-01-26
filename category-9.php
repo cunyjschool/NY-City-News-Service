@@ -21,32 +21,18 @@
 	$featured_post = new WP_Query( $featured_arg );
 	?>
   	<?php if ( $featured_post->have_posts() ) : while ( $featured_post->have_posts() ) : $featured_post->the_post(); ?>
-			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 
+		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 
-<?php if (yapb_is_photoblog_post()): ?>
-<a href="<?php the_permalink(); ?>">
-  <?php
-    echo yapb_get_thumbnail(
-      '', // HTML before image tag
-      array(
-        'alt' => '', // image tag alt attribute
-        'rel' => 'lightbox' // image tag rel attribute
-      ),
-      '', // HTML after image tag
-      array('w=530', 'h=250', 'q=100', 'zc=1'), // phpThumb configuration parameters
-      '' // image tag custom css class
-    );
-  ?>
-</a>
-  <?php else: ?>
-<?php endif ?>
+		<?php if ( has_post_thumbnail() ) : ?>
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array( 530, 250 ) ); ?></a>
+		<?php endif; ?>
 	
+		<div class="caption"><?php the_excerpt(); ?> <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">Read more &raquo;</a></div>
 
-    <div class="caption"><?php the_excerpt(); ?> <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">Read more &raquo;</a></div>
+	<?php endwhile; else: ?>
 
-  <?php endwhile; else: ?>
-<?php endif; ?>
+	<?php endif; ?>
 
 
     <div id="efeatured">
@@ -58,29 +44,15 @@
 						);
 	$featured_posts = new WP_Query( $featured_arg );
 	while ($featured_posts->have_posts()) : $featured_posts->the_post(); ?>
-      <div><a href="<?php the_permalink(); ?>">
+	<div>
+	
+		<?php if ( has_post_thumbnail() ) : ?>
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array( 220, 150 ) ); ?></a>
+		<?php endif; ?>
 
-<?php if (yapb_is_photoblog_post()): ?>
-<a href="<?php the_permalink(); ?>">
-  <?php
-    echo yapb_get_thumbnail(
-      '', // HTML before image tag
-      array(
-        'alt' => '', // image tag alt attribute
-        'rel' => 'lightbox' // image tag rel attribute
-      ),
-      '', // HTML after image tag
-      array('w=220', 'h=150', 'q=100', 'zc=1'), // phpThumb configuration parameters
-      '' // image tag custom css class
-    );
-  ?>
-</a>
-  <?php else: ?>
-<?php endif ?>
-
-<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-      </div>
-  <?php endwhile; ?>  
+		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+	</div>
+	<?php endwhile; ?>  
 
 
 <h2 id="blogshead">Best of the Blogs</h2>
@@ -101,30 +73,16 @@
  		if ( $video_posts->have_posts() ) : while ( $video_posts->have_posts() ) : $video_posts->the_post(); ?>
   
     <li style="margin-bottom: 20px; padding-bottom: 5px;">
-  <?php if (yapb_is_photoblog_post()): ?>
-<a href="<?php the_permalink(); ?>">
-  <?php
-    echo yapb_get_thumbnail(
-      '', // HTML before image tag
-      array(
-        'alt' => '', // image tag alt attribute
-        'rel' => 'lightbox' // image tag rel attribute
-      ),
-      '', // HTML after image tag
-      array('w=250', 'h=150', 'q=100', 'zc=1'), // phpThumb configuration parameters
-      '' // image tag custom css class
-    );
-  ?>
-</a>
-  <?php else: ?>
-<?php endif ?>
+		<?php if ( has_post_thumbnail() ) : ?>
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array( 250, 150 ) ); ?></a>
+		<?php endif; ?>
+		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+	</li>
 
-
-<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-
-  <?php endwhile; else: ?><p>There are currently no stories.</p>
-<?php endif; ?>
-</ul>
+	<?php endwhile; else: ?>
+		<li>There are currently no stories.</li>
+	<?php endif; ?>
+	</ul>
 
 
 <h2 id="elatesthead">Latest Election News</h2>

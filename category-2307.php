@@ -18,8 +18,8 @@
 
     <div style="width: 270px; float: left;">
       <div class="frost" style="margin-bottom: 20px;">
-<h2><a href="/2008/05/29/send-us-your-queens-stories/#respond">Got a Story? &raquo;</a></h2>
-Let us know what's happening in your neighborhood, tell us what's on your mind or feel free to share stories of days past. <a href="/2008/05/29/send-us-your-queens-stories/#respond">Leave a comment &raquo;</a>
+<h2><a href="<?php bloginfo('url'); ?>/2008/05/29/send-us-your-queens-stories/#respond">Got a Story? &raquo;</a></h2>
+Let us know what's happening in your neighborhood, tell us what's on your mind or feel free to share stories of days past. <a href="<?php bloginfo('url'); ?>/2008/05/29/send-us-your-queens-stories/#respond">Leave a comment &raquo;</a>
       </div>
 
       <div class="frost">

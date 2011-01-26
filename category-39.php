@@ -4,7 +4,7 @@
       <div class="clearfix" id="brooklyn">
       
         <div id="brooklyn-intro">
-<p class="dropcap">In Sunset Park, Chinese and Latino congregations <a href="/2009/06/05/cd-7-praising-the-lord-in-mandarin/">share a church</a> built a century ago for Norwegians. In Canarsie, South Asian and Caribbean immigrants <a href="/2009/06/05/cd-13-staying-in-the-game/">flock to the city's only indoor cricket batting cage</a>. Nearby, at the Brooklyn Terminal Market, you'll <a href="/2009/06/05/cd-18-new-beginning-for-terminal/">find both West Indian and Italian products</a> on the shelves of A &amp; J Wholesale Foods.</p>
+<p class="dropcap">In Sunset Park, Chinese and Latino congregations <a href="<?php bloginfo('url'); ?>/2009/06/05/cd-7-praising-the-lord-in-mandarin/">share a church</a> built a century ago for Norwegians. In Canarsie, South Asian and Caribbean immigrants <a href="<?php bloginfo('url'); ?>/2009/06/05/cd-13-staying-in-the-game/">flock to the city's only indoor cricket batting cage</a>. Nearby, at the Brooklyn Terminal Market, you'll <a href="<?php bloginfo('url'); ?>/2009/06/05/cd-18-new-beginning-for-terminal/">find both West Indian and Italian products</a> on the shelves of A &amp; J Wholesale Foods.</p>
 
 <p>One in six Americans, it's been said, can trace family roots to Brooklyn. The borough continues to be the first - and sometimes final - stopping point in the U.S. for new waves of immigrants.</p>
 
@@ -24,23 +24,12 @@
 	
 	?>
   <?php if ( $posts->have_posts() ) : while ( $posts->have_posts() ) : $posts->the_post(); ?>
-  <li>
-<a href="<?php the_permalink(); ?>">
-<?php
-    echo yapb_get_thumbnail(
-      '', // HTML before image tag
-      array(
-        'alt' => '', // image tag alt attribute
-        'rel' => 'lightbox'                      // image tag rel attribute
-      ),
-      '',               // HTML after image tag
-      array('w=130', 'h=100', 'q=100', 'zc=1'), // phpThumb configuration parameters
-      ''             // image tag custom css class
-    );
-?>
-</a>
-          
-<h4 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
+	<li>
+	<?php if ( has_post_thumbnail() ) : ?>
+		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array( 130, 100 ) ); ?></a>
+	<?php endif; ?>
+	
+		<h4 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
   </li>
             
   <?php endwhile; else: ?><p>There are currently no stories.</p>

@@ -33,24 +33,10 @@ Template Name: Special Project - 2009 Economic Pulse
 <ul id="pulse-related">
 <?php while ($posts->have_posts()) : $posts->the_post(); ?>
 
- <li>
-<?php if (yapb_is_photoblog_post()): ?>
-<a href="<?php the_permalink(); ?>">
-  <?php
-    echo yapb_get_thumbnail(
-      '', // HTML before image tag
-      array(
-        'alt' => '', // image tag alt attribute
-        'rel' => 'lightbox' // image tag rel attribute
-      ),
-      '', // HTML after image tag
-      array('w=100', 'h=75', 'q=100', 'zc=1'), // phpThumb configuration parameters
-      'pulse-thumbnail' // image tag custom css class
-    );
-  ?>
-</a>
-  <?php else: ?>
-<?php endif ?>
+	<li>
+	<?php if ( has_post_thumbnail() ) : ?>
+		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array( 100, 75 ), array( 'class' => 'pulse-thumbnail' ) ); ?></a>
+	<?php endif; ?>
 
 <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2></li>
 
