@@ -1,6 +1,6 @@
 <?php
 
-define( 'NYCITYNEWSSERVICE_VERSION', '1.0.6' );
+define( 'NYCITYNEWSSERVICE_VERSION', '1.0.7' );
 
 if ( !class_exists('nycitynewsservice') ) {
 	
