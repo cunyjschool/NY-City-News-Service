@@ -14,7 +14,7 @@ global $wpdb, $bp;
 		<div class="post" id="post-<?php the_ID(); ?>">
 			
 			<div class="breadcrumb">
-				<a href="<?php bloginfo('url'); ?>">&larr; Back to staff</a>
+				<a href="<?php bloginfo('url'); ?>/staff/">&larr; Back to staff</a>
 			</div>
 		<h2><?php the_title(); ?></h2>
 			<div class="entry">
@@ -25,7 +25,6 @@ global $wpdb, $bp;
 			<?php edit_post_link('Edit', '<p>', '</p>'); ?>
 		
 			<?php if ( $bp_group_id = get_post_meta( $post->ID, 'buddypress_group_id', true ) ): ?>
-
 			<?php if ( function_exists( 'bp_group_has_members' ) && bp_group_has_members( 'group_id=' . $bp_group_id . '&per_page=10' ) ) :
 				$members = $wpdb->get_results( $wpdb->prepare( "SELECT m.user_id, m.date_modified, m.is_banned, u.user_login, u.user_nicename, u.user_email, pd.value as display_name FROM {$bp->groups->table_name_members} m, {$wpdb->users} u, {$bp->profile->table_name_data} pd WHERE u.ID = m.user_id AND u.ID = pd.user_id AND pd.field_id = 1 AND group_id = %d AND is_confirmed = 1 {$banned_sql} {$exclude_sql} ORDER BY display_name ASC;", $bp_group_id ) );
 			?>

@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Class Members
+Template Name: Staff
 */
 
 ?>
