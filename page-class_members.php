@@ -37,10 +37,10 @@ global $wpdb, $bp;
 					<?php
 						$args = array(
 									'item_id' => $member->user_id,
-									'object' => 'user',
-									'email' => $member->user_email,
+									'type' => 'user',
 									'width' => 48,
-									'height'=> 48,
+									'height' => 48,
+									'class' => 'avatar',
 								);
 						echo bp_core_fetch_avatar( $args );
 					 ?>
@@ -51,7 +51,7 @@ global $wpdb, $bp;
 					<?php if ( $curauth->description ): ?>
 						<p class="member-description"><?php echo $curauth->description; ?></p>
 					<?php endif; ?>
-					<p class="member-links"><a href="<?php echo $all_posts_link; ?>">See all posts</a><?php if ( $curauth->user_url ): ?> | <a class="member-url" href="<?php echo $curauth->user_url; ?>">Personal website</a><?php endif; ?></p>
+					<p class="member-links"><a href="<?php echo $all_posts_link; ?>">See all posts</a> | <a href="<? echo bp_core_get_user_domain( $member->user_id ); ?>">Profile</a><?php if ( $curauth->user_url ): ?> | <a class="member-url" href="<?php echo $curauth->user_url; ?>">Website</a><?php endif; ?></p>
 					</div>
 					<div class="clear"></div>
 				</li>
