@@ -14,7 +14,9 @@ class nycitynewsservice {
 		
 		add_image_size( 'election-2010-thumb', 100, 100, true );
 		add_image_size( 'thumbnail-primary', 150, 100, true );
-		add_image_size( 'thumbnail-secondary', 100, 75, true );		
+		add_image_size( 'thumbnail-secondary', 100, 75, true );	
+		add_image_size( 'sidebar-primary', 225, 100, true );
+		add_image_size( 'post-primary', 485, 250, true );
 	}
 	
 	function init() {

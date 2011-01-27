@@ -5,7 +5,7 @@
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <div class="post" id="post-<?php the_ID(); ?>">
   
-  <?php edit_post_link('Edit this entry.','',''); ?>
+  <?php edit_post_link( 'Edit','','' ); ?>
 
   <h2><a href="<?php echo get_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>"><?php the_title(); ?></a></h2>
  
@@ -37,7 +37,7 @@ By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_lin
       
 	<div id="featured-photo">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<?php the_post_thumbnail( array( 485, 250 ), array( 'class' => 'thumbnail' ) ); ?>
+			<?php the_post_thumbnail( 'post-primary', array( 'class' => 'thumbnail' ) ); ?>
 		<?php endif; ?>
 
   <?php if ( $photo_credit = get_post_meta( $post->ID, 'photo_credit', true ) ) { ?><div class="credit"><?php echo $photo_credit; ?></div><?php } ?>

@@ -375,7 +375,7 @@ AudioPlayer.embed("audioplayer_side_4", {
     		<?php if ( $latest_posts->have_posts() ) : while ( $latest_posts->have_posts() ) : $latest_posts->the_post(); ?>
   			<li>
 			<?php if ( has_post_thumbnail() ) : ?>
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array( 225, 100 ) ); ?></a>
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'sidebar-primary' ); ?></a>
 			<?php endif; ?>
 			<a href="<?php the_permalink(); ?>" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a>
 			</li>
