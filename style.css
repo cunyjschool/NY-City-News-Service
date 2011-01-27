@@ -16,6 +16,14 @@ body {
 	font-size: small;
 	background: #eee;
 	line-height: 175%; }
+	
+.clear {
+	clear:both;
+}
+
+/**
+ * Element: h2
+ */
 
 h2 {
 	margin: 0;
@@ -71,7 +79,37 @@ small {
 	font-size: 90%;
 	color: #666;
 	text-transform: uppercase; }
-	
+
+/**
+ * Element: ul
+ */
+ul.class-member-list li {
+	margin-bottom: 20px;
+}
+
+ul.class-member-list li div.member-meta {
+	margin-left: 70px;
+}
+
+ul.class-member-list li div.member-meta h4 {
+	margin: 0;
+}
+
+ul.class-member-list li div.member-meta p {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+ul.class-member-list li div.member-meta p.member-links {
+	color: #999999;
+	font-weight: normal;
+}
+
+ul.class-member-list li div.member-meta p.member-links a {
+	text-decoration: underline;
+	color: #999999;
+}
+
 #globalwrap {
 	width: 1000px;
 	margin: 0 auto;

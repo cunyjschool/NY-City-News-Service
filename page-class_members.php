@@ -2,6 +2,8 @@
 /*
 Template Name: Class Members
 */
+
+global $wpdb, $bp;
 ?>
 
 <?php get_header(); ?>
@@ -20,23 +22,41 @@ Template Name: Class Members
 		
 			<?php if ( $bp_group_id = get_post_meta( $post->ID, 'buddypress_group_id', true ) ): ?>
 
-			<?php if ( bp_group_has_members( 'group_id=' . $bp_group_id . '&per_page=200' ) ) : ?>
+			<?php if ( function_exists( 'bp_group_has_members' ) && bp_group_has_members( 'group_id=' . $bp_group_id . '&per_page=10' ) ) :
+				$members = $wpdb->get_results( $wpdb->prepare( "SELECT m.user_id, m.date_modified, m.is_banned, u.user_login, u.user_nicename, u.user_email, pd.value as display_name FROM {$bp->groups->table_name_members} m, {$wpdb->users} u, {$bp->profile->table_name_data} pd WHERE u.ID = m.user_id AND u.ID = pd.user_id AND pd.field_id = 1 AND group_id = %d AND is_confirmed = 1 {$banned_sql} {$exclude_sql} ORDER BY display_name ASC;", $bp_group_id ) );
+			?>
 			<ul class="class-member-list">
-			<?php while ( bp_group_members() ) : bp_group_the_member(); ?>
-				<li>
+			<?php foreach( $members as $member ) :
+				$curauth = get_user_by( 'id', $member->user_id );
+				$all_posts_link = get_bloginfo('url') . '/author/' . str_replace( '.', '-', $curauth->user_login ) . '/';
+			?>
+				
+				<li class="class-member">
 					<div class="avatar">
-					<a href="<?php bp_group_member_domain() ?>">
-						<?php bp_group_member_avatar( 'width=32&height=32' ) ?>
+					<a href="<?php echo $all_posts_link; ?>">
+					<?php
+						$args = array(
+									'item_id' => $member->user_id,
+									'object' => 'user',
+									'email' => $member->user_email,
+									'width' => 48,
+									'height'=> 48,
+								);
+						echo bp_core_fetch_avatar( $args );
+					 ?>
+					</div>
 					</a>
+					<div class="member-meta">
+					<h4><a href="<?php echo $all_posts_link; ?>"><?php echo $curauth->display_name; ?></a></h4>
+					<?php if ( $curauth->description ): ?>
+						<p class="member-description"><?php echo $curauth->description; ?></p>
+					<?php endif; ?>
+					<p class="member-links"><a href="<?php echo $all_posts_link; ?>">See all posts</a><?php if ( $curauth->user_url ): ?> | <a class="member-url" href="<?php echo $curauth->user_url; ?>">Personal website</a><?php endif; ?></p>
 					</div>
+					<div class="clear"></div>
+				</li>
 
-					<div class="class-member">
-						<h4><?php bp_group_member_link() ?></h4>		
-					</div>
-
-					</li>
-
-				<?php endwhile; ?>
+				<?php endforeach; ?>
 
 			</ul>
 
