@@ -48,6 +48,10 @@ By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_lin
 		<?php the_content('<p class="serif">Read the rest of this entry &raquo;</p>'); ?>
       </div>
 
+		<?php if ( function_exists( 'related_posts' ) ): ?>
+		<?php related_posts(); ?>
+		<?php endif; ?>
+
       <div class="postmetadata alt">
 		<ul>
 			<li id="date">This story was posted on <?php the_time('l, F jS, Y') ?> at <?php the_time() ?>.</li>
