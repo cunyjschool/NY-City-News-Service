@@ -14,10 +14,11 @@
 		<?php endif; ?>
     </div>
     
-  	<?php $featured_arg = array(
-							'category_name'=>'featured-election-2008',
-							'showposts'=>1
-						);
+  	<?php
+		$featured_arg = array(
+			'category_name'=>'election-2008-featured',
+			'showposts'=>1
+		);
 	$featured_post = new WP_Query( $featured_arg );
 	?>
   	<?php if ( $featured_post->have_posts() ) : while ( $featured_post->have_posts() ) : $featured_post->the_post(); ?>
