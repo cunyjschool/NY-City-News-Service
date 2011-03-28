@@ -40,7 +40,7 @@
 <h2 id="efeaturedhead">Featured</h2>
 	<?php $featured_arg = array(
 							'category_name'=>'election-2008-featured',
-							'showposts'=>3,
+							'showposts'=>8,
 							'offset'=>1
 						);
 	$featured_posts = new WP_Query( $featured_arg );
@@ -68,7 +68,7 @@
      <ul style="margin-top: 5px;">
 		<?php $video_arg = array(
 								'category_name'=>'election-2008-video',
-								'showposts'=>2
+								'showposts'=>5
 							);
 		$video_posts = new WP_Query( $video_arg );
  		if ( $video_posts->have_posts() ) : while ( $video_posts->have_posts() ) : $video_posts->the_post(); ?>
