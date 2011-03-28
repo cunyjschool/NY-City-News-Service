@@ -39,7 +39,7 @@
     <div id="efeatured">
 <h2 id="efeaturedhead">Featured</h2>
 	<?php $featured_arg = array(
-							'category_name'=>'featured-election-2008',
+							'category_name'=>'election-2008-featured',
 							'showposts'=>3,
 							'offset'=>1
 						);
@@ -89,7 +89,7 @@
 <h2 id="elatesthead">Latest Election News</h2>
 <ul>
 	<?php $args = array(
-							'category_name'=>'election2008',
+							'category_name'=>'2008-election',
 							'showposts'=>35
 						);
 	$latest_posts = new WP_Query( $args );
