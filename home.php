@@ -10,7 +10,7 @@
 
       <div id="top-digest">
 
-		<h3>Top Stories</h3>
+		<h3>Latest Stories</h3>
 		<?php
 			$top_args = array( 'category_name' => 'top-stories',
 									'showposts' => 8
