@@ -36,11 +36,12 @@ class nycitynewsservice {
 		wp_enqueue_style( 'nycitynewsservice_primary', get_bloginfo('template_directory') . '/style.css', false, NYCITYNEWSSERVICE_VERSION );
 			
 		// Only load the Election2008 stylesheet on relevant views
-		if ( is_category('election2008') ) {
+		if ( is_category( '2008-election' ) ) {
 			wp_enqueue_style( 'nycitynewsservice_election2008', get_bloginfo('template_directory') . '/css/election2008.css', false, NYCITYNEWSSERVICE_VERSION );
 		}
-			
-		if ( is_category(2307) ) {
+		
+		// Only load the Queens stylesheet on its category page	
+		if ( is_category( '2008-queens-immigration-project' ) ) {
 			wp_enqueue_style( 'nycitynewsservice_queens', get_bloginfo('template_directory') . '/css/queens.css', false, NYCITYNEWSSERVICE_VERSION );
 		}
 			
