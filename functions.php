@@ -1,31 +1,40 @@
 <?php
 
 define( 'NYCITYNEWSSERVICE_VERSION', '1.0.8' );
-
-if ( !class_exists('nycitynewsservice') ) {
 	
 class nycitynewsservice {
 	
+	/**
+	 * __construct()
+	 */
 	function __construct() {
 		
 		add_action( 'init', array(&$this, 'init') );
-		// Add support for post thumbnails
-		add_theme_support( 'post-thumbnails' );
 		
+		// Create our custom taxonomies
+		add_action( 'init', array( &$this, 'create_taxonomies' ) );
+		
+		// Add support for post thumbnails
+		add_theme_support( 'post-thumbnails' );	
 		add_image_size( 'election-2010-thumb', 100, 100, true );
 		add_image_size( 'thumbnail-primary', 150, 100, true );
 		add_image_size( 'thumbnail-secondary', 100, 75, true );	
 		add_image_size( 'sidebar-primary', 225, 100, true );
 		add_image_size( 'post-primary', 485, 250, true );
-	}
+		
+	} // END __construct()
 	
+	/**
+	 * init()
+	 */
 	function init() {
 		
 		// Enqueue our stylesheets		
 		//$this->enqueue_stylesheets();
 		add_action( 'wp_print_styles', array( &$this, 'enqueue_public_stylesheets' ) );
 		add_action( 'wp_print_scripts', array( &$this, 'enqueue_public_scripts' ) );
-	}
+		
+	} // END init()
 	
 	/**
 	 * Queue up any public stylesheets we have
@@ -55,6 +64,78 @@ class nycitynewsservice {
 	} // END - enqueue_public_stylesheets()
 	
 	/**
+	 * create_taxonomies()
+	 * Register taxonomies for all of our post types
+	 */
+	function create_taxonomies() {
+
+		// Register the Places taxonomy
+		$args = array(
+			'label' => 'places',
+			'labels' => array(
+				'name' => 'Places',
+				'singular_name' => 'Place',
+				'search_items' =>  'Search Places',
+				'popular_items' => 'Popular Places',
+				'all_items' => 'All Places',
+				'parent_item' => 'Parent Places',
+				'parent_item_colon' => 'Parent Places:',
+				'edit_item' => 'Edit Place', 
+				'update_item' => 'Update Place',
+				'add_new_item' => 'Add New Place',
+				'new_item_name' => 'New Place',
+				'separate_items_with_commas' => 'Separate places with commas',
+				'add_or_remove_items' => 'Add or remove places',
+				'choose_from_most_used' => 'Choose from the most common places',
+				'menu_name' => 'Places',
+			),
+			'show_tagcloud' => false,
+			'rewrite' => array(
+				'slug' => 'places',
+				'hierarchical' => true,
+			),
+		);
+
+		$post_types = array(
+			'post',
+		);
+		register_taxonomy( 'nycns_courses', $post_types, $args );
+		
+		// Register the Topics taxonomy
+		$args = array(
+			'label' => 'topics',
+			'labels' => array(
+				'name' => 'Topics',
+				'singular_name' => 'Topics',
+				'search_items' =>  'Search Topics',
+				'popular_items' => 'Popular Places',
+				'all_items' => 'All Topics',
+				'parent_item' => 'Parent Topics',
+				'parent_item_colon' => 'Parent Topics:',
+				'edit_item' => 'Edit Topic', 
+				'update_item' => 'Update Topic',
+				'add_new_item' => 'Add New Topic',
+				'new_item_name' => 'New Topic',
+				'separate_items_with_commas' => 'Separate topics with commas',
+				'add_or_remove_items' => 'Add or remove topics',
+				'choose_from_most_used' => 'Choose from the most common topics',
+				'menu_name' => 'Topics',
+			),
+			'show_tagcloud' => false,
+			'rewrite' => array(
+				'slug' => 'topics',
+				'hierarchical' => true,
+			),
+		);
+
+		$post_types = array(
+			'post',
+		);
+		register_taxonomy( 'nycns_topics', $post_types, $args );
+			
+	} // END create_taxonomies()
+	
+	/**
 	 * Queue up any public scripts we have
 	 */
 	function enqueue_public_scripts() {
@@ -69,9 +150,7 @@ class nycitynewsservice {
 		
 	} // END - enqueue_public_scripts()
 	
-}
-	
-}
+} // END class nycitynewsservice
 
 global $nycitynewsservice;
 $nycitynewsservice = new nycitynewsservice();
