@@ -132,6 +132,38 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_topics', $post_types, $args );
+		
+		// Register the Media taxonomy
+		$args = array(
+			'label' => 'Media',
+			'labels' => array(
+				'name' => 'Media',
+				'singular_name' => 'Media',
+				'search_items' =>  'Search Media',
+				'popular_items' => 'Popular Media',
+				'all_items' => 'All Media',
+				'parent_item' => 'Parent Media',
+				'parent_item_colon' => 'Parent Media:',
+				'edit_item' => 'Edit Media', 
+				'update_item' => 'Update Media',
+				'add_new_item' => 'Add New Media',
+				'new_item_name' => 'New Media',
+				'separate_items_with_commas' => 'Separate media with commas',
+				'add_or_remove_items' => 'Add or remove media',
+				'choose_from_most_used' => 'Choose from the most common media',
+				'menu_name' => 'Media',
+			),
+			'show_tagcloud' => false,
+			'rewrite' => array(
+				'slug' => 'media',
+				'hierarchical' => true,
+			),
+		);
+
+		$post_types = array(
+			'post',
+		);
+		register_taxonomy( 'nycns_media', $post_types, $args );
 			
 	} // END create_taxonomies()
 	
