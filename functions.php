@@ -99,7 +99,7 @@ class nycitynewsservice {
 		$post_types = array(
 			'post',
 		);
-		register_taxonomy( 'nycns_courses', $post_types, $args );
+		register_taxonomy( 'nycns_places', $post_types, $args );
 		
 		// Register the Topics taxonomy
 		$args = array(
