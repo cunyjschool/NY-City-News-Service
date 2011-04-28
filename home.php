@@ -73,27 +73,21 @@
 <ul class="more clearfix">
   <li class="gomore"><a href="<?php bloginfo('url'); ?>/category/featured/">More Featured Stories</a></li>
   <li class="feed"><a href="<?php bloginfo('url'); ?>/category/featured/feed/">Featured Stories Feed</a></li>
-</ul>  
-
-
-<?php
-if (function_exists('SimplePieWP')) {
-echo SimplePieWP('http://isnapny.com/feed/', array(
-	'template' => 'isnapny',
-	'items' => 4,
-	'processing' => 'images_only',
-	'cache_duration' => 1800
-	));
-}
-?>
-
+</ul>
 
     <div id="multimedia">
 		<h3>Multimedia</h3>
 	<?php
-		$multimedia_args = array( 	'category_name' => 'multimedia',
-									'showposts' => 2
-							);
+		$multimedia_args = array(
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'nycns_media',
+					'field' => 'slug',
+					'terms' => 'multimedia'
+				)
+			),
+			'showposts' => 2,
+		);
 		$multimedia_posts = new WP_Query( $multimedia_args );
 	?>
   	<?php if ( $multimedia_posts->have_posts() ) : while ( $multimedia_posts->have_posts() ) : $multimedia_posts->the_post(); ?>
@@ -111,8 +105,8 @@ echo SimplePieWP('http://isnapny.com/feed/', array(
 <?php endif; ?>
 
 <ul class="more clearfix">
-  <li class="gomore"><a href="<?php bloginfo('url'); ?>/category/multimedia/">More Multimedia</a></li>
-  <li class="feed"><a href="<?php bloginfo('url'); ?>/category/multimedia/feed/">Multimedia Feed</a></li>
+  <li class="gomore"><a href="<?php bloginfo('url'); ?>/media/multimedia/">More Multimedia</a></li>
+  <li class="feed"><a href="<?php bloginfo('url'); ?>/media/multimedia/feed/">Multimedia Feed</a></li>
 </ul> 
     </div>
 
@@ -158,9 +152,16 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 
 		<h3>Video</h3>
 	<?php
-		$video_args = array( 'category_name' => 'video',
-								'showposts' => 1
-						);
+		$video_args = array(
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'nycns_media',
+					'field' => 'slug',
+					'terms' => 'video'
+				)
+			),
+			'showposts' => 1,
+		);
 		$video_posts = new WP_Query( $video_args );
 	?>
 	
@@ -169,10 +170,10 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
  
 	<?php if ( $vimeo_url = get_post_meta($post->ID, 'vimeo_url', true) ) { ?>
 	<?php
-		$args = array(	'width' => 450,
-						'height' => 340,
-				);
-	
+		$args = array(
+			'width' => 450,
+			'height' => 340,
+		);
 		$vimeo_data = cunyj_get_vimeo_data( $vimeo_url, $args );
 	
 	?>	
@@ -196,10 +197,17 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 <?php endif; ?>
 
 <?php
-	$video_args = array(	'category_name' => 'video',
-							'showposts' => 2,
-							'offset' => 1
-					);
+	$video_args = array(
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'nycns_media',
+				'field' => 'slug',
+				'terms' => 'video'
+			)
+		),
+		'showposts' => 2,
+		'offset' => 1,
+	);
 	$video_posts = new WP_Query( $video_args );
 ?>
 
@@ -218,8 +226,8 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 	<?php endif; ?>
 
 	<ul class="more clearfix">
-		<li class="gomore"><a href="<?php bloginfo('url'); ?>/category/video/">More Videos</a></li>
-		<li class="feed"><a href="<?php bloginfo('url'); ?>/category/video/feed/">Videos Feed</a></li>
+		<li class="gomore"><a href="<?php bloginfo('url'); ?>/media/video/">More Videos</a></li>
+		<li class="feed"><a href="<?php bloginfo('url'); ?>/media/video/feed/">Videos Feed</a></li>
 	</ul> 
 </div>
 
@@ -227,9 +235,16 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
     <div id="audio">
 <h3>Audio</h3>
 <?php
-	$audio_args = array(	'category_name' => 'audio',
-							'showposts' => 2
-					);
+	$audio_args = array(
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'nycns_media',
+				'field' => 'slug',
+				'terms' => 'audio'
+			)
+		),
+		'showposts' => 2,
+	);
 	$audio_posts = new WP_Query( $audio_args );
 ?>
 	<?php if ( $audio_posts->have_posts() ) : while ( $audio_posts->have_posts() ) : $audio_posts->the_post(); ?>
@@ -247,24 +262,24 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 	<?php endif; ?>
 
 		<ul class="more clearfix">
-			<li class="gomore"><a href="<?php bloginfo('url'); ?>/category/audio/">More Audio</a></li>
-			<li class="feed"><a href="<?php bloginfo('url'); ?>/category/audio/feed/">Audio Feed</a></li>
+			<li class="gomore"><a href="<?php bloginfo('url'); ?>/media/audio/">More Audio</a></li>
+			<li class="feed"><a href="<?php bloginfo('url'); ?>/media/audio/feed/">Audio Feed</a></li>
 		</ul> 
     </div>
     
     <div id="audio">
 <h3>Related Sites</h3>
 <ul>
-<li><a href="http://www.motthavenherald.com/" target="_blank">Mott Haven Herald</a></li>
-<li><a href="http://fort-greene.blogs.nytimes.com/" target="_blank">NYTimes - The Local: Fort Greene</a></li>
-<li><a href="http://www.theluvbiz.com/" target="_blank">The Luv Biz</a></li>
-<li><a href="http://www.quirkynyc.com/" target="_blank">Quirky NYC</a></li>
-<li><a href="http://nyctracks.journalism.cuny.edu/" target="_blank">NYC Tracks</a></li>
-<li><a href="http://www.explaintheplan.com/" target="_blank">Explain the Plan</a></li>
-<li><a href="http://www.dirtyhandsny.com/" target="_blank">Dirty Hands NY</a></li>
-<li><a href="http://www.deportationdialogue.com/" target="_blank">Deportation Dialogue</a></li>
-<li><a href="http://www.graveyardshiftnyc.com/" target="_blank">Graveyard Shift</a></li>
-<li><a href="http://www.thecitygreens.com/" target="_blank">The City Greens</a></li>
+<li><a href="http://www.motthavenherald.com/">Mott Haven Herald</a></li>
+<li><a href="http://fort-greene.blogs.nytimes.com/" >NYTimes - The Local: Fort Greene</a></li>
+<li><a href="http://www.theluvbiz.com/">The Luv Biz</a></li>
+<li><a href="http://www.quirkynyc.com/">Quirky NYC</a></li>
+<li><a href="http://nyctracks.journalism.cuny.edu/" >NYC Tracks</a></li>
+<li><a href="http://www.explaintheplan.com/">Explain the Plan</a></li>
+<li><a href="http://www.dirtyhandsny.com/">Dirty Hands NY</a></li>
+<li><a href="http://www.deportationdialogue.com/">Deportation Dialogue</a></li>
+<li><a href="http://www.graveyardshiftnyc.com/">Graveyard Shift</a></li>
+<li><a href="http://www.thecitygreens.com/">The City Greens</a></li>
 </ul>
     </div>
   </div>
