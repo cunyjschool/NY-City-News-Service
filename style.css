@@ -808,22 +808,28 @@ ul.more li.gomore {
 	padding-left: 22px; }
 
 li#blip {
-	background: url(img/icons/blip.jpg) no-repeat 3px; }
+	background: url(img/icons/blip.jpg) no-repeat 3px;
+}
 
 li#facebook {
-	background: url(img/icons/facebook.jpg) no-repeat 3px; }
+	background: url(img/icons/facebook_s16.png) no-repeat 2px;
+}
 	
 li#flickr {
-	background: url(img/icons/flickr.jpg) no-repeat 3px; }
+	background: url(img/icons/flickr_s16.png) no-repeat 2px;
+}
 
 li#youtube {
-	background: url(img/icons/youtube.jpg) no-repeat 3px; }
+	background: url(img/icons/youtube_s16.png) no-repeat 2px;
+}
 
 li#twitter {
-	background: url(img/icons/twitter.jpg) no-repeat 3px; }
+	background: url(img/icons/twitter_s16.png) no-repeat 2px;
+}
 
 li#vimeo {
-	background: url(img/icons/vimeo.jpg) no-repeat 3px; }
+	background: url(img/icons/vimeo_s16.png) no-repeat 2px;
+}
 	
 .pulse-thumbnail {
 	float: left;
