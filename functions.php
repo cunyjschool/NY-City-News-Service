@@ -1,6 +1,6 @@
 <?php
 
-define( 'NYCITYNEWSSERVICE_VERSION', '1.0.8' );
+define( 'NYCITYNEWSSERVICE_VERSION', '1.1' );
 	
 class nycitynewsservice {
 	
