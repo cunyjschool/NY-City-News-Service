@@ -76,7 +76,7 @@ A student-powered service at the <a href="http://www.journalism.cuny.edu">CUNY G
 				<li><a href="<?php bloginfo( 'url' ); ?>/topics/environment/">Environment</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/topics/food/">Food</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/topics/health/">Health</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/topics/housing/">Health</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/topics/housing/">Housing</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/topics/i-team/">I-Team</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/topics/transportation/">Transportation</a></li>				
 			</ul>
