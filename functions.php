@@ -154,6 +154,7 @@ class nycitynewsservice {
 				'menu_name' => 'Media',
 			),
 			'show_tagcloud' => false,
+			'hierarchical' => true,
 			'rewrite' => array(
 				'slug' => 'media',
 				'hierarchical' => true,
