@@ -111,7 +111,12 @@ A student-powered service at the <a href="http://www.journalism.cuny.edu">CUNY G
 				<li><a href="<?php bloginfo( 'url' ); ?>/special-projects/cmj-2010/">CMJ 2010: Time to Face the Music</a></li>
 				<li><a href="http://industrynyc.journalism.cuny.edu/">Industry NYC</a></li>
 				<li><a href="http://homelesswithhomework.journalism.cuny.edu/">Homeless With Homework</a></li>
-				<li><a href="http://2010stimulus.org/">State Of The Stimulus: NYC</a></li>								
+				<li><a href="http://2010stimulus.org/">State Of The Stimulus: NYC</a></li>
+				<li><a href="http://talkingnewyork.journalism.cuny.edu/">Talking New York</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/special-projects/nycity-snapshot-2009-economic-pulse/">NYCity SnapShot: 2009 Economic Pulse</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/category/2008-election/">Election 2008</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/category/2008-queens-immigration-project/">Queens Immigration Project</a></li>
+				<li><a href="http://nycitynewsservice.com/category/brooklyn-immigration-2009">Brooklyn Bridges Cultures</a></li>
 			</ul>
 		</li>
 		<li class="navigation-staff float-right secondary-item"><a href="<?php bloginfo( 'url' ); ?>/staff/">Staff</a></li>		
