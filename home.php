@@ -29,18 +29,19 @@
 		</ul>
 
       </div>
-      <div id="networked">
-<h3>Networked</h3>
-<ul>
-  <li id="blip"><a href="http://nycitynewsservice.blip.tv/">Blip.tv</a></li>
-  <li id="facebook"><a href="http://www.facebook.com/cunyjschool">Facebook</a></li>
-  <li id="flickr"><a href="http://www.flickr.com/groups/nycitysnapshot/">Flickr</a></li>
-  <li id="twitter"><a href="http://twitter.com/nycitynews/">Twitter</a></li>
-  <li id="youtube"><a href="http://www.youtube.com/user/nycitynewsservice">YouTube</a></li>
-  <li id="vimeo"><a href="http://vimeo.com/album/3753">Vimeo</a></li>
-</ul>
-      </div>
-    </div>
+	<div id="networked">
+		<h3>Networked</h3>
+		<ul>
+			<li id="facebook"><a href="http://www.facebook.com/cunyjschool">Facebook</a></li>
+			<li id="flickr"><a href="http://www.flickr.com/groups/nycitysnapshot/">Flickr</a></li>
+			<li id="twitter"><a href="http://twitter.com/nycitynews">Twitter</a></li>
+			<li id="youtube"><a href="http://www.youtube.com/user/nycitynewsservice">YouTube</a></li>
+			<li id="vimeo"><a href="http://vimeo.com/album/3753">Vimeo</a></li>
+			<li id="blip"><a href="http://nycitynewsservice.blip.tv/">Blip.tv</a></li>
+		</ul>
+	</div>
+
+</div>
 
 <ul class="more clearfix">
   <li class="gomore"><a href="<?php bloginfo('url'); ?>/category/top-stories/">More Top Stories</a></li>
