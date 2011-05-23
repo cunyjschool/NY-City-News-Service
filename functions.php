@@ -165,6 +165,39 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_media', $post_types, $args );
+		
+		// Register the Projects taxonomy
+		$args = array(
+			'label' => 'Projects',
+			'labels' => array(
+				'name' => 'Projects',
+				'singular_name' => 'Project',
+				'search_items' =>  'Search Projects',
+				'popular_items' => 'Popular Projects',
+				'all_items' => 'All Projects',
+				'parent_item' => 'Parent Project',
+				'parent_item_colon' => 'Parent Project:',
+				'edit_item' => 'Edit Project', 
+				'update_item' => 'Update Project',
+				'add_new_item' => 'Add New Project',
+				'new_item_name' => 'New Project',
+				'separate_items_with_commas' => 'Separate projects with commas',
+				'add_or_remove_items' => 'Add or remove projects',
+				'choose_from_most_used' => 'Choose from the most common projects',
+				'menu_name' => 'Projects',
+			),
+			'show_tagcloud' => false,
+			'hierarchical' => true,
+			'rewrite' => array(
+				'slug' => 'projects',
+				'hierarchical' => true,
+			),
+		);
+
+		$post_types = array(
+			'post',
+		);
+		register_taxonomy( 'nycns_projects', $post_types, $args );
 			
 	} // END create_taxonomies()
 	
