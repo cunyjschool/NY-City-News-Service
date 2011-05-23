@@ -65,6 +65,8 @@
 			
 			<?php endif; ?>
 			
+			<div class="clear-both"></div>
+			
 		</div>
 		
 		<div class="google-map">
