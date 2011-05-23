@@ -1,0 +1,44 @@
+body.term-2011-housing-project .intro {
+	background-image: url('../img/projects/housing2011/aptbuildingbw_h1200.jpg');
+	background-repeat: no-repeat;
+	background-color: #838383;	
+	margin-top: -20px;
+	margin-left: -20px;
+	margin-right: -20px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
+	min-height: 400px;
+}
+
+body.term-2011-housing-project .intro .lead-story {
+	float: right;
+	width: 300px;
+	margin-top: 50px;
+	background-image: url('../img/projects/housing2011/white65.png');
+	padding: 15px;
+}
+
+body.term-2011-housing-project .intro .lead-story h3 {
+	font-size: 18px;
+	line-height: 24px;
+	color: #000000;
+	text-transform: none;
+}
+
+body.term-2011-housing-project .interior-stories {
+	min-height: 200px;
+	border-top: 5px solid #222222;
+	border-bottom: 5px solid #222222;
+	margin-left: -20px;
+	margin-right: -20px;
+}
+
+body.term-2011-housing-project .google-map {
+	background-color: #838383;
+	background-image: url('../img/projects/housing2011/buildingtilebw.jpg');	
+	margin-left: -20px;
+	margin-right: -20px;
+	margin-bottom: -20px;
+	padding: 20px;
+}

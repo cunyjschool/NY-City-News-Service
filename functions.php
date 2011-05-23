@@ -54,12 +54,16 @@ class nycitynewsservice {
 			wp_enqueue_style( 'nycitynewsservice_queens', get_bloginfo('template_directory') . '/css/queens.css', false, NYCITYNEWSSERVICE_VERSION );
 		}
 			
-		
 		// Only load the Election2010 stylesheet on relevant views
 		if ( is_page( 'election-2010' ) ) {
 			wp_enqueue_style( 'nycitynewsservice_election2010', get_bloginfo('template_directory') . '/css/election2010.css', false, NYCITYNEWSSERVICE_VERSION );
 
 		}
+		
+		// Only load the Housing 2011 stylesheet on its taxonomy page	
+		if ( is_tax( 'nycns_projects', '2011-housing-project' ) ) {
+			wp_enqueue_style( 'nycitynewsservice_housing2011', get_bloginfo('template_directory') . '/css/housing2011.css', false, NYCITYNEWSSERVICE_VERSION );
+		}		
 		
 	} // END - enqueue_public_stylesheets()
 	

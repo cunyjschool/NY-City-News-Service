@@ -17,7 +17,8 @@ body {
 	background: #eee;
 	line-height: 175%; }
 	
-.clear {
+.clear,
+.clear-both {
 	clear:both;
 }
 
