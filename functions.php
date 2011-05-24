@@ -4,15 +4,23 @@ define( 'NYCITYNEWSSERVICE_VERSION', '1.1' );
 	
 class nycitynewsservice {
 	
+	var $options_group = 'nycns_';
+	var $options_group_name = 'nycns_options';
+	var $settings_page = 'nycns_settings';	
+	
 	/**
 	 * __construct()
 	 */
 	function __construct() {
 		
+		$this->options = get_option( $this->options_group_name );		
+		
 		add_action( 'init', array(&$this, 'init') );
 		
 		// Create our custom taxonomies
 		add_action( 'init', array( &$this, 'create_taxonomies' ) );
+		
+		add_action( 'admin_init', array( &$this, 'admin_init' ) );		
 		
 		// Add support for post thumbnails
 		add_theme_support( 'post-thumbnails' );	
@@ -30,11 +38,33 @@ class nycitynewsservice {
 	function init() {
 		
 		// Enqueue our stylesheets		
-		//$this->enqueue_stylesheets();
 		add_action( 'wp_print_styles', array( &$this, 'enqueue_public_stylesheets' ) );
 		add_action( 'wp_print_scripts', array( &$this, 'enqueue_public_scripts' ) );
 		
+		if ( is_admin() ) {
+			add_action( 'admin_menu', array(&$this, 'add_admin_menu_items') );
+		}		
+		
 	} // END init()
+	
+	/**
+	 * admin_init()
+	 */
+	function admin_init() {
+
+		$this->register_settings();
+
+	} // END admin_init()
+	
+	/**
+	 * add_admin_menu_items()
+	 * Any admin menu items we need
+	 */
+	function add_admin_menu_items() {
+
+		add_submenu_page( 'themes.php', 'NY City News Service Theme Options', 'Theme Options', 'manage_options', 'nycns_options', array( &$this, 'options_page' ) );			
+
+	} // END add_admin_menu_items()		
 	
 	/**
 	 * Queue up any public stylesheets we have
@@ -204,6 +234,69 @@ class nycitynewsservice {
 		register_taxonomy( 'nycns_projects', $post_types, $args );
 			
 	} // END create_taxonomies()
+	
+	/**
+	 * register_settings()
+	 */
+	function register_settings() {
+
+		register_setting( $this->options_group, $this->options_group_name, array( &$this, 'settings_validate' ) );
+
+		// Project settings: Housing 2011
+		add_settings_section( 'nycns_housing2011', 'Home', array(&$this, 'settings_housing2011_section'), $this->settings_page );
+		add_settings_field( 'home_description', 'Description above the search box', array(&$this, 'settings_home_description_option'), $this->settings_page, 'docredux_home' );
+
+	} // END register_settings()
+	
+	/**
+	 * settings_home_description_option()
+	 * Option to configure the text that appears on the homepage
+	 */
+	function settings_home_description_option() {
+		
+		$options = $this->options;
+		$allowed_tags = htmlentities( '<b><strong><em><i><span><a><br>' );
+
+		echo '<textarea id="home_description" name="' . $this->options_group_name . '[home_description]" cols="80" rows="6">';
+		if ( isset( $options['home_description'] ) && $options['home_description'] ) {
+			echo $options['home_description'];
+		}
+		echo '</textarea>';
+		echo '<p class="description">The following tags are permitted: ' . $allowed_tags . '</p>';
+		
+	} // END settings_home_description_option()	
+	
+	/**
+	 * settings_validate()
+	 * Validation and sanitization on the settings field
+	 */
+	function settings_validate( $input ) {
+
+		return $input;
+
+	} // END settings_validate()
+	
+	/**
+	 * Options page for the theme
+	 */
+	function options_page() {
+		?>                                   
+		<div class="wrap">
+			<div class="icon32" id="icon-options-general"><br/></div>
+
+			<h2>NY City News Service theme options</h2>
+
+			<form action="options.php" method="post">
+
+				<?php settings_fields( $this->options_group ); ?>
+				<?php do_settings_sections( $this->settings_page ); ?>
+
+				<p class="submit"><input name="submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>" /></p>
+
+			</form>
+		</div>
+		<?php
+	} // END options_page()	
 	
 	/**
 	 * Queue up any public scripts we have
