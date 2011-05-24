@@ -8,6 +8,8 @@ class nycitynewsservice {
 	var $options_group_name = 'nycns_options';
 	var $settings_page = 'nycns_settings';
 	var $options_defaults = array(
+		'home_highlighted_text' => '',
+		'home_highlighted_url' => '',		
 		'housing2011_lead_story' => 0,
 		'housing2011_lead_story_description' => '',
 		'housing2011_soundslides_url' => '',
@@ -246,6 +248,11 @@ class nycitynewsservice {
 	function register_settings() {
 
 		register_setting( $this->options_group, $this->options_group_name, array( &$this, 'settings_validate' ) );
+		
+		// Home
+		add_settings_section( 'nycns_home', 'Home', array(&$this, 'settings_home_section'), $this->settings_page );
+		add_settings_field( 'home_highlighted_text', 'Highlighted text', array(&$this, 'settings_home_highlighted_text_option'), $this->settings_page, 'nycns_home' );
+		add_settings_field( 'home_highlighted_url', 'Highlighted URL', array(&$this, 'settings_home_highlighted_url_option'), $this->settings_page, 'nycns_home' );
 
 		// Project settings: Housing 2011
 		add_settings_section( 'nycns_housing2011', 'Project: Housing 2011', array(&$this, 'settings_housing2011_section'), $this->settings_page );
@@ -254,6 +261,34 @@ class nycitynewsservice {
 		add_settings_field( 'housing2011_soundslides_url', 'Featured Soundslides URL', array(&$this, 'settings_housing2011_soundslides_url_option'), $this->settings_page, 'nycns_housing2011' );				
 
 	} // END register_settings()
+	
+	/**
+	 * settings_home_highlighted_text_option()
+	 */
+	function settings_home_highlighted_text_option() {
+		
+		$options = $this->options;
+
+		echo '<input id="home_highlighted_text" name="' . $this->options_group_name . '[home_highlighted_text]" value="';
+		echo $options['home_highlighted_text'];
+		echo '" size="100" />';
+		echo '<p class="description">(Optional) Text for the highlighted spot at the top of the homepage</p>';
+		
+	} // END settings_home_highlighted_text_option()
+	
+	/**
+	 * settings_home_highlighted_url_option()
+	 */
+	function settings_home_highlighted_url_option() {
+		
+		$options = $this->options;
+
+		echo '<input id="home_highlighted_url" name="' . $this->options_group_name . '[home_highlighted_url]" value="';
+		echo $options['home_highlighted_url'];
+		echo '" size="100" />';
+		echo '<p class="description">(Optional) URL for the highlighted spot at the top of the homepage</p>';
+		
+	} // END settings_home_highlighted_url_option()
 	
 	/**
 	 * settings_housing2011_lead_story_option()
@@ -328,6 +363,11 @@ class nycitynewsservice {
 		
 		$allowed_tags = htmlentities( '<b><strong><em><i><span><a><br><p>' );
 
+		// Home
+		$input['home_highlighted_text'] = strip_tags( $input['home_highlighted_text'] );
+		$input['home_highlighted_url'] = strip_tags( $input['home_highlighted_url'] );		
+
+		// Project: Housing 2011
 		$input['housing2011_lead_story'] = (int)$input['housing2011_lead_story'];	
 		$input['housing2011_lead_story_description'] = strip_tags( $input['housing2011_lead_story_description'], $allowed_tags );
 		$input['housing2011_soundslides_url'] = strip_tags( $input['housing2011_soundslides_url'] );
