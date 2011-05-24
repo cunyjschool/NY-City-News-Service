@@ -49,7 +49,7 @@
 						'terms' => '2011-housing-project',
 					)
 				),
-				'showposts' => 5,
+				'showposts' => 6,
 				'post__not_in' => array(
 					$theme_options['housing2011_lead_story'],
 				),
