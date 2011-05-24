@@ -26,6 +26,14 @@
 			
 			<?php endif; // END if ( $theme_options['housing2011_lead_story'] ) ?>
 			
+			<?php if ( $theme_options['housing2011_soundslides_url'] ): ?>
+				
+			<div class="featured-soundslides">
+				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="500" height="400" id="soundslider"><param name="movie" value="<?php echo rtrim( $theme_options['housing2011_soundslides_url'], '/' ); ?>/soundslider.swf?size=1&format=xml&embed_width=500&embed_height=400&autoload=false" /><param name="allowScriptAccess" value="always" /><param name="quality" value="high" /><param name="allowFullScreen" value="true" /><param name="menu" value="false" /><param name="bgcolor" value="#000000" /><embed src="<?php echo rtrim( $theme_options['housing2011_soundslides_url'], '/' ); ?>/soundslider.swf?size=1&format=xml&embed_width=500&embed_height=400&autoload=false" quality="high" bgcolor="#000000" width="500" height="400" menu="false" allowScriptAccess="sameDomain" allowFullScreen="true" type="application/x-shockwave-flash"></embed></object>
+			</div>
+				
+			<?php endif; ?>
+			
 			<div class="clear-both"></div>
 			
 		</div>

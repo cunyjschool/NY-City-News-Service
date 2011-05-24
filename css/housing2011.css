@@ -6,9 +6,15 @@ body.term-2011-housing-project .intro {
 	margin-left: -20px;
 	margin-right: -20px;
 	padding-bottom: 30px;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 50px;
+	padding-right: 50px;
 	min-height: 400px;
+}
+
+body.term-2011-housing-project .intro .featured-soundslides {
+	float: left;
+	margin-top: 50px;
+	margin-bottom: 40px;
 }
 
 body.term-2011-housing-project .intro .lead-story {

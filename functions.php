@@ -10,6 +10,7 @@ class nycitynewsservice {
 	var $options_defaults = array(
 		'housing2011_lead_story' => 0,
 		'housing2011_lead_story_description' => '',
+		'housing2011_soundslides_url' => '',
 	);
 	
 	/**
@@ -249,7 +250,8 @@ class nycitynewsservice {
 		// Project settings: Housing 2011
 		add_settings_section( 'nycns_housing2011', 'Project: Housing 2011', array(&$this, 'settings_housing2011_section'), $this->settings_page );
 		add_settings_field( 'housing2011_lead_story', 'Lead story for the project', array(&$this, 'settings_housing2011_lead_story_option'), $this->settings_page, 'nycns_housing2011' );
-		add_settings_field( 'housing2011_lead_story_description', 'Extended lead story intro', array(&$this, 'settings_housing2011_lead_story_description_option'), $this->settings_page, 'nycns_housing2011' );		
+		add_settings_field( 'housing2011_lead_story_description', 'Extended lead story intro', array(&$this, 'settings_housing2011_lead_story_description_option'), $this->settings_page, 'nycns_housing2011' );
+		add_settings_field( 'housing2011_soundslides_url', 'Featured Soundslides URL', array(&$this, 'settings_housing2011_soundslides_url_option'), $this->settings_page, 'nycns_housing2011' );				
 
 	} // END register_settings()
 	
@@ -302,7 +304,21 @@ class nycitynewsservice {
 		echo '</textarea>';
 		echo '<p class="description">The following tags are permitted: ' . $allowed_tags . '</p>';
 		
-	} // END settings_housing2011_lead_story_description_option()	
+	} // END settings_housing2011_lead_story_description_option()
+	
+	/**
+	 * settings_housing2011_soundslides_url_option()
+	 */
+	function settings_housing2011_soundslides_url_option() {
+		
+		$options = $this->options;
+
+		echo '<input id="housing2011_soundslides_url" name="' . $this->options_group_name . '[housing2011_soundslides_url]" value="';
+		echo $options['housing2011_soundslides_url'];
+		echo '" size="100" />';
+		echo '<p class="description">(Optional) Copy and paste your Soundslides URL</p>';
+		
+	} // END settings_housing2011_soundslides_url_option()	
 	
 	/**
 	 * settings_validate()
@@ -313,7 +329,8 @@ class nycitynewsservice {
 		$allowed_tags = htmlentities( '<b><strong><em><i><span><a><br><p>' );
 
 		$input['housing2011_lead_story'] = (int)$input['housing2011_lead_story'];	
-		$input['housing2011_lead_story_description'] = strip_tags( $input['housing2011_lead_story_description'], $allowed_tags );		
+		$input['housing2011_lead_story_description'] = strip_tags( $input['housing2011_lead_story_description'], $allowed_tags );
+		$input['housing2011_soundslides_url'] = strip_tags( $input['housing2011_soundslides_url'] );
 
 		return $input;
 
