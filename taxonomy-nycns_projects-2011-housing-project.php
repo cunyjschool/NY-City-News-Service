@@ -1,19 +1,30 @@
-<?php get_header(); ?>
+<?php get_header();
+	$theme_options = nycns_get_theme_options();
+?>
 
 	<div id="content">
 		
 		<div class="intro">
 			
+			<?php if ( $theme_options['housing2011_lead_story'] ): ?>
+			
 			<div class="lead-story">
 				
-				<h3>The Lead Story</h3>
+				<?php $lead_story = get_post( $theme_options['housing2011_lead_story'] );  ?>
 				
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet rhoncus dolor, at suscipit orci porttitor ut. Nunc scelerisque tortor eu ligula condimentum consectetur. Suspendisse semper mi sed magna vehicula sagittis. Vivamus nec orci libero, cursus eleifend ipsum. In mattis euismod consequat.</p>
-				<p>Sed lacus erat, luctus at tempus quis, aliquam ac tellus. Donec pretium fringilla diam ut molestie. Morbi lectus elit, ornare vel convallis vitae, imperdiet pulvinar dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem risus, rhoncus vitae scelerisque vel, pulvinar at tellus. Aliquam erat volutpat. Aliquam et erat at justo ultrices imperdiet. Nulla facilisi.</p>
+				<h3><?php echo $lead_story->post_title; ?></h3>
 				
-				<p class="read-more"><a href="#">Read the whole story</a></p>
+				<?php if ( !empty( $theme_options['housing2011_lead_story_description'] ) ) {
+					
+				} else {
+					echo $lead_story->post_excerpt;
+				} ?>
+				
+				<p class="read-more"><a href="<?php the_permalink( $theme_options['housing2011_lead_story'] ); ?>">Read the whole story</a></p>
 				
 			</div>
+			
+			<?php endif; // END if ( $theme_options['housing2011_lead_story'] ) ?>
 			
 			<div class="clear-both"></div>
 			

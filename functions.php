@@ -6,14 +6,17 @@ class nycitynewsservice {
 	
 	var $options_group = 'nycns_';
 	var $options_group_name = 'nycns_options';
-	var $settings_page = 'nycns_settings';	
+	var $settings_page = 'nycns_settings';
+	var $options_defaults = array(
+		'housing2011_lead_story' => 0,
+	);
 	
 	/**
 	 * __construct()
 	 */
 	function __construct() {
 		
-		$this->options = get_option( $this->options_group_name );		
+		$this->options = array_merge( $this->options_defaults, get_option( $this->options_group_name ) );
 		
 		add_action( 'init', array(&$this, 'init') );
 		
@@ -244,33 +247,53 @@ class nycitynewsservice {
 
 		// Project settings: Housing 2011
 		add_settings_section( 'nycns_housing2011', 'Home', array(&$this, 'settings_housing2011_section'), $this->settings_page );
-		add_settings_field( 'home_description', 'Description above the search box', array(&$this, 'settings_home_description_option'), $this->settings_page, 'docredux_home' );
+		add_settings_field( 'housing2011_lead_story', 'Lead story for the project', array(&$this, 'settings_housing2011_lead_story_option'), $this->settings_page, 'nycns_housing2011' );
 
 	} // END register_settings()
 	
 	/**
-	 * settings_home_description_option()
-	 * Option to configure the text that appears on the homepage
+	 * settings_housing2011_lead_story_option()
+	 * Choose the lead story for the Housing 2011 project
 	 */
-	function settings_home_description_option() {
+	function settings_housing2011_lead_story_option() {
 		
 		$options = $this->options;
-		$allowed_tags = htmlentities( '<b><strong><em><i><span><a><br>' );
+		$args = array(		
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'nycns_projects',
+					'field' => 'slug',
+					'terms' => '2011-housing-project',
+				)
+			),
+			'showposts' => -1,
+		);
 
-		echo '<textarea id="home_description" name="' . $this->options_group_name . '[home_description]" cols="80" rows="6">';
-		if ( isset( $options['home_description'] ) && $options['home_description'] ) {
-			echo $options['home_description'];
+		$project_posts = new WP_Query( $args );
+		echo '<select id="housing2011_lead_story" name="' . $this->options_group_name . '[housing2011_lead_story]">';
+		echo '<option value="0">-- No lead story --</option>';
+		if ( $project_posts->have_posts() ) {
+			while ( $project_posts->have_posts() ) {
+				$project_posts->the_post();
+				echo '<option value="' . get_the_id() . '"';
+				if ( get_the_id() == $options['housing2011_lead_story'] ) {
+					echo ' selected="selected"';
+				}
+				echo '>' . get_the_title() . '</option>';
+			}
 		}
-		echo '</textarea>';
-		echo '<p class="description">The following tags are permitted: ' . $allowed_tags . '</p>';
+		echo '</select>';
+		echo '<p class="description">Choose the lead story for the project to have it show at the top.</p>';
 		
-	} // END settings_home_description_option()	
+	} // END settings_housing2011_lead_story_option()	
 	
 	/**
 	 * settings_validate()
 	 * Validation and sanitization on the settings field
 	 */
 	function settings_validate( $input ) {
+		
+		$input['housing2011_lead_story'] = (int)$input['housing2011_lead_story'];	
 
 		return $input;
 
@@ -360,8 +383,19 @@ function cunyj_custom_page_stylesheet() {
 		echo '<link rel="stylesheet" href="' . get_bloginfo('template_directory') . '/css/' . $stylesheet . '?v=' . NYCITYNEWSSERVICE_VERSION . '" type="text/css" media="all" />';
 	}
 }
-
 add_action( 'wp_head', 'cunyj_custom_page_stylesheet' );
+
+/**
+ * nycns_get_theme_options()
+ * Get the options for the theme
+ */
+function nycns_get_theme_options() {
+	global $nycitynewsservice;
+	
+	return $nycitynewsservice->options;
+	
+} // END nycns_get_theme_options()
+
 
 function cunyj_get_vimeo_data( $url, $args = null ) {
 
