@@ -9,6 +9,7 @@ class nycitynewsservice {
 	var $settings_page = 'nycns_settings';
 	var $options_defaults = array(
 		'housing2011_lead_story' => 0,
+		'housing2011_lead_story_description' => '',
 	);
 	
 	/**
@@ -248,6 +249,7 @@ class nycitynewsservice {
 		// Project settings: Housing 2011
 		add_settings_section( 'nycns_housing2011', 'Project: Housing 2011', array(&$this, 'settings_housing2011_section'), $this->settings_page );
 		add_settings_field( 'housing2011_lead_story', 'Lead story for the project', array(&$this, 'settings_housing2011_lead_story_option'), $this->settings_page, 'nycns_housing2011' );
+		add_settings_field( 'housing2011_lead_story_description', 'Extended lead story intro', array(&$this, 'settings_housing2011_lead_story_description_option'), $this->settings_page, 'nycns_housing2011' );		
 
 	} // END register_settings()
 	
@@ -285,7 +287,22 @@ class nycitynewsservice {
 		echo '</select>';
 		echo '<p class="description">Choose the lead story for the project to have it show at the top.</p>';
 		
-	} // END settings_housing2011_lead_story_option()	
+	} // END settings_housing2011_lead_story_option()
+	
+	/**
+	 * settings_housing2011_lead_story_description_option()
+	 */
+	function settings_housing2011_lead_story_description_option() {
+		
+		$options = $this->options;
+		$allowed_tags = htmlentities( '<b><strong><em><i><span><a><br><p>' );
+
+		echo '<textarea id="housing2011_lead_story_description" name="' . $this->options_group_name . '[housing2011_lead_story_description]" cols="80" rows="6">';
+		echo $options['housing2011_lead_story_description'];
+		echo '</textarea>';
+		echo '<p class="description">The following tags are permitted: ' . $allowed_tags . '</p>';
+		
+	} // END settings_housing2011_lead_story_description_option()	
 	
 	/**
 	 * settings_validate()
@@ -293,7 +310,10 @@ class nycitynewsservice {
 	 */
 	function settings_validate( $input ) {
 		
+		$allowed_tags = htmlentities( '<b><strong><em><i><span><a><br><p>' );
+
 		$input['housing2011_lead_story'] = (int)$input['housing2011_lead_story'];	
+		$input['housing2011_lead_story_description'] = strip_tags( $input['housing2011_lead_story_description'], $allowed_tags );		
 
 		return $input;
 

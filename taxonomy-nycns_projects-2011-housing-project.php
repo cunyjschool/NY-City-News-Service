@@ -15,9 +15,9 @@
 				<h3><?php echo $lead_story->post_title; ?></h3>
 				
 				<?php if ( !empty( $theme_options['housing2011_lead_story_description'] ) ) {
-					
+					echo wpautop( $theme_options['housing2011_lead_story_description'] );
 				} else {
-					echo $lead_story->post_excerpt;
+					echo wpautop( $lead_story->post_excerpt );
 				} ?>
 				
 				<p class="read-more"><a href="<?php the_permalink( $theme_options['housing2011_lead_story'] ); ?>">Read the whole story</a></p>
