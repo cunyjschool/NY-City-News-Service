@@ -72,4 +72,5 @@ body.term-2011-housing-project .google-map {
 	margin-right: -20px;
 	margin-bottom: -20px;
 	padding: 20px;
+	min-height: 200px;
 }
