@@ -246,6 +246,7 @@ ul.class-member-list li div.member-meta p.member-links a {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	position: relative;
 }
 
 ul.navigation#primary-navigation {
@@ -305,13 +306,13 @@ ul.navigation#primary-navigation li.primary-item a:hover {
 
 ul.navigation#primary-navigation li.primary-item ul.sub-navigation {
 	display:none;
-	z-index: 999;
 	top: 25px;
 	left: 0px;
-	position: absolute;
 	background-color: #F9F9F9;
 	border: 1px solid #CCCCCC;
 	width: 200px;
+	position: absolute;	
+	z-index: 99999;	
 }
 
 ul.navigation#primary-navigation li.primary-item.navigation-special-projects ul.sub-navigation {
@@ -321,6 +322,7 @@ ul.navigation#primary-navigation li.primary-item.navigation-special-projects ul.
 ul.navigation#primary-navigation li.primary-item ul.sub-navigation li {
 	display: block;
 	letter-spacing: 0.2px;
+	position: relative;	
 }
 
 ul.navigation#primary-navigation li.primary-item ul.sub-navigation li a {
