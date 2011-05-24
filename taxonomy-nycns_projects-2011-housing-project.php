@@ -83,6 +83,10 @@
 
 			</ul>
 			
+			<?php else: ?>
+				
+				<div class="message info">No stories have been published yet.</div>
+				
 			<?php endif; ?>
 			
 			<div class="clear-both"></div>
