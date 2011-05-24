@@ -51,6 +51,7 @@
 				),
 				'showposts' => 5,
 				'post__not_in' => array(
+					$theme_options['housing2011_lead_story'],
 				),
 			);
 			$project_posts = new WP_Query( $args );
