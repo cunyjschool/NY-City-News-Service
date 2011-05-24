@@ -246,7 +246,7 @@ class nycitynewsservice {
 		register_setting( $this->options_group, $this->options_group_name, array( &$this, 'settings_validate' ) );
 
 		// Project settings: Housing 2011
-		add_settings_section( 'nycns_housing2011', 'Home', array(&$this, 'settings_housing2011_section'), $this->settings_page );
+		add_settings_section( 'nycns_housing2011', 'Project: Housing 2011', array(&$this, 'settings_housing2011_section'), $this->settings_page );
 		add_settings_field( 'housing2011_lead_story', 'Lead story for the project', array(&$this, 'settings_housing2011_lead_story_option'), $this->settings_page, 'nycns_housing2011' );
 
 	} // END register_settings()
