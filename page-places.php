@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Taxonomy - Topics
+Template Name: Taxonomy - Places
 */
 
 ?>
@@ -15,11 +15,11 @@ Template Name: Taxonomy - Topics
 				'orderby' => 'name',
 				'hide_empty' => false,
 			);
-			$topics = get_terms( 'nycns_topics', $args );
-			if ( count( $topics ) > 0 ) {
+			$places = get_terms( 'nycns_places', $args );
+			if ( count( $places ) > 0 ) {
  				$html = '';
-				foreach ( $topics as $topic ) {
-					$html .= "<a href='" . get_bloginfo( 'url' ) . "/topics/" . $topic->slug . "'>" . $topic->name . "</a> (" . $topic->count . "), ";
+				foreach ( $places as $place ) {
+					$html .= "<a href='" . get_bloginfo( 'url' ) . "/place/" . $place->slug . "'>" . $place->name . "</a> (" . $place->count . "), ";
 				}
 				echo rtrim( $html, ', ' );
 			}
