@@ -555,6 +555,10 @@ img#isnaplogo {
 .postmetadata li#media {
 	background: url(img/icons/film.png) no-repeat 0 4px;
 }
+
+.postmetadata li#publications {
+	background: url(img/icons/newspaper.png) no-repeat 0 4px;
+}
 	
 .postmetadata li#feed {
 	background: url(img/icons/feed.png) no-repeat 0 3px; }

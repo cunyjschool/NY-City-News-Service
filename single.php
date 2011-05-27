@@ -65,6 +65,9 @@ By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_lin
 			<?php if ( $media = get_the_term_list( get_the_id(), 'nycns_media', false, ', ' ) ): ?>
 				<li id="media">Media: <?php echo $media; ?></li>
 			<?php endif; ?>
+			<?php if ( $publications = get_the_term_list( get_the_id(), 'nycns_publications', false, ', ' ) ): ?>
+				<li id="publications">Publications: <?php echo $publications; ?></li>
+			<?php endif; ?>
 			<li id="feed">You can follow any responses to this story through the <?php comments_rss_link('RSS 2.0'); ?> feed.</li>
 			<?php if(get_post_meta($post->ID, 'street_address', true) != "") { ?><li id="mapicon"><a href="http://maps.google.com/maps?ll=<?php echo get_post_meta( $post->ID,"street_address", $single=true ) ; ?>&q=<?php the_title(); ?>@<?php echo get_post_meta( $post->ID,"street_address", $single=true ) ; ?>&spn=0.005025,0.008500&t">Map this story</a>.</li><?php } ?> 
   			<li id="comment">

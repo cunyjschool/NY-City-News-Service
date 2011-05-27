@@ -119,8 +119,8 @@ class nycitynewsservice {
 				'search_items' =>  'Search Places',
 				'popular_items' => 'Popular Places',
 				'all_items' => 'All Places',
-				'parent_item' => 'Parent Places',
-				'parent_item_colon' => 'Parent Places:',
+				'parent_item' => 'Parent Place',
+				'parent_item_colon' => 'Parent Place:',
 				'edit_item' => 'Edit Place', 
 				'update_item' => 'Update Place',
 				'add_new_item' => 'Add New Place',
@@ -149,10 +149,10 @@ class nycitynewsservice {
 				'name' => 'Topics',
 				'singular_name' => 'Topics',
 				'search_items' =>  'Search Topics',
-				'popular_items' => 'Popular Places',
+				'popular_items' => 'Popular Topics',
 				'all_items' => 'All Topics',
-				'parent_item' => 'Parent Topics',
-				'parent_item_colon' => 'Parent Topics:',
+				'parent_item' => 'Parent Topic',
+				'parent_item_colon' => 'Parent Topic:',
 				'edit_item' => 'Edit Topic', 
 				'update_item' => 'Update Topic',
 				'add_new_item' => 'Add New Topic',
@@ -173,6 +173,38 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_topics', $post_types, $args );
+		
+		// Register the Publications taxonomy
+		$args = array(
+			'label' => 'topics',
+			'labels' => array(
+				'name' => 'Publications',
+				'singular_name' => 'Publications',
+				'search_items' =>  'Search Publications',
+				'popular_items' => 'Popular Publications',
+				'all_items' => 'All Publications',
+				'parent_item' => 'Parent Publication',
+				'parent_item_colon' => 'Parent Publication:',
+				'edit_item' => 'Edit Publication', 
+				'update_item' => 'Update Publication',
+				'add_new_item' => 'Add New Publication',
+				'new_item_name' => 'New Publication',
+				'separate_items_with_commas' => 'Separate publications with commas',
+				'add_or_remove_items' => 'Add or remove publications',
+				'choose_from_most_used' => 'Choose from the most common publications',
+				'menu_name' => 'Publications',
+			),
+			'show_tagcloud' => false,
+			'rewrite' => array(
+				'slug' => 'publications',
+				'hierarchical' => true,
+			),
+		);
+
+		$post_types = array(
+			'post',
+		);
+		register_taxonomy( 'nycns_publications', $post_types, $args );		
 		
 		// Register the Media taxonomy
 		$args = array(
