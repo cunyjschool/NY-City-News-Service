@@ -685,6 +685,14 @@ img.multimedia-screenshot {
 	padding-left: 20px;
 	float: left;
 	width: 150px; }
+
+#side-sections h4 {
+	margin-bottom: 5px;
+}
+
+#side-sections ul {
+	margin-bottom: 10px;
+}
 	
 #latest-news {
 	float: left;

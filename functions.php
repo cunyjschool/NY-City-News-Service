@@ -48,6 +48,14 @@ class nycitynewsservice {
 		add_action( 'wp_print_styles', array( &$this, 'enqueue_public_stylesheets' ) );
 		add_action( 'wp_print_scripts', array( &$this, 'enqueue_public_scripts' ) );
 		
+		// Register our menus
+		$menus = array(
+			'primary_topics' => 'Primary Topics',
+			'primary_places' => 'Primary Places',
+			'special_projects' => 'Special Projects',			
+		);
+		register_nav_menus( $menus );
+		
 		if ( is_admin() ) {
 			add_action( 'admin_menu', array(&$this, 'add_admin_menu_items') );
 		}		
