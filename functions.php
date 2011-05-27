@@ -8,6 +8,8 @@ class nycitynewsservice {
 	var $options_group_name = 'nycns_options';
 	var $settings_page = 'nycns_settings';
 	var $options_defaults = array(
+		'home_highlighted_text' => '',
+		'home_highlighted_url' => '',		
 		'housing2011_lead_story' => 0,
 		'housing2011_lead_story_description' => '',
 		'housing2011_soundslides_url' => '',
@@ -45,6 +47,14 @@ class nycitynewsservice {
 		// Enqueue our stylesheets		
 		add_action( 'wp_print_styles', array( &$this, 'enqueue_public_stylesheets' ) );
 		add_action( 'wp_print_scripts', array( &$this, 'enqueue_public_scripts' ) );
+		
+		// Register our menus
+		$menus = array(
+			'primary_topics' => 'Primary Topics',
+			'primary_places' => 'Primary Places',
+			'special_projects' => 'Special Projects',			
+		);
+		register_nav_menus( $menus );
 		
 		if ( is_admin() ) {
 			add_action( 'admin_menu', array(&$this, 'add_admin_menu_items') );
@@ -117,8 +127,8 @@ class nycitynewsservice {
 				'search_items' =>  'Search Places',
 				'popular_items' => 'Popular Places',
 				'all_items' => 'All Places',
-				'parent_item' => 'Parent Places',
-				'parent_item_colon' => 'Parent Places:',
+				'parent_item' => 'Parent Place',
+				'parent_item_colon' => 'Parent Place:',
 				'edit_item' => 'Edit Place', 
 				'update_item' => 'Update Place',
 				'add_new_item' => 'Add New Place',
@@ -147,10 +157,10 @@ class nycitynewsservice {
 				'name' => 'Topics',
 				'singular_name' => 'Topics',
 				'search_items' =>  'Search Topics',
-				'popular_items' => 'Popular Places',
+				'popular_items' => 'Popular Topics',
 				'all_items' => 'All Topics',
-				'parent_item' => 'Parent Topics',
-				'parent_item_colon' => 'Parent Topics:',
+				'parent_item' => 'Parent Topic',
+				'parent_item_colon' => 'Parent Topic:',
 				'edit_item' => 'Edit Topic', 
 				'update_item' => 'Update Topic',
 				'add_new_item' => 'Add New Topic',
@@ -171,6 +181,38 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_topics', $post_types, $args );
+		
+		// Register the Publications taxonomy
+		$args = array(
+			'label' => 'topics',
+			'labels' => array(
+				'name' => 'Publications',
+				'singular_name' => 'Publications',
+				'search_items' =>  'Search Publications',
+				'popular_items' => 'Popular Publications',
+				'all_items' => 'All Publications',
+				'parent_item' => 'Parent Publication',
+				'parent_item_colon' => 'Parent Publication:',
+				'edit_item' => 'Edit Publication', 
+				'update_item' => 'Update Publication',
+				'add_new_item' => 'Add New Publication',
+				'new_item_name' => 'New Publication',
+				'separate_items_with_commas' => 'Separate publications with commas',
+				'add_or_remove_items' => 'Add or remove publications',
+				'choose_from_most_used' => 'Choose from the most common publications',
+				'menu_name' => 'Publications',
+			),
+			'show_tagcloud' => false,
+			'rewrite' => array(
+				'slug' => 'publications',
+				'hierarchical' => true,
+			),
+		);
+
+		$post_types = array(
+			'post',
+		);
+		register_taxonomy( 'nycns_publications', $post_types, $args );		
 		
 		// Register the Media taxonomy
 		$args = array(
@@ -246,6 +288,11 @@ class nycitynewsservice {
 	function register_settings() {
 
 		register_setting( $this->options_group, $this->options_group_name, array( &$this, 'settings_validate' ) );
+		
+		// Home
+		add_settings_section( 'nycns_home', 'Home', array(&$this, 'settings_home_section'), $this->settings_page );
+		add_settings_field( 'home_highlighted_text', 'Highlighted text', array(&$this, 'settings_home_highlighted_text_option'), $this->settings_page, 'nycns_home' );
+		add_settings_field( 'home_highlighted_url', 'Highlighted URL', array(&$this, 'settings_home_highlighted_url_option'), $this->settings_page, 'nycns_home' );
 
 		// Project settings: Housing 2011
 		add_settings_section( 'nycns_housing2011', 'Project: Housing 2011', array(&$this, 'settings_housing2011_section'), $this->settings_page );
@@ -254,6 +301,34 @@ class nycitynewsservice {
 		add_settings_field( 'housing2011_soundslides_url', 'Featured Soundslides URL', array(&$this, 'settings_housing2011_soundslides_url_option'), $this->settings_page, 'nycns_housing2011' );				
 
 	} // END register_settings()
+	
+	/**
+	 * settings_home_highlighted_text_option()
+	 */
+	function settings_home_highlighted_text_option() {
+		
+		$options = $this->options;
+
+		echo '<input id="home_highlighted_text" name="' . $this->options_group_name . '[home_highlighted_text]" value="';
+		echo $options['home_highlighted_text'];
+		echo '" size="100" />';
+		echo '<p class="description">(Optional) Text for the highlighted spot at the top of the homepage</p>';
+		
+	} // END settings_home_highlighted_text_option()
+	
+	/**
+	 * settings_home_highlighted_url_option()
+	 */
+	function settings_home_highlighted_url_option() {
+		
+		$options = $this->options;
+
+		echo '<input id="home_highlighted_url" name="' . $this->options_group_name . '[home_highlighted_url]" value="';
+		echo $options['home_highlighted_url'];
+		echo '" size="100" />';
+		echo '<p class="description">(Optional) URL for the highlighted spot at the top of the homepage</p>';
+		
+	} // END settings_home_highlighted_url_option()
 	
 	/**
 	 * settings_housing2011_lead_story_option()
@@ -328,6 +403,11 @@ class nycitynewsservice {
 		
 		$allowed_tags = htmlentities( '<b><strong><em><i><span><a><br><p>' );
 
+		// Home
+		$input['home_highlighted_text'] = strip_tags( $input['home_highlighted_text'] );
+		$input['home_highlighted_url'] = strip_tags( $input['home_highlighted_url'] );		
+
+		// Project: Housing 2011
 		$input['housing2011_lead_story'] = (int)$input['housing2011_lead_story'];	
 		$input['housing2011_lead_story_description'] = strip_tags( $input['housing2011_lead_story_description'], $allowed_tags );
 		$input['housing2011_soundslides_url'] = strip_tags( $input['housing2011_soundslides_url'] );

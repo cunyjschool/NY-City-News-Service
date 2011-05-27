@@ -30,6 +30,10 @@ body {
 	float: left;
 }
 
+.align-center {
+	text-align: center;
+}
+
 /**
  * Element: h2
  */
@@ -246,6 +250,7 @@ ul.class-member-list li div.member-meta p.member-links a {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	position: relative;
 }
 
 ul.navigation#primary-navigation {
@@ -305,13 +310,13 @@ ul.navigation#primary-navigation li.primary-item a:hover {
 
 ul.navigation#primary-navigation li.primary-item ul.sub-navigation {
 	display:none;
-	z-index: 999;
 	top: 25px;
 	left: 0px;
-	position: absolute;
 	background-color: #F9F9F9;
 	border: 1px solid #CCCCCC;
 	width: 200px;
+	position: absolute;	
+	z-index: 99999;	
 }
 
 ul.navigation#primary-navigation li.primary-item.navigation-special-projects ul.sub-navigation {
@@ -321,6 +326,7 @@ ul.navigation#primary-navigation li.primary-item.navigation-special-projects ul.
 ul.navigation#primary-navigation li.primary-item ul.sub-navigation li {
 	display: block;
 	letter-spacing: 0.2px;
+	position: relative;	
 }
 
 ul.navigation#primary-navigation li.primary-item ul.sub-navigation li a {
@@ -535,10 +541,24 @@ img#isnaplogo {
 	padding: 0 0 3px 20px; }
 	
 .postmetadata li#date {
-	background: url(img/icons/date.png) no-repeat 0 4px; }
+	background: url(img/icons/date.png) no-repeat 0 4px;
+}
 
-.postmetadata li#tags {
-	background: url(img/icons/tag_blue.png) no-repeat 0 4px; }
+.postmetadata li#topics {
+	background: url(img/icons/tag_blue.png) no-repeat 0 4px;
+}
+
+.postmetadata li#places {
+	background: url(img/icons/world.png) no-repeat 0 4px;
+}
+
+.postmetadata li#media {
+	background: url(img/icons/film.png) no-repeat 0 4px;
+}
+
+.postmetadata li#publications {
+	background: url(img/icons/newspaper.png) no-repeat 0 4px;
+}
 	
 .postmetadata li#feed {
 	background: url(img/icons/feed.png) no-repeat 0 3px; }
@@ -665,6 +685,14 @@ img.multimedia-screenshot {
 	padding-left: 20px;
 	float: left;
 	width: 150px; }
+
+#side-sections h4 {
+	margin-bottom: 5px;
+}
+
+#side-sections ul {
+	margin-bottom: 10px;
+}
 	
 #latest-news {
 	float: left;

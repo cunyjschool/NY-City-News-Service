@@ -47,26 +47,39 @@ if ( is_category(array(2,3,4,5,6)) ) {
 </ul>
 
 <ul id="cats">
-  <h2>Sections</h2>
-  <li><a href="<?php bloginfo('url'); ?>/category/arts-culture/">Arts &amp; Culture</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/audio/">Audio</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/business/">Business</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/education/">Education</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/election2008/">Election 2008</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/environment/">Environment</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/health/" title="View all posts filed under Health">Health</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/housing/" title="View all posts filed under Housing">Housing</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/jstream/" title="View all posts filed under JStream">JStream</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/multimedia/" title="View all posts filed under Multimedia">Multimedia</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/nypulse/" title="View all posts filed under NYPulse">NYPulse</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/politics/" title="View all posts filed under Politics">Politics</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/public-safety/" title="View all posts filed under Public Safety">Public Safety</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/special-projects/" title="View all posts filed under Special Projects">Special Projects</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/super-tuesday-2008/" title="View all posts filed under Super Tuesday 2008">Super Tuesday 2008</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/top-stories/">Top Stories</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/transportation/">Transportation</a></li>
-  <li><a href="<?php bloginfo('url'); ?>/category/video/">Video</a></li>
-</ul>
+		<h4>Topics</h4>
+		<?php 
+		$args = array(
+			'theme_location' => 'primary_topics',
+			'fallback_cb' => false,
+			'container' => false,
+		);
+		wp_nav_menu( $args );
+		?>
+		
+		<h4>Places</h4>
+		<?php 
+		$args = array(
+			'theme_location' => 'primary_places',
+			'fallback_cb' => false,
+			'container' => false,
+		);
+		wp_nav_menu( $args );
+		?>
+		
+		<h4>Media</h4>
+		<?php
+			$args = array(
+				'orderby' => 'name',
+			);
+			$media_terms = get_terms( 'nycns_media', $args );
+		
+		?>
+		<ul class="sub-navigation">
+			<?php foreach ( $media_terms as $media_term ): ?>
+				<li><a href="<?php bloginfo( 'url' ); ?>/media/<?php echo $media_term->slug; ?>/"><?php echo $media_term->name; ?></a></li>
+			<?php endforeach; ?>
+		</ul>
       </div>
     </div>
   </div>
