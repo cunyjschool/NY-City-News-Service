@@ -435,8 +435,9 @@ AudioPlayer.embed("audioplayer_side_4", {
 				<li><a href="<?php bloginfo( 'url' ); ?>/media/<?php echo $media_term->slug; ?>/"><?php echo $media_term->name; ?></a></li>
 			<?php endforeach; ?>
 		</ul>
-      </div>
-    </div>
+	</div><!-- END #side-sections -->
+	
+	</div>
 
 
   </div>
