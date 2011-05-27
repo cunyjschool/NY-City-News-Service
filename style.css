@@ -537,10 +537,20 @@ img#isnaplogo {
 	padding: 0 0 3px 20px; }
 	
 .postmetadata li#date {
-	background: url(img/icons/date.png) no-repeat 0 4px; }
+	background: url(img/icons/date.png) no-repeat 0 4px;
+}
 
-.postmetadata li#tags {
-	background: url(img/icons/tag_blue.png) no-repeat 0 4px; }
+.postmetadata li#topics {
+	background: url(img/icons/tag_blue.png) no-repeat 0 4px;
+}
+
+.postmetadata li#places {
+	background: url(img/icons/world.png) no-repeat 0 4px;
+}
+
+.postmetadata li#media {
+	background: url(img/icons/film.png) no-repeat 0 4px;
+}
 	
 .postmetadata li#feed {
 	background: url(img/icons/feed.png) no-repeat 0 3px; }

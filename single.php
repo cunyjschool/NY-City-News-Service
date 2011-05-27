@@ -40,8 +40,9 @@ By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_lin
 			<?php the_post_thumbnail( 'post-primary', array( 'class' => 'thumbnail' ) ); ?>
 		<?php endif; ?>
 
-  <?php if ( $photo_credit = get_post_meta( $post->ID, 'photo_credit', true ) ) { ?><div class="credit"><?php echo $photo_credit; ?></div><?php } ?>
-  <?php if( $photo_caption = get_post_meta( $post->ID, 'photo_caption', true ) ) { ?><div class="caption"><?php echo $photo_caption; ?></div><?php } ?>      </div>
+		<?php if ( $photo_credit = get_post_meta( $post->ID, 'photo_credit', true ) ) { ?><div class="credit"><?php echo $photo_credit; ?></div><?php } ?>
+		<?php if( $photo_caption = get_post_meta( $post->ID, 'photo_caption', true ) ) { ?><div class="caption"><?php echo $photo_caption; ?></div><?php } ?>
+	</div>
 
       <div>
 		<?php if ( $dateline = get_post_meta( $post->ID, 'dateline', true ) ) { ?><div id="dateline"><?php echo $dateline; ?> -</div><?php } ?> 
@@ -55,8 +56,15 @@ By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_lin
       <div class="postmetadata alt">
 		<ul>
 			<li id="date">This story was posted on <?php the_time('l, F jS, Y') ?> at <?php the_time() ?>.</li>
-			<li id="sections">Categories: <?php the_category(', ') ?></li>
-			<li id="tags"><?php the_tags('Tags: ', ', ', ''); ?></li>
+			<?php if ( $topics = get_the_term_list( get_the_id(), 'nycns_topics', false, ', ' ) ): ?>
+				<li id="topics">Topics: <?php echo $topics; ?></li>
+			<?php endif; ?>
+			<?php if ( $places = get_the_term_list( get_the_id(), 'nycns_places', false, ', ' ) ): ?>
+				<li id="places">Places: <?php echo $places; ?></li>
+			<?php endif; ?>
+			<?php if ( $media = get_the_term_list( get_the_id(), 'nycns_media', false, ', ' ) ): ?>
+				<li id="media">Media: <?php echo $media; ?></li>
+			<?php endif; ?>
 			<li id="feed">You can follow any responses to this story through the <?php comments_rss_link('RSS 2.0'); ?> feed.</li>
 			<?php if(get_post_meta($post->ID, 'street_address', true) != "") { ?><li id="mapicon"><a href="http://maps.google.com/maps?ll=<?php echo get_post_meta( $post->ID,"street_address", $single=true ) ; ?>&q=<?php the_title(); ?>@<?php echo get_post_meta( $post->ID,"street_address", $single=true ) ; ?>&spn=0.005025,0.008500&t">Map this story</a>.</li><?php } ?> 
   			<li id="comment">
