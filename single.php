@@ -35,7 +35,7 @@ By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_lin
       </div>
 	  <?php } ?>
       
-	<div id="featured-photo">
+	<div id="featured-photo" class="align-center">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<?php the_post_thumbnail( 'post-primary', array( 'class' => 'thumbnail' ) ); ?>
 		<?php endif; ?>
