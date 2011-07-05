@@ -1,0 +1,76 @@
+body.term-2011-housing-project .intro {
+	background-image: url('../img/projects/housing2011/aptbuildingbw_h1200.jpg');
+	background-repeat: no-repeat;
+	background-color: #838383;	
+	margin-top: -20px;
+	margin-left: -20px;
+	margin-right: -20px;
+	padding-bottom: 30px;
+	padding-left: 50px;
+	padding-right: 50px;
+	min-height: 400px;
+}
+
+body.term-2011-housing-project .intro .featured-soundslides {
+	float: left;
+	margin-top: 50px;
+	margin-bottom: 40px;
+}
+
+body.term-2011-housing-project .intro .lead-story {
+	float: right;
+	width: 300px;
+	margin-top: 50px;
+	background-image: url('../img/projects/housing2011/white80.png');
+	padding: 15px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+body.term-2011-housing-project .intro .lead-story h3 {
+	font-size: 30px;
+	line-height: 34px;
+	color: #000000;
+	text-transform: none;
+	font-weight: normal;
+}
+
+body.term-2011-housing-project .interior-stories {
+	min-height: 200px;
+	border-top: 5px solid #222222;
+	border-bottom: 5px solid #222222;
+	margin-left: -20px;
+	margin-right: -20px;
+	padding: 20px;
+}
+
+body.term-2011-housing-project .interior-stories ul li.post {
+	width: 150px;
+	padding-left: 7px;
+	padding-right: 6px;
+}
+
+body.term-2011-housing-project .interior-stories ul li.post h4 {
+	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 3px;
+	font-size: 16px;
+	line-height: 22px;
+}
+
+body.term-2011-housing-project .interior-stories ul li.post p {
+	margin: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+body.term-2011-housing-project .google-map {
+	background-color: #838383;
+	background-image: url('../img/projects/housing2011/buildingtilebw.jpg');	
+	margin-left: -20px;
+	margin-right: -20px;
+	margin-bottom: -20px;
+	padding: 20px;
+	min-height: 200px;
+}

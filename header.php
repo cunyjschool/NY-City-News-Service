@@ -68,28 +68,27 @@ A student-powered service at the <a href="http://www.journalism.cuny.edu">CUNY G
 
 <div id="primary-navigation-wrap" class="wrap">
 	<ul id="primary-navigation" class="navigation inline-navigation">
-		<li class="navigation-topics primary-item"><a href="#">Topics</a>
-			<ul class="sub-navigation">
-				<li><a href="<?php bloginfo( 'url' ); ?>/topics/arts-culture/">Arts &amp; Culture</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/topics/business/">Business</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/topics/education/">Education</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/topics/environment/">Environment</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/topics/food/">Food</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/topics/health/">Health</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/topics/housing/">Housing</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/topics/i-team/">I-Team</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/topics/transportation/">Transportation</a></li>				
-			</ul>
+		<li class="navigation-topics primary-item"><a href="<?php get_site_url(); ?>/topics/">Topics</a>
+			<?php 
+			$args = array(
+				'theme_location' => 'primary_topics',
+				'fallback_cb' => false,
+				'container' => false,
+				'menu_class' => 'sub-navigation',
+			);
+			wp_nav_menu( $args );
+			?>
 		</li>
-		<li class="navigation-places primary-item"><a href="#">Places</a>
-			<ul class="sub-navigation">
-				<li><a href="<?php bloginfo( 'url' ); ?>/places/bronx/">Bronx</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/places/brooklyn/">Brooklyn</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/places/brooklyn/">Queens</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/places/manhattan/">Manhattan</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/places/staten-island/">Staten Island</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/places/beyond-new-york/">Beyond New York</a></li>			
-			</ul>
+		<li class="navigation-places primary-item"><a href="<?php get_site_url(); ?>/places/">Places</a>
+			<?php 
+			$args = array(
+				'theme_location' => 'primary_places',
+				'fallback_cb' => false,
+				'container' => false,
+				'menu_class' => 'sub-navigation',
+			);
+			wp_nav_menu( $args );
+			?>
 		</li>
 		<li class="navigation-media primary-item"><a href="#">Media</a>
 			<?php
@@ -106,18 +105,15 @@ A student-powered service at the <a href="http://www.journalism.cuny.edu">CUNY G
 			</ul>
 		</li>
 		<li class="navigation-special-projects primary-item"><a href="<?php bloginfo( 'url' ); ?>/special-projects/">Special Projects</a>
-			<ul class="sub-navigation">
-				<li><a href="<?php bloginfo( 'url' ); ?>/special-projects/election-2010/">NYCity Snapshot: Issues and Impact of Election 2010</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/special-projects/cmj-2010/">CMJ 2010: Time to Face the Music</a></li>
-				<li><a href="http://industrynyc.journalism.cuny.edu/">Industry NYC</a></li>
-				<li><a href="http://homelesswithhomework.journalism.cuny.edu/">Homeless With Homework</a></li>
-				<li><a href="http://2010stimulus.org/">State Of The Stimulus: NYC</a></li>
-				<li><a href="http://talkingnewyork.journalism.cuny.edu/">Talking New York</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/special-projects/nycity-snapshot-2009-economic-pulse/">NYCity SnapShot: 2009 Economic Pulse</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/category/2008-election/">Election 2008</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/category/2008-queens-immigration-project/">Queens Immigration Project</a></li>
-				<li><a href="http://nycitynewsservice.com/category/brooklyn-immigration-2009">Brooklyn Bridges Cultures</a></li>
-			</ul>
+			<?php 
+			$args = array(
+				'theme_location' => 'special_projects',
+				'fallback_cb' => false,
+				'container' => false,
+				'menu_class' => 'sub-navigation',
+			);
+			wp_nav_menu( $args );
+			?>
 		</li>
 		<li class="navigation-staff float-right secondary-item"><a href="<?php bloginfo( 'url' ); ?>/staff/">Staff</a></li>		
 		<li class="navigation-about float-right secondary-item"><a href="<?php bloginfo( 'url' ); ?>/about/">About</a></li>	

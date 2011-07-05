@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php get_header(); 
+	$theme_options = nycns_get_theme_options();
+?>
 
 	<!-- Pingdom check -->
 
@@ -6,7 +8,11 @@
   <div id="homeleft">
     <div id="topstories" class="clearfix">
 	
-		<div id="special-recent-project"><a href="<?php bloginfo('url'); ?>/special-projects/election-2010/">Recent project - NYCity Snapshot: Issues and Impact of Election 2010</a></div>
+		<?php if ( $theme_options['home_highlighted_text'] && $theme_options['home_highlighted_url'] ): ?>
+		<div id="special-recent-project">
+		<a href="<?php echo $theme_options['home_highlighted_url']; ?>"><?php echo $theme_options['home_highlighted_text']; ?></a>
+		</div>
+		<?php endif; // END if ( $theme_options['home_highlighted_text'] ) ?>
 
       <div id="top-digest">
 
