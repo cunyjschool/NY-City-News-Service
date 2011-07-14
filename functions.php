@@ -310,7 +310,7 @@ class nycitynewsservice {
 		add_settings_field( 'housing2011_soundslides_url', 'Featured Soundslides URL', array(&$this, 'settings_housing2011_soundslides_url_option'), $this->settings_page, 'nycns_housing2011' );
 		
 		// Sphinx options
-		add_settings_section( 'nycns_sphinx', 'Sphinx', array( &$this, 'settings_sphinx_section'), $this->settings_page );
+		add_settings_section( 'nycns_sphinx', 'Sphinx Search', array( &$this, 'settings_sphinx_section'), $this->settings_page );
 		add_settings_field( 'sphinx_enabled', 'Enable Sphinx?', array( &$this, 'settings_sphinx_enabled_option'), $this->settings_page, 'nycns_sphinx' );	
 		add_settings_field( 'sphinx_index', 'Sphinx index to use', array( &$this, 'settings_sphinx_index_option'), $this->settings_page, 'nycns_sphinx' );		
 
@@ -407,7 +407,11 @@ class nycitynewsservice {
 		echo '" size="100" />';
 		echo '<p class="description">(Optional) Copy and paste your Soundslides URL</p>';
 		
-	} // END settings_housing2011_soundslides_url_option()
+	}
+	
+	function settings_sphinx_section() {
+		echo '<p>These settings are configured once for using Sphinx as your search indexer. Sphinx means more relevant search results.</p>';
+	}
 	
 	/**
 	 * Whether or not Sphinx is used as the search engine
