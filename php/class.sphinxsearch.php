@@ -26,7 +26,7 @@ class sphinxsearch {
 		$search_options = $this->search_options;
 		
 		if ( !empty( $nycns->options['sphinx_index'] ) ) {
-			$search_options['index'] = $nycns->options['sphinx_index'];
+			$search_options['index'] = $nycns->options['sphinx_index'];	
 		}
 
 		return $search_options;

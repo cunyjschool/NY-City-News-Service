@@ -16,6 +16,8 @@ class nycitynewsservice {
 		'housing2011_lead_story' => 0,
 		'housing2011_lead_story_description' => '',
 		'housing2011_soundslides_url' => '',
+		'sphinx_enabled' => 'off',
+		'sphinx_index' => '',
 	);
 	
 	/**
