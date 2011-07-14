@@ -640,13 +640,48 @@ function cunyj_get_vimeo_data( $url, $args = null ) {
 	
 }
 
+/**
+ * Relative timestamps for use within the loop or elsewhere
+ */
+function nycns_timestamp( $post_id = null, $type = 'published' ) {
+	
+	if ( !isset( $post_id ) ) {
+		global $post;
+		$post_id = $post->ID;
+	}
+	
+	if ( $type == 'published' ) {
+		$post_timestamp = get_the_time( 'U', $post_id );
+	} else if ( $type == 'modified' ) {
+		$post_timestamp = get_the_modified_time( 'U', $post_id );
+	} else {
+		return false;
+	}
+	$current_timestamp = time();
+	
+	// Only do the relative timestamps for 7 days or less, then just the month and day
+	echo '<span class="timestamp">';
+	if ( $post_timestamp > ( $current_timestamp - 604800 ) ) {
+		echo human_time_diff( $post_timestamp ) . ' ago';
+	} else if ( $post_timestamp > ( $current_timestamp - 15552000 ) ) {
+		the_time( 'F jS' );
+	} else {
+		the_time( 'F j, Y' );
+	}
+	echo '</span>';
 
-if ( function_exists('wp_register_sidebar') )
-    wp_register_sidebar(array(
-        'before_widget' => '<li id="%1$s" class="widget %2$s">',
-        'after_widget' => '</li>',
-        'before_title' => '<h2 class="widgettitle">',
-        'after_title' => '</h2>',
-    ));
+}
+
+/**
+ * Wrapper for Co-Authors Plus or no Co-Authors Plus
+ */
+function nycns_author_posts_link() {
+	
+	if ( function_exists( 'coauthors_posts_links' ) )
+		coauthors_posts_links();
+	else 
+		the_author_posts_link();
+	
+}
 
 ?>

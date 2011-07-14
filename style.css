@@ -198,14 +198,25 @@ body.search .post h3 {
 	text-transform: none;
 }
 
+body.search .post .meta,
+body.search .post .meta a {
+	color: #888888;
+	font-size: 11px;
+	line-height: 17px;
+}
+
+body.search .post .meta a:hover {
+	color: #00619B;	
+}
+
 body.search .primary-search {
 	padding-bottom: 5px;
 }
 	
 body.search .primary-search input.search-box {
-	padding: 3px;
+	padding: 5px;
 	font-size: 16px;
-	width: 395px;
+	width: 600px;
 }
 
 body.search .primary-search button.search-button {
@@ -220,7 +231,8 @@ body.search .primary-search button.search-button {
 	font-size: 16px;
 }
 
-body.search .primary-search button.search-button:hover, #jlogo button.search-button:hover  {
+body.search .primary-search button.search-button:hover,
+#jlogo button.search-button:hover  {
 	background-color: #FF9900;
 	border-color: #EF8F00;
 	color: #FFFFFF;
@@ -543,7 +555,9 @@ body.single .post {
 	font-size: 110%;
 	color: #999;
 	margin: 0 0 1.5em 0; }
-	
+
+
+
 .byline {
 	border-bottom: 1px solid #eee;
 	padding-bottom: 5px;

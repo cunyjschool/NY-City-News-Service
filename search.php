@@ -48,6 +48,8 @@
 			$high_title->mark_words();		
 		?>
   		<h3><a href="<?php the_permalink() ?>"><?php echo $high_title->get(); ?></a></h3>
+
+		<div class="meta"><?php nycns_author_posts_link(); ?> - <?php nycns_timestamp(); ?></div>
   		
 		<?php
 			$high_content = new Highlighter( $post->post_content, $search_array );
