@@ -37,6 +37,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	padding: 0;
+	font-family: "myriad-pro", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 .message {
@@ -51,7 +52,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pagination {
-	padding-top: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .pagination .total-results {
@@ -74,6 +76,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .pagination a.page-numbers:hover {
 	background-color: #F2F2F2;
+}
+
+.pagination .next-posts-link a,
+.pagination .previous-posts-link a {
+	background-color: #BBBBBB;
+	color: #FFFFFF;
+	display: inline-block;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+.pagination .next-posts-link a:hover,
+.pagination .previous-posts-link a:hover {
+	text-decoration: none;
+	background-color: #00619b;
 }
 
 body.search .pagination a.page-numbers {
@@ -138,6 +157,10 @@ small {
 	font-size: 90%;
 	color: #666;
 	text-transform: uppercase; }
+	
+.header {
+	padding-top: 15px;
+}
 
 /**
  * Element: ul
@@ -319,6 +342,10 @@ body.search .primary-search button.search-button:hover,
 .wrap {
 	width: 980px;
 	margin: 0 auto;
+}
+
+.content {
+	width: 520px;
 }
 
 .wrap#primary-navigation-wrap {

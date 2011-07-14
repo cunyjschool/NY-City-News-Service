@@ -71,6 +71,10 @@ class nycitynewsservice {
 		);
 		register_nav_menus( $menus );
 		
+		if ( !is_admin() ) {
+			add_action( 'wp_head', array( &$this, 'load_typekit' ) );
+		}
+		
 		if ( is_admin() ) {
 			add_action( 'admin_menu', array(&$this, 'add_admin_menu_items') );
 		}
@@ -116,7 +120,12 @@ class nycitynewsservice {
 			$wp_admin_bar->add_menu( $args );
 		}
 		
-	}	
+	}
+	
+	function load_typekit() {
+		echo '<script type="text/javascript" src="http://use.typekit.com/qdg7fkr.js"></script>';
+		echo '<script type="text/javascript">try{Typekit.load();}catch(e){}</script>';
+	}
 	
 	/**
 	 * Queue up any public stylesheets we have

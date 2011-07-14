@@ -15,6 +15,8 @@
   } ?>
 </title>
 
+	<!-- Pingdom check -->
+
 <meta name="description" content="<?php
 
   if (is_single()) {
@@ -39,16 +41,8 @@
 </head>
 
 <body <?php body_class(); ?>>
-
-<div class="clearfix" id="jlogo">
-  <div style="float: left; width: 500px;">A student-powered service at the <a href="http://www.journalism.cuny.edu">CUNY Graduate School of Journalism</a></div>
-  
-	<?php if ( !is_search() ): ?>
-		<div id="search">
-			<?php include (TEMPLATEPATH . '/searchform.php'); ?>
-  		</div>
-	<?php endif; ?>
-</div>
+	
+<div class="header">
 
 <div class="wrap clearfix" id="globalwrap">
 	
@@ -120,3 +114,4 @@
 	</ul>
 </div><!-- END #primary-navigation-wrap -->
 
+</div>
