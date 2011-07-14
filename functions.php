@@ -134,6 +134,9 @@ class nycitynewsservice {
 		
 		// Primary News Service stylesheet
 		wp_enqueue_style( 'nycitynewsservice_primary', get_bloginfo('template_directory') . '/style.css', false, NYCITYNEWSSERVICE_VERSION );
+		
+		if ( is_home() )
+			wp_enqueue_style( 'nycns_home', get_bloginfo('template_directory') . '/css/home.css', array( 'nycitynewsservice_primary'), NYCITYNEWSSERVICE_VERSION );
 			
 		// Only load the Election2008 stylesheet on relevant views
 		if ( is_category( '2008-election' ) ) {
@@ -704,6 +707,17 @@ function nycns_pagination() {
 
 	echo "<div class='pagination'><span class='float-right total-results'>Total results: " . $wp_query->found_posts . "</span>" . paginate_links( $pagination ) . '<span class="clear-both"></span></div>';
 	
+}
+
+/**
+ * Show the current page number
+ */
+function nycns_show_current_page() {
+	global $wp_query, $wp_rewrite;
+	$wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
+	if ( $current != 1 ) {
+		echo '<span class="page-number">, Page ' . $current . '</span>';
+	}
 }
 
 /**

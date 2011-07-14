@@ -1,0 +1,26 @@
+body.home-page h2.recent-headlines {
+	text-transform: uppercase;
+}
+
+body.home-page .all-posts .post {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: 1px solid #EEEEEE;
+}
+
+body.home-page .all-posts .post:first-child {
+	border-top: none;
+}
+
+body.home-page .all-posts .post h3 {
+	font-size: 18px;
+	line-height: 24px;
+}
+
+body.home-page .all-posts .post img.thumbnail {
+	margin-top: 5px;
+}
+
+body.home-page .all-posts .post.has-post-thumbnail .entry {
+	margin-left: 170px;
+}

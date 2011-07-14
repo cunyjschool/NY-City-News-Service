@@ -62,7 +62,7 @@
 			$high_content->mark_words();
 		?>
 		<div class="entry">					
-			<?php echo $high_content->get(); ?>
+			<?php echo '<p>' . $high_content->get() . '</p>'; ?>
 		</div>
 
 	</div>
