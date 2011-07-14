@@ -52,7 +52,11 @@
 		<div class="meta"><?php nycns_author_posts_link(); ?> - <?php nycns_timestamp(); ?></div>
   		
 		<?php
-			$high_content = new Highlighter( $post->post_content, $search_array );
+			global $shortcode_tags;
+			// Register the shortcode just on this page so we can strip it out of the body. Hack hack hack.
+			$shortcode_tags['audio'] = '';
+			$post_content = strip_shortcodes( $post->post_content );
+			$high_content = new Highlighter( $post_content, $search_array );
 			$high_content->text = $high_content->strip( $high_content->text );
 			$high_content->zoom( 10, 175 );
 			$high_content->mark_words();
@@ -65,10 +69,7 @@
 
     <?php endwhile; ?>
 
-  	<div class="navigation">
-  		<div class="alignleft"><?php next_posts_link('&laquo; Older Entries') ?></div>
-  		<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
-  	</div>
+  	<?php nycns_pagination(); ?>
 
     <?php else : ?>
 

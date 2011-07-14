@@ -50,6 +50,35 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: #FFFFFF;
 }
 
+.pagination {
+	padding-top: 15px;
+}
+
+.pagination .total-results {
+	color: #888888;
+}
+
+.pagination a {
+	text-decoration: none;
+}
+
+.pagination a.page-numbers {
+	display: inline-block;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 7px;
+	padding-right: 7px;
+	margin-right: 5px;
+	border: 1px solid #00619b;
+}
+
+.pagination a.page-numbers:hover {
+	background-color: #F2F2F2;
+}
+
+body.search .pagination a.page-numbers {
+	text-decoration: none;	
+}
 
 /**
  * Element: h2
@@ -85,12 +114,14 @@ dd {
 	margin: 0 0 20px 0;
 	padding: 0; }
 	
-a, a:visited {
+a {
 	color: #00619b;
-	text-decoration: none; }
+	text-decoration: none;
+}
 
 a:hover {
-	text-decoration: underline; }
+	text-decoration: underline;
+}
 	
 a img, a:visited img {
 	border: 0; }
