@@ -1,6 +1,9 @@
 <?php
 
 define( 'NYCITYNEWSSERVICE_VERSION', '1.1.1' );
+
+include_once( 'php/sphinxapi.php' );
+include_once( 'php/class.sphinxsearch.php' );
 	
 class nycitynewsservice {
 	
@@ -22,6 +25,8 @@ class nycitynewsservice {
 		
 		$this->options = array_merge( $this->options_defaults, get_option( $this->options_group_name ) );
 		
+		$this->sphinxsearch = new sphinxsearch();
+		
 		add_action( 'init', array(&$this, 'init') );
 		
 		// Create our custom taxonomies
@@ -36,6 +41,10 @@ class nycitynewsservice {
 		add_image_size( 'thumbnail-secondary', 100, 75, true );	
 		add_image_size( 'sidebar-primary', 225, 100, true );
 		add_image_size( 'post-primary', 485, 250, true );
+		
+		if ( isset( $this->options['sphinx_enabled'] ) && $this->options['sphinx_enabled'] == 'on' ) {
+			add_action( 'init', array( &$this->sphinxsearch, 'initialize' ) );
+		}		
 		
 	} // END __construct()
 	
@@ -298,7 +307,12 @@ class nycitynewsservice {
 		add_settings_section( 'nycns_housing2011', 'Project: Housing 2011', array(&$this, 'settings_housing2011_section'), $this->settings_page );
 		add_settings_field( 'housing2011_lead_story', 'Lead story for the project', array(&$this, 'settings_housing2011_lead_story_option'), $this->settings_page, 'nycns_housing2011' );
 		add_settings_field( 'housing2011_lead_story_description', 'Extended lead story intro', array(&$this, 'settings_housing2011_lead_story_description_option'), $this->settings_page, 'nycns_housing2011' );
-		add_settings_field( 'housing2011_soundslides_url', 'Featured Soundslides URL', array(&$this, 'settings_housing2011_soundslides_url_option'), $this->settings_page, 'nycns_housing2011' );				
+		add_settings_field( 'housing2011_soundslides_url', 'Featured Soundslides URL', array(&$this, 'settings_housing2011_soundslides_url_option'), $this->settings_page, 'nycns_housing2011' );
+		
+		// Sphinx options
+		add_settings_section( 'nycns_sphinx', 'Sphinx', array( &$this, 'settings_sphinx_section'), $this->settings_page );
+		add_settings_field( 'sphinx_enabled', 'Enable Sphinx?', array( &$this, 'settings_sphinx_enabled_option'), $this->settings_page, 'nycns_sphinx' );	
+		add_settings_field( 'sphinx_index', 'Sphinx index to use', array( &$this, 'settings_sphinx_index_option'), $this->settings_page, 'nycns_sphinx' );		
 
 	} // END register_settings()
 	
@@ -393,10 +407,47 @@ class nycitynewsservice {
 		echo '" size="100" />';
 		echo '<p class="description">(Optional) Copy and paste your Soundslides URL</p>';
 		
-	} // END settings_housing2011_soundslides_url_option()	
+	} // END settings_housing2011_soundslides_url_option()
 	
 	/**
-	 * settings_validate()
+	 * Whether or not Sphinx is used as the search engine
+	 */
+	function settings_sphinx_enabled_option() {
+
+		$options = $this->options;
+
+		echo '<select id="sphinx_enabled" name="' . $this->options_group_name . '[sphinx_enabled]">';
+		echo '<option value="off"';
+		if ( isset( $options['sphinx_enabled'] ) && $options['sphinx_enabled'] == 'off' ) {
+			echo ' selected="selected"';
+		}		
+		echo '>Disabled</option>';
+		echo '<option value="on"';
+		if ( isset( $options['sphinx_enabled'] ) && $options['sphinx_enabled'] == 'on' ) {
+			echo ' selected="selected"';
+		}		
+		echo '>Enabled</option>';
+		echo '</select>';
+
+	}
+	
+	/**
+	 * Sphinx index to use
+	 */
+	function settings_sphinx_index_option() {
+		
+		$options = $this->options;
+
+		echo '<input id="sphinx_index" name="' . $this->options_group_name . '[sphinx_index]"';
+		if ( isset( $options['sphinx_index'] ) ) {
+			echo ' value="' . $options['sphinx_index'] . '"';
+		}		
+		echo ' size="80" />';
+		echo '<p class="description">(optional) Defaults to "*"</p>';
+		
+	}
+	
+	/**
 	 * Validation and sanitization on the settings field
 	 */
 	function settings_validate( $input ) {
@@ -411,6 +462,11 @@ class nycitynewsservice {
 		$input['housing2011_lead_story'] = (int)$input['housing2011_lead_story'];	
 		$input['housing2011_lead_story_description'] = strip_tags( $input['housing2011_lead_story_description'], $allowed_tags );
 		$input['housing2011_soundslides_url'] = strip_tags( $input['housing2011_soundslides_url'] );
+		
+		// Sphinx settings
+		if ( $input['sphinx_enabled'] != 'on' )
+			$input['sphinx_enabled'] == 'off';
+		$input['sphinx_index'] = wp_kses( $input['sphinx_index'] );		
 
 		return $input;
 
