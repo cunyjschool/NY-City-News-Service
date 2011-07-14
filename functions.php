@@ -67,6 +67,10 @@ class nycitynewsservice {
 		
 		if ( is_admin() ) {
 			add_action( 'admin_menu', array(&$this, 'add_admin_menu_items') );
+		}
+		
+		if ( is_admin_bar_showing() ) {
+			add_action( 'admin_bar_menu', array( &$this, 'add_admin_bar_items' ), 70 );
 		}		
 		
 	} // END init()
@@ -88,7 +92,25 @@ class nycitynewsservice {
 
 		add_submenu_page( 'themes.php', 'NY City News Service Theme Options', 'Theme Options', 'manage_options', 'nycns_options', array( &$this, 'options_page' ) );			
 
-	} // END add_admin_menu_items()		
+	} // END add_admin_menu_items()
+	
+	/**
+	 * Custom items for the NYCity News Service theme to WordPress' admin bar
+	 */
+	function add_admin_bar_items() {
+		global $wp_admin_bar;
+		
+		// Add theme management links for users who can	
+		if ( current_user_can('edit_theme_options') ) {
+			$args = array(
+				'title' => 'Theme Options',
+				'href' => admin_url( 'themes.php?page=nycns_options' ),
+				'parent' => 'appearance',
+			);
+			$wp_admin_bar->add_menu( $args );
+		}
+		
+	}	
 	
 	/**
 	 * Queue up any public stylesheets we have
