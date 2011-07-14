@@ -4,6 +4,7 @@ define( 'NYCITYNEWSSERVICE_VERSION', '1.1.1' );
 
 include_once( 'php/sphinxapi.php' );
 include_once( 'php/class.sphinxsearch.php' );
+include_once( 'php/class.highlighter.php' );
 	
 class nycitynewsservice {
 	
@@ -18,6 +19,9 @@ class nycitynewsservice {
 		'housing2011_soundslides_url' => '',
 		'sphinx_enabled' => 'off',
 		'sphinx_index' => '',
+	);
+	var $theme_taxonomies = array(
+		'post_tag',
 	);
 	
 	/**
@@ -182,6 +186,7 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_places', $post_types, $args );
+		$this->theme_taxonomies[] = 'nycns_places';
 		
 		// Register the Topics taxonomy
 		$args = array(
@@ -214,6 +219,7 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_topics', $post_types, $args );
+		$this->theme_taxonomies[] = 'nycns_topics';		
 		
 		// Register the Publications taxonomy
 		$args = array(
@@ -245,7 +251,8 @@ class nycitynewsservice {
 		$post_types = array(
 			'post',
 		);
-		register_taxonomy( 'nycns_publications', $post_types, $args );		
+		register_taxonomy( 'nycns_publications', $post_types, $args );
+		$this->theme_taxonomies[] = 'nycns_publications';						
 		
 		// Register the Media taxonomy
 		$args = array(
@@ -279,6 +286,7 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_media', $post_types, $args );
+		$this->theme_taxonomies[] = 'nycns_media';				
 		
 		// Register the Projects taxonomy
 		$args = array(
@@ -312,6 +320,7 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_projects', $post_types, $args );
+		$this->theme_taxonomies[] = 'nycns_projects';				
 			
 	} // END create_taxonomies()
 	
@@ -539,8 +548,8 @@ class nycitynewsservice {
 	
 } // END class nycitynewsservice
 
-global $nycitynewsservice;
-$nycitynewsservice = new nycitynewsservice();
+global $nycns;
+$nycns = new nycitynewsservice();
 
 function inherit_template() {
 
@@ -578,7 +587,7 @@ add_action('template_redirect', 'inherit_template', 1);
  * @author danielbachhuber
  */
 function cunyj_custom_page_stylesheet() {
-	global $post, $nycitynewsservice;
+	global $post;
 	
 	if ( ( is_page() || is_single() ) && $stylesheet = get_post_meta( $post->ID, 'stylesheet', true ) ) {
 		echo '<link rel="stylesheet" href="' . get_bloginfo('template_directory') . '/css/' . $stylesheet . '?v=' . NYCITYNEWSSERVICE_VERSION . '" type="text/css" media="all" />';
@@ -591,9 +600,9 @@ add_action( 'wp_head', 'cunyj_custom_page_stylesheet' );
  * Get the options for the theme
  */
 function nycns_get_theme_options() {
-	global $nycitynewsservice;
+	global $nycns;
 	
-	return $nycitynewsservice->options;
+	return $nycns->options;
 	
 } // END nycns_get_theme_options()
 

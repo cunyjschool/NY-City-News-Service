@@ -34,21 +34,36 @@ body {
 	text-align: center;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+.message {
+	margin-top: 10px;
+	margin-bottom: 10px;	
+	border: 3px solid #618291;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	background-color: #FFFFFF;
+}
+
+
 /**
  * Element: h2
  */
 
 h2 {
-	margin: 0;
-	padding: 0;
-	font-size: 110%; }
+	font-size: 24px;
+	line-height: 32px;
+}
 
 h3 {
-	margin: 0;
-	padding: 0;
-	font-size: 100%;
-	text-transform: uppercase;
-	color: #cc3300; }
+	font-size: 20px;
+	line-height: 28px;
+}
 	
 ul {
 	margin: 0;
@@ -146,31 +161,54 @@ ul.class-member-list li div.member-meta p.member-links a {
 	width: 250px;
 }
 
-.search_page ul.search-results{
-  width:485px;
-  float:left;
+body.search .search-term-match {
+	font-weight: bold;
 }
 
-.search_page #sidebar{
-  position:relative;
-  top:-53px;
-  float:right;
+body.search .all-matching-terms {
+	color: #888888;
+	padding-bottom: 5px;
+}
+
+body.search .all-matching-terms a {
+	color: #888888;
+}
+
+body.search .all-matching-terms a:hover {
+	color: #00619B;
+}
+
+body.search .content {
+	width: 700px;
+}
+
+body.search .content a {
+	text-decoration: underline;
+}
+
+body.search .post {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+body.search .post h3 {
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: normal;
+	text-transform: none;
+}
+
+body.search .primary-search {
+	padding-bottom: 5px;
 }
 	
-#primary-search {
-  width: 980px;
-  padding: 20px 20px 0 20px;
-  margin: 0 auto;
-  background: #fff;
-}	
-	
-#primary-search input.search-box {
+body.search .primary-search input.search-box {
 	padding: 3px;
 	font-size: 16px;
 	width: 395px;
 }
 
-#primary-search button.search-button {
+body.search .primary-search button.search-button {
 	text-decoration: none;
 	display: inline-block;
 	padding-top: 5px;
@@ -182,7 +220,7 @@ ul.class-member-list li div.member-meta p.member-links a {
 	font-size: 16px;
 }
 
-#primary-search button.search-button:hover, #jlogo button.search-button:hover  {
+body.search .primary-search button.search-button:hover, #jlogo button.search-button:hover  {
 	background-color: #FF9900;
 	border-color: #EF8F00;
 	color: #FFFFFF;
@@ -365,11 +403,22 @@ ul.navigation#primary-navigation li.secondary-item a:hover {
 	color: #FFFFFF;
 }
 
-#content{
+#content {
 	width: 980px;
 	padding: 20px;
 	margin: 0 auto;
 	background: #fff;
+}
+
+.main .wrap {
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #FFFFFF;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 30px;
 }
 
 #homeleft {
@@ -481,9 +530,9 @@ img#isnaplogo {
 	float: left;
 	margin: 5px; }
 	
-.post {
+body.single .post {
 	width: 485px;
-	float: left; }
+}
 	
 .post h2 {
 	font-size: 185%;

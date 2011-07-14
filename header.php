@@ -41,13 +41,13 @@
 <body <?php body_class(); ?>>
 
 <div class="clearfix" id="jlogo">
-  <div style="float: left; width: 500px;">
-A student-powered service at the <a href="http://www.journalism.cuny.edu">CUNY Graduate School of Journalism</a>
-  </div>
+  <div style="float: left; width: 500px;">A student-powered service at the <a href="http://www.journalism.cuny.edu">CUNY Graduate School of Journalism</a></div>
   
-  <div id="search">
-	<?php include (TEMPLATEPATH . '/searchform.php'); ?>
-  </div>
+	<?php if ( !is_search() ): ?>
+		<div id="search">
+			<?php include (TEMPLATEPATH . '/searchform.php'); ?>
+  		</div>
+	<?php endif; ?>
 </div>
 
 <div class="wrap clearfix" id="globalwrap">
