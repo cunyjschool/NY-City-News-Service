@@ -68,6 +68,8 @@
 		<div class="entry">					
 			<?php echo $high_content->get(); ?>
 		</div>
+		
+		<div class="clear-right"></div>
 
 	</div>
 
