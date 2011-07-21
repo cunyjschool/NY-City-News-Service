@@ -22,6 +22,14 @@ body {
 	clear:both;
 }
 
+.clear-right {
+	clear: right;
+}
+
+.clear-left {
+	clear: left;
+}
+
 .float-right {
 	float: right;
 }
