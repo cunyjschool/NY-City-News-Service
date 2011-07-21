@@ -1,4 +1,4 @@
-<div id="sidebar">
+<div id="sidebar" class="float-right">
    
 	<?php if ( $vimeo_url = get_post_meta( $post->ID, 'vimeo_url', true ) ) : ?>
 		<?php

@@ -698,11 +698,11 @@ body.single .post {
 	text-transform: uppercase; }
 	
 #sidebar {
-	float: left;
 	width: 450px;
 	border-left: 1px solid #eee;
 	margin-left: 20px;
-	padding-left: 20px; }
+	padding-left: 20px;
+}
 	
 #sidebar ul {
 	margin-bottom: 40px; }
