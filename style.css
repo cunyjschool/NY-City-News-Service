@@ -207,6 +207,7 @@ body.search .all-matching-terms a {
 
 body.search .all-matching-terms a:hover {
 	color: #00619B;
+	background-color: #F2F2F2;
 }
 
 body.search .content {
@@ -215,6 +216,10 @@ body.search .content {
 
 body.search .content a {
 	text-decoration: underline;
+}
+
+body.search .content a:hover {
+	background-color: #F2F2F2;
 }
 
 body.search .post {
