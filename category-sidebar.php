@@ -22,9 +22,9 @@ title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></li>
 		<div id="cats">		
 		<h3>Topics</h3>
 		<?php $args = array( 'theme_location' => 'primary_topics', 'fallback_cb' => false, 'container' => false, ); wp_nav_menu( $args ); ?>
-		<h4>Places</h4>
+		<h3>Places</h3>
 		<?php $args = array( 'theme_location' => 'primary_places', 'fallback_cb' => false, 'container' => false, ); wp_nav_menu( $args ); ?>
-		<h4>Media</h4>
+		<h3>Media</h3>
 		<?php $args = array( 'orderby' => 'name', ); $media_terms = get_terms( 'nycns_media', $args );?>
 		<ul class="sub-navigation">
 			<?php foreach ( $media_terms as $media_term ): ?>
