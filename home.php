@@ -122,14 +122,14 @@
 			<h3>Special Projects</h3>
 
       <div id="promos">
-<a href="<?php bloginfo('url'); ?>/special-projects/election-2010/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/election2010_h400_v2.jpg" alt="Election 2010" class="thumbnail" height="150px" width="200px" /></a>
+<a href="<?php bloginfo('url'); ?>/special-projects/election-2010/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/election2010_h200_v2.jpg" alt="Election 2010" class="thumbnail" height="150px" width="200px" /></a>
 <a href="<?php bloginfo('url'); ?>/special-projects/cmj-2010/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/cmj-thumb.gif" alt="CMJ 2010" class="thumbnail" height="150px" width="200px" /></a>
 <a href="http://industrynyc.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/industry-thumb.gif" alt="Industry NYC" class="thumbnail" height="150px" width="200px" /></a>
 
 <a href="http://2010stimulus.org/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" height="150px" width="200px" /></a>
 <a href="http://homelesswithhomework.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" height="150px" width="200px" /></a>
 
-<a href="http://talkingnewyork.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/talking-new-york_h400.png" alt="Talking New York" height="150px" width="200px" class="thumbnail" /></a>
+<a href="http://talkingnewyork.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/talking-new-york_h200.png" alt="Talking New York" height="150px" width="200px" class="thumbnail" /></a>
 <a href="<?php bloginfo('url'); ?>/category/2008-election/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-election.jpg" alt="Election 2008" class="thumbnail" height="150px" width="200px" /></a>
 
 <a href="<?php bloginfo('url'); ?>/category/2008-queens-immigration-project/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-queens.jpg" alt="2008 Queens Immigration Project" class="thumbnail" height="150px" width="200px" /></a>
