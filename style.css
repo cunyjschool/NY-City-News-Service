@@ -240,6 +240,11 @@ body.search .post h3 {
 	text-transform: none;
 }
 
+body.search .post img.thumb {
+	width: 75px;
+	height: 75px;
+}
+
 body.search .post .meta,
 body.search .post .meta a {
 	color: #888888;
