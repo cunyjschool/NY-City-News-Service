@@ -695,6 +695,8 @@ function nycns_pagination() {
 
 	echo "<div class='pagination'><span class='float-right total-results'>Total results: " . $wp_query->found_posts . "</span>" . paginate_links( $pagination ) . '<span class="clear-both"></span></div>';
 	
+	echo "<div class='clear-both'></div>";
+	
 }
 
 /**

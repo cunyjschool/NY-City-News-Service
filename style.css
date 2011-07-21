@@ -210,6 +210,12 @@ body.search .all-matching-terms a:hover {
 	background-color: #F2F2F2;
 }
 
+body.search .search-results-total {
+	color: #999999;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
 body.search .content {
 	width: 700px;
 }

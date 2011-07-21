@@ -9,6 +9,8 @@
 	<div class="primary-search">
 		<?php include (TEMPLATEPATH . '/searchform.php'); ?>	
 	</div>
+	
+	<div class="search-results-total float-right">Showing <?php echo $wp_query->post_count; ?> of <?php echo $wp_query->found_posts; ?> results</div>
 
 	<?php
 		global $nycns, $wp_query;
@@ -33,6 +35,8 @@
 			echo '</div>';
 		}
 	?>
+	
+	<div class="clear-both"></div>
 
 	<?php if ( have_posts() ): ?>
 
