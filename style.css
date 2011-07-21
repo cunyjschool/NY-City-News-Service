@@ -2,7 +2,7 @@
 Theme Name: NYCity News Service 
 Theme URI: http://www.nycitynewsservice.com/
 Description: A news-based theme for the CUNY Graduate School of Journalism
-Version: 1.2a
+Version: 1.2b
 Author: Daniel Bachhuber
 Author URI: http://www.danielbachhuber.com/
 Tags: journalism, news
@@ -249,8 +249,13 @@ body.search .post h3 {
 }
 
 body.search .post img.thumb {
-	width: 75px;
-	height: 75px;
+	width: 50px;
+	height: 50px;
+}
+
+body.search .post img.thumb.float-right {
+	margin-top: 5px;
+	margin-left: 10px;
 }
 
 body.search .post .meta,

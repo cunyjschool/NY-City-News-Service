@@ -1,6 +1,6 @@
 <?php
 
-define( 'NYCITYNEWSSERVICE_VERSION', '1.2a' );
+define( 'NYCITYNEWSSERVICE_VERSION', '1.2b' );
 
 include_once( 'php/sphinxapi.php' );
 include_once( 'php/class.sphinxsearch.php' );
