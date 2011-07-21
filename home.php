@@ -25,7 +25,7 @@
 		?>
 		<ul>
 			<?php if ( $top_posts->have_posts() ) : while ( $top_posts->have_posts() ) : $top_posts->the_post(); ?>
-			<li><h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+			<li><h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 			<?php if ( get_post_meta( $post->ID, 'video_file', true ) ) : ?><span class="top-video"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/color_bars.png"></span><?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'multimedia_url', true ) ) : ?><span class="top-multi"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/photos.png"></span><?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'audio_url', true ) ) : ?><span class="top-audio"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/icons/sound.png"></span><?php endif; ?>
@@ -68,7 +68,7 @@
 			<?php if ( has_post_thumbnail() ) : ?>
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail-primary', array( 'class' => 'thumbnail' ) ); ?></a>
 			<?php endif; ?>
-			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+			<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 			<?php the_excerpt(); ?>  
 		</div>
   	<?php endwhile; else: ?>
@@ -104,7 +104,7 @@
 		<?php endif; ?>
 
 
-  <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+  <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
   <?php the_excerpt(); ?>  
       </div>
   <?php endwhile; else: ?><p>There are currently no stories.</p>
@@ -122,14 +122,14 @@
 			<h3>Special Projects</h3>
 
       <div id="promos">
-<a href="<?php bloginfo('url'); ?>/special-projects/election-2010/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/election2010_h200_v2.jpg" alt="Election 2010" class="thumbnail" height="150px" width="200px" /></a>
+<a href="<?php bloginfo('url'); ?>/special-projects/election-2010/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/election2010_h400_v2.jpg" alt="Election 2010" class="thumbnail" height="150px" width="200px" /></a>
 <a href="<?php bloginfo('url'); ?>/special-projects/cmj-2010/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/cmj-thumb.gif" alt="CMJ 2010" class="thumbnail" height="150px" width="200px" /></a>
 <a href="http://industrynyc.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/industry-thumb.gif" alt="Industry NYC" class="thumbnail" height="150px" width="200px" /></a>
 
 <a href="http://2010stimulus.org/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/stimulus-thumb.gif" alt="State of the Stimulus: NYC" class="thumbnail" height="150px" width="200px" /></a>
 <a href="http://homelesswithhomework.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/homeless-with-homework.png" alt="Homeless with Homework" class="thumbnail" height="150px" width="200px" /></a>
 
-<a href="http://talkingnewyork.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/talking-new-york_h200.png" alt="Talking New York" height="150px" width="200px" class="thumbnail" /></a>
+<a href="http://talkingnewyork.journalism.cuny.edu/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/projects/talking-new-york_h400.png" alt="Talking New York" height="150px" width="200px" class="thumbnail" /></a>
 <a href="<?php bloginfo('url'); ?>/category/2008-election/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-election.jpg" alt="Election 2008" class="thumbnail" height="150px" width="200px" /></a>
 
 <a href="<?php bloginfo('url'); ?>/category/2008-queens-immigration-project/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/promo-queens.jpg" alt="2008 Queens Immigration Project" class="thumbnail" height="150px" width="200px" /></a>
@@ -142,13 +142,13 @@
   <li class="gomore"><a href="/special-projects/">More Special Projects</a></li>
 </ul>  
 
-    <div class="clearfix" id="featured">
-      <div id="about">
-<h3>About</h3>
-The NYCity News Service is a new multi-media, Web-based wire service that feeds New York neighborhood stories to news organizations - including newspapers, broadcast stations, wire services and Internet service providers throughout the world. The student-powered News Service is based at the <a href="http://www.journalism.cuny.edu/">City University of New York Graduate School of Journalism</a>.
-      </div>
-    </div>
-  </div>
+	<div class="clearfix" id="featured">
+		<div id="about">
+			<h3>About</h3>
+			<p>The NYCity News Service is a new multi-media, Web-based wire service that feeds New York neighborhood stories to news organizations - including newspapers, broadcast stations, wire services and Internet service providers throughout the world. The student-powered News Service is based at the <a href="http://www.journalism.cuny.edu/">City University of New York Graduate School of Journalism</a>.
+		</div>
+	</div>
+	</div>
 
   <div id="homeright">
   
@@ -192,7 +192,7 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 		} ?>
     
       <div id="video-caption">
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+		<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 <?php if ( isset($vimeo_data['description']) ) { echo $vimeo_data['description']; } ?>
 <?php if ( $video_credit = get_post_meta( $post->ID,"video_credit", true ) ) { ?><span class="side-credit">Reported by <?php echo $video_credit; ?></span><?php } ?>
       </div>
@@ -224,7 +224,7 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail-secondary', array( 'class' => 'thumbnail' ) ); ?></a>
 			<?php endif; ?>
 
- 			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+ 			<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 				<?php the_excerpt(); ?>  
       	</div>
 	<?php endwhile; else: ?>
@@ -260,7 +260,7 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
 			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail-secondary', array( 'class' => 'thumbnail' ) ); ?></a>
 		<?php endif; ?>
 
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+		<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 			<?php the_excerpt(); ?>  
 	</div>
 	<?php endwhile; else: ?>
@@ -274,19 +274,19 @@ The NYCity News Service is a new multi-media, Web-based wire service that feeds 
     </div>
     
     <div id="audio">
-<h3>Related Sites</h3>
-<ul>
-<li><a href="http://www.motthavenherald.com/">Mott Haven Herald</a></li>
-<li><a href="http://fort-greene.blogs.nytimes.com/" >NYTimes - The Local: Fort Greene</a></li>
-<li><a href="http://www.theluvbiz.com/">The Luv Biz</a></li>
-<li><a href="http://www.quirkynyc.com/">Quirky NYC</a></li>
-<li><a href="http://nyctracks.journalism.cuny.edu/" >NYC Tracks</a></li>
-<li><a href="http://www.explaintheplan.com/">Explain the Plan</a></li>
-<li><a href="http://www.dirtyhandsny.com/">Dirty Hands NY</a></li>
-<li><a href="http://www.deportationdialogue.com/">Deportation Dialogue</a></li>
-<li><a href="http://www.graveyardshiftnyc.com/">Graveyard Shift</a></li>
-<li><a href="http://www.thecitygreens.com/">The City Greens</a></li>
-</ul>
+		<h3>Related Sites</h3>
+		<ul>
+			<li><a href="http://www.motthavenherald.com/">Mott Haven Herald</a></li>
+			<li><a href="http://fort-greene.blogs.nytimes.com/" >NYTimes - The Local: Fort Greene</a></li>
+			<li><a href="http://www.theluvbiz.com/">The Luv Biz</a></li>
+			<li><a href="http://www.quirkynyc.com/">Quirky NYC</a></li>
+			<li><a href="http://nyctracks.journalism.cuny.edu/" >NYC Tracks</a></li>
+			<li><a href="http://www.explaintheplan.com/">Explain the Plan</a></li>
+			<li><a href="http://www.dirtyhandsny.com/">Dirty Hands NY</a></li>
+			<li><a href="http://www.deportationdialogue.com/">Deportation Dialogue</a></li>
+			<li><a href="http://www.graveyardshiftnyc.com/">Graveyard Shift</a></li>
+			<li><a href="http://www.thecitygreens.com/">The City Greens</a></li>
+		</ul>
     </div>
   </div>
 </div>

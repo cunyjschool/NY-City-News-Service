@@ -531,6 +531,12 @@ span.top-multi img, span.top-audio img, span.top-video img {
 	width: 480px;
 	padding: 0 10px 10px 10px; }
 	
+body.home-page h3 {
+	color: #CC3300;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+	
 #video, #multimedia, #audio {
 	clear: both;
 	background: #f9f9f9;
