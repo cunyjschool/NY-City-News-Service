@@ -8,6 +8,8 @@ Template Name: Staff
 <?php get_header(); ?>
 
   <div id="content" class="clearfix">
+	
+		<?php include (TEMPLATEPATH . '/category-sidebar.php'); ?>	
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<div class="post" id="post-<?php the_ID(); ?>">
@@ -40,8 +42,6 @@ Template Name: Staff
 
 		<?php endwhile; endif; ?>
 
-<?php include (TEMPLATEPATH . '/category-sidebar.php'); ?>
-	</div>
   </div>
   
 <?php get_footer(); ?>

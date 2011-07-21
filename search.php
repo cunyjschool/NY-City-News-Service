@@ -1,44 +1,90 @@
 <?php get_header(); ?>
 
-<div id="primary-search">
-	<?php include (TEMPLATEPATH . '/searchform.php'); ?>
-</div>
+<div class="main">
 
-<div id="content" class="clearfix search_page">
+<div class="wrap">
+	
+<div class="content">	
 
-  <ul class="search-results">
+	<div class="primary-search">
+		<?php include (TEMPLATEPATH . '/searchform.php'); ?>	
+	</div>
+	
+	<div class="search-results-total float-right">Showing <?php echo $wp_query->post_count; ?> of <?php echo $wp_query->found_posts; ?> results</div>
 
-  <?php if (have_posts()) : ?>
+	<?php
+		global $nycns, $wp_query;
+		$search_array = explode( ' ', get_search_query() );
+		$args = array(
+			'search' => get_search_query(),
+			'orderby' => 'none',
+		);
+		if ( $wp_query->query_vars['paged'] <= 1 )
+			$matching_terms = get_terms( $nycns->theme_taxonomies, $args );
+	
+		if ( count( $matching_terms ) ) {
+			echo '<div class="all-matching-terms">Looking for? ';
+			$all_terms = '';
+			foreach ( $matching_terms as $matching_term ) {
+				$term_name = new Highlighter( $matching_term->name, $search_array );
+				$term_name->mark_words();
+				$all_terms .= '<a href="' . get_term_link( $matching_term, $matching_term->taxonomy ) . '">' . $term_name->get() . '</a>, ';
+			}
+		
+			echo rtrim( $all_terms, ', ' );
+			echo '</div>';
+		}
+	?>
+	
+	<div class="clear-both"></div>
 
-  <!-- <h2 class="pagetitle">Search Results</h2> -->
+	<?php if ( have_posts() ): ?>
 
-    <?php while (have_posts()) : the_post(); ?>
+	<?php while (have_posts()) : the_post(); ?>
+	
+	<div class="post" id="post-<?php the_ID(); ?>">
 
-	  <li class="post">
-  		<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-  		<small><?php the_time('l, F jS, Y') ?></small>
-  		<p><?php the_excerpt(); ?></p>
+		<?php if ( has_post_thumbnail()) { 	   
+			the_post_thumbnail(  'thumbnail', array( 'class' => 'thumb float-right' ) ); 
+	  	} ?>
+		<?php
+			$high_title = new Highlighter( $post->post_title, $search_array );
+			$high_title->mark_words();		
+		?>
+  		<h3><a href="<?php the_permalink() ?>"><?php echo $high_title->get(); ?></a></h3>
 
-  		<p class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
-		</li>
+		<div class="meta"><?php nycns_author_posts_link(); ?> - <?php nycns_timestamp(); ?></div>
+  		
+		<?php
+			global $shortcode_tags;
+			// Register the shortcode just on this page so we can strip it out of the body. Hack hack hack.
+			$shortcode_tags['audio'] = '';
+			$post_content = strip_shortcodes( $post->post_content );
+			$high_content = new Highlighter( $post_content, $search_array );
+			$high_content->text = $high_content->strip( $high_content->text );
+			$high_content->zoom( 10, 175 );
+			$high_content->mark_words();
+		?>
+		<div class="entry">					
+			<?php echo $high_content->get(); ?>
+		</div>
+
+	</div>
 
     <?php endwhile; ?>
 
-  	<li class="navigation">
-  		<div class="alignleft"><?php next_posts_link('&laquo; Older Entries') ?></div>
-  		<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
-  	</li>
+  	<?php nycns_pagination(); ?>
 
     <?php else : ?>
 
-    <li><h2 class="center">No posts found. Try a different search?</h2></li>
+	<div class="message error">No posts found. Try a different search?</div>
     
     <?php endif; ?>
 
-    </ul>
-
-    <?php get_sidebar(); ?>
+</div>
 
 </div>
+
+<div>
 
 <?php get_footer(); ?>

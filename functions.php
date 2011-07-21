@@ -1,6 +1,10 @@
 <?php
 
-define( 'NYCITYNEWSSERVICE_VERSION', '1.1.1' );
+define( 'NYCITYNEWSSERVICE_VERSION', '1.2a' );
+
+include_once( 'php/sphinxapi.php' );
+include_once( 'php/class.sphinxsearch.php' );
+include_once( 'php/class.highlighter.php' );
 	
 class nycitynewsservice {
 	
@@ -13,6 +17,11 @@ class nycitynewsservice {
 		'housing2011_lead_story' => 0,
 		'housing2011_lead_story_description' => '',
 		'housing2011_soundslides_url' => '',
+		'sphinx_enabled' => 'off',
+		'sphinx_index' => '',
+	);
+	var $theme_taxonomies = array(
+		'post_tag',
 	);
 	
 	/**
@@ -21,6 +30,8 @@ class nycitynewsservice {
 	function __construct() {
 		
 		$this->options = array_merge( $this->options_defaults, get_option( $this->options_group_name ) );
+		
+		$this->sphinxsearch = new sphinxsearch();
 		
 		add_action( 'init', array(&$this, 'init') );
 		
@@ -36,6 +47,10 @@ class nycitynewsservice {
 		add_image_size( 'thumbnail-secondary', 100, 75, true );	
 		add_image_size( 'sidebar-primary', 225, 100, true );
 		add_image_size( 'post-primary', 485, 250, true );
+		
+		if ( isset( $this->options['sphinx_enabled'] ) && $this->options['sphinx_enabled'] == 'on' ) {
+			add_action( 'init', array( &$this->sphinxsearch, 'initialize' ) );
+		}		
 		
 	} // END __construct()
 	
@@ -58,6 +73,10 @@ class nycitynewsservice {
 		
 		if ( is_admin() ) {
 			add_action( 'admin_menu', array(&$this, 'add_admin_menu_items') );
+		}
+		
+		if ( is_admin_bar_showing() ) {
+			add_action( 'admin_bar_menu', array( &$this, 'add_admin_bar_items' ), 70 );
 		}		
 		
 	} // END init()
@@ -79,7 +98,25 @@ class nycitynewsservice {
 
 		add_submenu_page( 'themes.php', 'NY City News Service Theme Options', 'Theme Options', 'manage_options', 'nycns_options', array( &$this, 'options_page' ) );			
 
-	} // END add_admin_menu_items()		
+	} // END add_admin_menu_items()
+	
+	/**
+	 * Custom items for the NYCity News Service theme to WordPress' admin bar
+	 */
+	function add_admin_bar_items() {
+		global $wp_admin_bar;
+		
+		// Add theme management links for users who can	
+		if ( current_user_can('edit_theme_options') ) {
+			$args = array(
+				'title' => 'Theme Options',
+				'href' => admin_url( 'themes.php?page=nycns_options' ),
+				'parent' => 'appearance',
+			);
+			$wp_admin_bar->add_menu( $args );
+		}
+		
+	}	
 	
 	/**
 	 * Queue up any public stylesheets we have
@@ -149,6 +186,7 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_places', $post_types, $args );
+		$this->theme_taxonomies[] = 'nycns_places';
 		
 		// Register the Topics taxonomy
 		$args = array(
@@ -181,6 +219,7 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_topics', $post_types, $args );
+		$this->theme_taxonomies[] = 'nycns_topics';		
 		
 		// Register the Publications taxonomy
 		$args = array(
@@ -212,7 +251,8 @@ class nycitynewsservice {
 		$post_types = array(
 			'post',
 		);
-		register_taxonomy( 'nycns_publications', $post_types, $args );		
+		register_taxonomy( 'nycns_publications', $post_types, $args );
+		$this->theme_taxonomies[] = 'nycns_publications';						
 		
 		// Register the Media taxonomy
 		$args = array(
@@ -246,6 +286,7 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_media', $post_types, $args );
+		$this->theme_taxonomies[] = 'nycns_media';				
 		
 		// Register the Projects taxonomy
 		$args = array(
@@ -279,6 +320,7 @@ class nycitynewsservice {
 			'post',
 		);
 		register_taxonomy( 'nycns_projects', $post_types, $args );
+		$this->theme_taxonomies[] = 'nycns_projects';				
 			
 	} // END create_taxonomies()
 	
@@ -298,7 +340,12 @@ class nycitynewsservice {
 		add_settings_section( 'nycns_housing2011', 'Project: Housing 2011', array(&$this, 'settings_housing2011_section'), $this->settings_page );
 		add_settings_field( 'housing2011_lead_story', 'Lead story for the project', array(&$this, 'settings_housing2011_lead_story_option'), $this->settings_page, 'nycns_housing2011' );
 		add_settings_field( 'housing2011_lead_story_description', 'Extended lead story intro', array(&$this, 'settings_housing2011_lead_story_description_option'), $this->settings_page, 'nycns_housing2011' );
-		add_settings_field( 'housing2011_soundslides_url', 'Featured Soundslides URL', array(&$this, 'settings_housing2011_soundslides_url_option'), $this->settings_page, 'nycns_housing2011' );				
+		add_settings_field( 'housing2011_soundslides_url', 'Featured Soundslides URL', array(&$this, 'settings_housing2011_soundslides_url_option'), $this->settings_page, 'nycns_housing2011' );
+		
+		// Sphinx options
+		add_settings_section( 'nycns_sphinx', 'Sphinx Search', array( &$this, 'settings_sphinx_section'), $this->settings_page );
+		add_settings_field( 'sphinx_enabled', 'Enable Sphinx?', array( &$this, 'settings_sphinx_enabled_option'), $this->settings_page, 'nycns_sphinx' );	
+		add_settings_field( 'sphinx_index', 'Sphinx index to use', array( &$this, 'settings_sphinx_index_option'), $this->settings_page, 'nycns_sphinx' );		
 
 	} // END register_settings()
 	
@@ -393,10 +440,51 @@ class nycitynewsservice {
 		echo '" size="100" />';
 		echo '<p class="description">(Optional) Copy and paste your Soundslides URL</p>';
 		
-	} // END settings_housing2011_soundslides_url_option()	
+	}
+	
+	function settings_sphinx_section() {
+		echo '<p>These settings are configured once for using Sphinx as your search indexer. Sphinx means more relevant search results.</p>';
+	}
 	
 	/**
-	 * settings_validate()
+	 * Whether or not Sphinx is used as the search engine
+	 */
+	function settings_sphinx_enabled_option() {
+
+		$options = $this->options;
+
+		echo '<select id="sphinx_enabled" name="' . $this->options_group_name . '[sphinx_enabled]">';
+		echo '<option value="off"';
+		if ( isset( $options['sphinx_enabled'] ) && $options['sphinx_enabled'] == 'off' ) {
+			echo ' selected="selected"';
+		}		
+		echo '>Disabled</option>';
+		echo '<option value="on"';
+		if ( isset( $options['sphinx_enabled'] ) && $options['sphinx_enabled'] == 'on' ) {
+			echo ' selected="selected"';
+		}		
+		echo '>Enabled</option>';
+		echo '</select>';
+
+	}
+	
+	/**
+	 * Sphinx index to use
+	 */
+	function settings_sphinx_index_option() {
+		
+		$options = $this->options;
+
+		echo '<input id="sphinx_index" name="' . $this->options_group_name . '[sphinx_index]"';
+		if ( isset( $options['sphinx_index'] ) ) {
+			echo ' value="' . $options['sphinx_index'] . '"';
+		}		
+		echo ' size="80" />';
+		echo '<p class="description">(optional) Defaults to "*"</p>';
+		
+	}
+	
+	/**
 	 * Validation and sanitization on the settings field
 	 */
 	function settings_validate( $input ) {
@@ -411,6 +499,11 @@ class nycitynewsservice {
 		$input['housing2011_lead_story'] = (int)$input['housing2011_lead_story'];	
 		$input['housing2011_lead_story_description'] = strip_tags( $input['housing2011_lead_story_description'], $allowed_tags );
 		$input['housing2011_soundslides_url'] = strip_tags( $input['housing2011_soundslides_url'] );
+		
+		// Sphinx settings
+		if ( $input['sphinx_enabled'] != 'on' )
+			$input['sphinx_enabled'] == 'off';
+		$input['sphinx_index'] = wp_kses( $input['sphinx_index'] );		
 
 		return $input;
 
@@ -455,8 +548,8 @@ class nycitynewsservice {
 	
 } // END class nycitynewsservice
 
-global $nycitynewsservice;
-$nycitynewsservice = new nycitynewsservice();
+global $nycns;
+$nycns = new nycitynewsservice();
 
 function inherit_template() {
 
@@ -494,7 +587,7 @@ add_action('template_redirect', 'inherit_template', 1);
  * @author danielbachhuber
  */
 function cunyj_custom_page_stylesheet() {
-	global $post, $nycitynewsservice;
+	global $post;
 	
 	if ( ( is_page() || is_single() ) && $stylesheet = get_post_meta( $post->ID, 'stylesheet', true ) ) {
 		echo '<link rel="stylesheet" href="' . get_bloginfo('template_directory') . '/css/' . $stylesheet . '?v=' . NYCITYNEWSSERVICE_VERSION . '" type="text/css" media="all" />';
@@ -507,9 +600,9 @@ add_action( 'wp_head', 'cunyj_custom_page_stylesheet' );
  * Get the options for the theme
  */
 function nycns_get_theme_options() {
-	global $nycitynewsservice;
+	global $nycns;
 	
-	return $nycitynewsservice->options;
+	return $nycns->options;
 	
 } // END nycns_get_theme_options()
 
@@ -547,13 +640,75 @@ function cunyj_get_vimeo_data( $url, $args = null ) {
 	
 }
 
+/**
+ * Relative timestamps for use within the loop or elsewhere
+ */
+function nycns_timestamp( $post_id = null, $type = 'published' ) {
+	
+	if ( !isset( $post_id ) ) {
+		global $post;
+		$post_id = $post->ID;
+	}
+	
+	if ( $type == 'published' ) {
+		$post_timestamp = get_the_time( 'U', $post_id );
+	} else if ( $type == 'modified' ) {
+		$post_timestamp = get_the_modified_time( 'U', $post_id );
+	} else {
+		return false;
+	}
+	$current_timestamp = time();
+	
+	// Only do the relative timestamps for 7 days or less, then just the month and day
+	echo '<span class="timestamp">';
+	if ( $post_timestamp > ( $current_timestamp - 604800 ) ) {
+		echo human_time_diff( $post_timestamp ) . ' ago';
+	} else if ( $post_timestamp > ( $current_timestamp - 15552000 ) ) {
+		the_time( 'F jS' );
+	} else {
+		the_time( 'F j, Y' );
+	}
+	echo '</span>';
 
-if ( function_exists('wp_register_sidebar') )
-    wp_register_sidebar(array(
-        'before_widget' => '<li id="%1$s" class="widget %2$s">',
-        'after_widget' => '</li>',
-        'before_title' => '<h2 class="widgettitle">',
-        'after_title' => '</h2>',
-    ));
+}
+
+/**
+ * Standardized pagination we can use anywhere in the loop
+ */
+function nycns_pagination() {
+	global $wp_query, $wp_rewrite;
+	$wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
+
+	$pagination = array(
+		'base' => @add_query_arg('page','%#%'),
+		'format' => '',
+		'total' => $wp_query->max_num_pages,
+		'current' => $current,
+		'type' => 'plain'
+		);
+
+	if( $wp_rewrite->using_permalinks() )
+		$pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
+
+	if( !empty($wp_query->query_vars['s']) )
+		$pagination['add_args'] = array( 's' => get_query_var( 's' ) );
+
+	echo "<div class='pagination'><span class='float-right total-results'>Total results: " . $wp_query->found_posts . "</span>" . paginate_links( $pagination ) . '<span class="clear-both"></span></div>';
+	
+	echo "<div class='clear-both'></div>";
+	
+}
+
+/**
+ * Wrapper for Co-Authors Plus or no Co-Authors Plus
+ */
+function nycns_author_posts_link() {
+	
+	if ( function_exists( 'coauthors_posts_links' ) )
+		coauthors_posts_links();
+	else 
+		the_author_posts_link();
+	
+}
 
 ?>

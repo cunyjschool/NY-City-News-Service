@@ -9,6 +9,8 @@ global $wpdb, $bp;
 <?php get_header(); ?>
 
 <div id="content" class="clearfix">
+	
+		<?php include (TEMPLATEPATH . '/category-sidebar.php'); ?>	
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<div class="post" id="post-<?php the_ID(); ?>">
@@ -69,8 +71,6 @@ global $wpdb, $bp;
 
 		<?php endwhile; endif; ?>
 		
-
-		<?php include (TEMPLATEPATH . '/category-sidebar.php'); ?>
 	</div>
 
 </div><!-- END #content -->

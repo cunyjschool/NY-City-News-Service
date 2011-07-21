@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
 <div id="content" class="clearfix">
+	
+	<?php get_sidebar(); ?>	
     
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <div class="post" id="post-<?php the_ID(); ?>">
@@ -106,7 +108,7 @@ Both comments and pings are currently closed.
 <?php endif; ?>
 	  </div>
     </div>
-<?php get_sidebar(); ?>
+
   </div>
 </div>
 <?php get_footer(); ?>

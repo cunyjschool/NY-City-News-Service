@@ -1,4 +1,4 @@
-<div id="sidebar">
+<div id="sidebar" class="float-right">
    
 	<?php if ( $vimeo_url = get_post_meta( $post->ID, 'vimeo_url', true ) ) : ?>
 		<?php
@@ -38,7 +38,7 @@
 		</script>
 	
 		  <div id="video-caption">
-	<?php if(get_post_meta($post->ID, 'video_headline', true)) { ?><h2>Video: <?php echo get_post_meta( $post->ID,"video_headline", $single=true ) ; ?></h2><?php } ?>
+	<?php if(get_post_meta($post->ID, 'video_headline', true)) { ?><h3>Video: <?php echo get_post_meta( $post->ID,"video_headline", $single=true ) ; ?></h3><?php } ?>
 	<?php echo get_post_meta( $post->ID,"video_caption", $single=true ) ; ?>
 	<span class="side-credit">Reported by <?php echo get_post_meta( $post->ID,"video_credit", $single=true ) ; ?></span>
 		  </div>
@@ -59,7 +59,7 @@
 		</script>
     
 	      <div id="video-caption">
-	<?php if(get_post_meta($post->ID, 'video2_headline', true) != "") { ?><h2>Video: <?php echo get_post_meta( $post->ID,"video2_headline", true ) ; ?></h2><?php } ?>
+	<?php if(get_post_meta($post->ID, 'video2_headline', true) != "") { ?><h3>Video: <?php echo get_post_meta( $post->ID,"video2_headline", true ) ; ?></h3><?php } ?>
 	<?php echo get_post_meta( $post->ID,"video2_caption", true ) ; ?>
 	<span class="side-credit">Reported by <?php echo get_post_meta( $post->ID,"video2_credit", $single=true ) ; ?></span>
 	      </div>
@@ -74,7 +74,7 @@
 <a href="<?php echo get_post_meta( $post->ID,"multimedia_url", $single=true ) ; ?>"><img src="<?php echo get_post_meta( $post->ID,"multimedia_screenshot", $single=true ) ; ?>" class="multimedia-screenshot"></a>
 
     <div id="multimedia-caption">
-<h2><a href="<?php echo get_post_meta( $post->ID,"multimedia_url", $single=true ) ; ?>"><?php echo get_post_meta( $post->ID,"multimedia_headline", $single=true ) ; ?></a></h2>
+<h3><a href="<?php echo get_post_meta( $post->ID,"multimedia_url", $single=true ) ; ?>"><?php echo get_post_meta( $post->ID,"multimedia_headline", $single=true ) ; ?></a></h3>
 
     <?php if(get_post_meta($post->ID, multimedia_caption, true) != "") { ?><?php echo get_post_meta( $post->ID,"multimedia_caption", $single=true ) ; ?><?php } ?>
 <span class="side-credit"><?php if(get_post_meta($post->ID, multimedia_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"multimedia_credit", $single=true ) ; ?><?php } ?></span>
@@ -87,7 +87,7 @@
 <a href="<?php echo get_post_meta( $post->ID,"multimedia2_url", $single=true ) ; ?>"><img src="<?php echo get_post_meta( $post->ID,"multimedia2_screenshot", $single=true ) ; ?>"></a>
 
     <div id="multimedia-caption">
-<h2><a href="<?php echo get_post_meta( $post->ID,"multimedia2_url", $single=true ) ; ?>"><?php echo get_post_meta( $post->ID,"multimedia2_headline", $single=true ) ; ?></a></h2>
+<h3><a href="<?php echo get_post_meta( $post->ID,"multimedia2_url", $single=true ) ; ?>"><?php echo get_post_meta( $post->ID,"multimedia2_headline", $single=true ) ; ?></a></h3>
 
     <?php if(get_post_meta($post->ID, multimedia2_caption, true) != "") { ?><?php echo get_post_meta( $post->ID,"multimedia2_caption", $single=true ) ; ?><?php } ?>
 <span class="side-credit"><?php if(get_post_meta($post->ID, multimedia2_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"multimedia2_credit", $single=true ) ; ?><?php } ?></span>
@@ -100,7 +100,7 @@
 <a href="<?php echo get_post_meta( $post->ID,"multimedia3_url", $single=true ) ; ?>"><img src="<?php echo get_post_meta( $post->ID,"multimedia3_screenshot", $single=true ) ; ?>"></a>
 
     <div id="multimedia-caption">
-<h2><a href="<?php echo get_post_meta( $post->ID,"multimedia3_url", $single=true ) ; ?>"><?php echo get_post_meta( $post->ID,"multimedia3_headline", $single=true ) ; ?></a></h2>
+<h3><a href="<?php echo get_post_meta( $post->ID,"multimedia3_url", $single=true ) ; ?>"><?php echo get_post_meta( $post->ID,"multimedia3_headline", $single=true ) ; ?></a></h3>
 
     <?php if(get_post_meta($post->ID, multimedia3_caption, true) != "") { ?><?php echo get_post_meta( $post->ID,"multimedia3_caption", $single=true ) ; ?><?php } ?>
 <span class="side-credit"><?php if(get_post_meta($post->ID, multimedia3_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"multimedia3_credit", $single=true ) ; ?><?php } ?></span>
@@ -129,7 +129,7 @@ AudioPlayer.embed("audioplayer_side_1", {
 	}); 
 </script>  
 
-<h2><?php echo get_post_meta( $post->ID,"audio_headline", $single=true ) ; ?></h2>
+<h3><?php echo get_post_meta( $post->ID,"audio_headline", $single=true ) ; ?></h3>
 (<a href="<?php echo get_post_meta( $post->ID,"audio_url", $single=true ) ; ?>">Download MP3</a>)
 <span class="side-credit"><?php if(get_post_meta($post->ID, audio_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"audio_credit", $single=true ) ; ?><?php } ?></span>
     </div> 
@@ -152,7 +152,7 @@ AudioPlayer.embed("audioplayer_side_1b", {
 	}); 
 </script>  
 
-<h2><?php echo get_post_meta( $post->ID,"audiob_headline", $single=true ) ; ?></h2>
+<h3><?php echo get_post_meta( $post->ID,"audiob_headline", $single=true ) ; ?></h3>
 (<a href="<?php echo get_post_meta( $post->ID,"audiob_url", $single=true ) ; ?>">Download MP3</a>)
 <span class="side-credit"><?php if(get_post_meta($post->ID, audiob_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"audiob_credit", $single=true ) ; ?><?php } ?></span>
     </div> 
@@ -176,7 +176,7 @@ AudioPlayer.embed("audioplayer_side_1c", {
 	}); 
 </script>  
 
-<h2><?php echo get_post_meta( $post->ID,"audioc_headline", $single=true ) ; ?></h2>
+<h3><?php echo get_post_meta( $post->ID,"audioc_headline", $single=true ) ; ?></h3>
 (<a href="<?php echo get_post_meta( $post->ID,"audioc_url", $single=true ) ; ?>">Download MP3</a>)
 <span class="side-credit"><?php if(get_post_meta($post->ID, audioc_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"audioc_credit", $single=true ) ; ?><?php } ?></span>
     </div> 
@@ -199,7 +199,7 @@ AudioPlayer.embed("audioplayer_side_3", {
 	}); 
 </script>  
 
-<h2><?php echo get_post_meta( $post->ID,"audio3_headline", $single=true ) ; ?></h2>
+<h3><?php echo get_post_meta( $post->ID,"audio3_headline", $single=true ) ; ?></h3>
 (<a href="<?php echo get_post_meta( $post->ID,"audio3_url", $single=true ) ; ?>">Download MP3</a>)
 <span class="side-credit"><?php if(get_post_meta($post->ID, audio3_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"audio3_credit", $single=true ) ; ?><?php } ?></span>
     </div> 
@@ -222,7 +222,7 @@ AudioPlayer.embed("audioplayer_side_5", {
 	}); 
 </script>  
 
-<h2><?php echo get_post_meta( $post->ID,"audio5_headline", $single=true ) ; ?></h2>
+<h3><?php echo get_post_meta( $post->ID,"audio5_headline", $single=true ) ; ?></h3>
 (<a href="<?php echo get_post_meta( $post->ID,"audio5_url", $single=true ) ; ?>">Download MP3</a>)
 <span class="side-credit"><?php if(get_post_meta($post->ID, audio5_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"audio5_credit", $single=true ) ; ?><?php } ?></span>
     </div> 
@@ -251,7 +251,7 @@ AudioPlayer.embed("audioplayer_side_2", {
 	}); 
 </script>  
 
-<h2><?php echo get_post_meta( $post->ID,"audio2_headline", $single=true ) ; ?></h2>
+<h3><?php echo get_post_meta( $post->ID,"audio2_headline", $single=true ) ; ?></h3>
 (<a href="<?php echo get_post_meta( $post->ID,"audio2_url", $single=true ) ; ?>">Download MP3</a>)
 <span class="side-credit"><?php if(get_post_meta($post->ID, audio2_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"audio2_credit", $single=true ) ; ?><?php } ?></span>
     </div> 
@@ -273,7 +273,7 @@ AudioPlayer.embed("audioplayer_side_2b", {
 	}); 
 </script>  
 
-<h2><?php echo get_post_meta( $post->ID,"audio2b_headline", $single=true ) ; ?></h2>
+<h3><?php echo get_post_meta( $post->ID,"audio2b_headline", $single=true ) ; ?></h3>
 (<a href="<?php echo get_post_meta( $post->ID,"audio2b_url", $single=true ) ; ?>">Download MP3</a>)
 <span class="side-credit"><?php if(get_post_meta($post->ID, audio2b_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"audio2b_credit", $single=true ) ; ?><?php } ?></span>
     </div> 
@@ -294,7 +294,7 @@ AudioPlayer.embed("audioplayer_side_2c", {
 	}); 
 </script>  
 
-<h2><?php echo get_post_meta( $post->ID,"audio2c_headline", $single=true ) ; ?></h2>
+<h3><?php echo get_post_meta( $post->ID,"audio2c_headline", $single=true ) ; ?></h3>
 (<a href="<?php echo get_post_meta( $post->ID,"audio2c_url", $single=true ) ; ?>">Download MP3</a>)
 <span class="side-credit"><?php if(get_post_meta($post->ID, audio2c_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"audio2c_credit", $single=true ) ; ?><?php } ?></span>
     </div> 
@@ -315,7 +315,7 @@ AudioPlayer.embed("audioplayer_side_4", {
 	}); 
 </script>  
 
-<h2><?php echo get_post_meta( $post->ID,"audio4_headline", $single=true ) ; ?></h2>
+<h3><?php echo get_post_meta( $post->ID,"audio4_headline", $single=true ) ; ?></h3>
 (<a href="<?php echo get_post_meta( $post->ID,"audio4_url", $single=true ) ; ?>">Download MP3</a>)
 <span class="side-credit"><?php if(get_post_meta($post->ID, audio4_credit, true) != "") { ?>By <?php echo get_post_meta( $post->ID,"audio4_credit", $single=true ) ; ?><?php } ?></span>
     </div> 
@@ -362,7 +362,7 @@ AudioPlayer.embed("audioplayer_side_4", {
    
 	<div id="global-side">
 		<div id="latest-news">
-			<h2>Latest News</h2>
+			<h3>Latest News</h3>
 
 			<ul id="latest-images" style="margin-bottom: 10px;">
 				<?php
