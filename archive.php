@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
 	<div id="content" class="clearfix">
+		
+		<?php include (TEMPLATEPATH . '/category-sidebar.php'); ?>		
       <div id="homeleft">
 	
 			<h1><?php single_cat_title(''); ?></h1>
@@ -92,6 +94,7 @@ if ( function_exists('yapb_get_thumbnail') ) {
 <?php endif; ?>
  
   </div>
-<?php include (TEMPLATEPATH . '/category-sidebar.php'); ?>
+
+</div>
 
 <?php get_footer(); ?>

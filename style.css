@@ -714,6 +714,12 @@ body.single .post {
 	margin-left: 20px;
 	padding-left: 20px;
 }
+
+#sidebar h3 {
+	color: #CC3300;
+	text-transform: uppercase;
+	font-size: 14px;
+}
 	
 #sidebar ul {
 	margin-bottom: 40px; }
@@ -740,7 +746,8 @@ body.single .post {
 	
 .entry h3 {
 	color: #222;
-	font-size: 20px; }
+	font-size: 20px;
+}
 	
 img.archive-thumb {
 	float: left;

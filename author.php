@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 	<div id="content" class="clearfix">
+<?php include (TEMPLATEPATH . '/category-sidebar.php'); ?>		
       <div id="homeleft">
 <?php
 	global $wp_query;
@@ -53,6 +54,5 @@
 </ul>  
  
   </div>
-<?php include (TEMPLATEPATH . '/category-sidebar.php'); ?>
 
 <?php get_footer(); ?>
