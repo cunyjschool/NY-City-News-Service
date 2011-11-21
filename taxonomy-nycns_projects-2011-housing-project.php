@@ -93,10 +93,6 @@
 			
 		</div>
 		
-		<div class="google-map">
-		<iframe width="980" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=206017862824146952348.0004a3813a1f62f330655&amp;ll=40.793698,-73.930436&amp;spn=0.104262,0.120249&amp;output=embed"></iframe>
-		</div>
-		
 	</div>
 
 <?php get_footer(); ?>
