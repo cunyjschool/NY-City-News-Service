@@ -12,8 +12,6 @@
 				
 				<?php $lead_story = get_post( $theme_options['housing2011_lead_story'] );  ?>
 				
-				<h3><?php echo $lead_story->post_title; ?></h3>
-				
 				<?php if ( !empty( $theme_options['housing2011_lead_story_description'] ) ) {
 					echo wpautop( $theme_options['housing2011_lead_story_description'] );
 				} else {
