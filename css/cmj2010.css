@@ -1,0 +1,51 @@
+#special-event-content{
+	float: left;
+	width: 670px;
+	margin: 0 10px 20px 0;
+}
+#special-event-content .entry > div{
+  display:none;
+}
+#sidebar-special{
+	float: left;
+	width: 250px;
+	border-left: 1px solid #eee;
+	margin-left: 0;
+	padding-left: 20px;
+}
+#sidebar-special span{
+   color:#F28719;
+}
+#special-event-content .post-special-event{
+	width:315px;
+	padding:20px 0;
+	border-top:1px solid #eee;
+	margin-right:20px;
+	float:left;
+	min-height: 550px;
+}
+#special-event-content .post-special-event .entry{
+	padding:0 10px;
+}
+div.show_date{
+  padding:0 10px;
+  margin-bottom:5px;
+}
+.special-project-post-title{
+  position:absolute;
+  padding:10px;
+  margin-top:170px;
+  background:url(../img/transparent-lower-third.png) repeat;
+  z-index:100;
+  width:295px;
+}
+.special-project-post-title a{
+  color:#fff;
+}
+ul.band-details{
+  margin-bottom:5px;
+}
+span.byline{
+  border:0;
+  margin-top:5px;
+}

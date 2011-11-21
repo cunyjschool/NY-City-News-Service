@@ -1,0 +1,161 @@
+#election2010.page {
+	float: left;
+	width: 640px;
+	position: relative;
+}
+
+#election2010 h2 {
+	font-size: 30px;
+}
+
+#election2010 #mosaic {
+	margin-top: 20px;
+}
+
+#election2010 #mosaic ul li.mug-shot-link {
+	float: left;
+	border-width: 5px;
+	border-style: solid;
+	height: 80px;
+	width: 80px;
+	position: relative;
+}
+
+#election2010 #mosaic ul li.mug-shot-link .mug-shot-overlay {
+	position: absolute;
+	padding: 5px;
+	font-size: 12px;
+	line-height: 18px;
+	bottom: 0;
+	visibility:hidden;
+	color: #FFFFFF;
+	opacity: 0.8;
+}
+
+#election2010 #mosaic ul li.mug-shot-link:hover {
+	cursor:pointer;
+}
+
+#election2010 #mosaic ul li.mug-shot-link:hover .mug-shot-overlay {
+	visibility: visible;
+}
+
+#election2010 #mosaic ul li.mug-shot-link.hidden-filter:hover .mug-shot-overlay {
+	visibility: hidden;
+}
+
+#election2010 #mosaic ul li.mug-shot-link img.attachment-election-2010-thumb {
+	height: 80px;
+	width: 80px;	
+}
+
+#election2010 #mosaic ul li.mug-shot-link.red {
+	border-color: #bd3d44;
+	background-color: #bd3d44;	
+}
+
+#election2010 #mosaic ul li.mug-shot-link.blue {
+	border-color: #192f5d;
+	background-color: #192f5d;	
+}
+
+#election2010 #mosaic ul li.mug-shot-link.white {
+	border-color: #FFFFFF;
+	background-color: #FFFFFF;
+}
+
+#election2010 #mosaic ul li.mug-shot-link.active {
+	border-color: #FFF7A6;
+	background-color: #FFF7A6;
+}
+
+#election2010 #mosaic ul li.mug-shot-link.active-filter img.attachment-election-2010-thumb {
+	
+}
+
+#election2010 #mosaic ul li.mug-shot-link.hidden-filter img.attachment-election-2010-thumb {
+	opacity: 0.1;
+}
+
+#election2010 #mosaic ul li div.content-single {
+	display:none;
+}
+
+#election2010 #content-single-zone {
+	position: absolute;
+	top: 0;
+	padding: 20px;
+	background-color: #FFFFFF;
+	border: 5px solid #FFF7A6;
+	display: none;
+	width: 600px;
+}
+
+#election2010 #content-single-zone h3 a.back {
+	float: right;
+	
+}
+
+#election2010 #content-single-zone p {
+	font-size: 14px;
+}
+
+#election2010 #content-single-zone p iframe, #election2010 #content-single-zone p object {
+	margin-left: 45px;
+}
+
+#election2010 #content-single-zone p.meta {
+	font-size: 12px;
+	color: #999999;
+}
+
+#election2010 #content-single-zone p.meta span {
+	color: #666666;
+	font-weight: bold;
+}
+
+#election2010 #content-single-zone .actions {
+	color: #666666;
+}
+
+#sidebar-election2010 {
+	float: right;
+	width: 300px;
+	padding-left: 20px;
+	border-left: 1px solid #EEEEEE;
+}
+
+#sidebar-election2010 h3 {
+	color: #333333;
+	font-size: 24px;
+}
+
+#sidebar-election2010 div#filters dl dt.filter-label {
+	color: #666666;
+	width: 130px;
+	float: left;
+	display: block;
+}
+
+#sidebar-election2010 div#filters dl dt.filter-label a.help {
+	font-weight: normal;
+	color: #999999;
+	text-decoration: underline;
+	font-size: 10px;
+	float:right;
+	margin-right: 10px;
+}
+
+#sidebar-election2010 div#filters dl dd.filters-list {
+	margin-left: 130px;
+	margin-bottom: 10px;
+}
+
+#sidebar-election2010 div#filters dl dd.filters-list a.filter.active {
+	background-color: #bd3d44;
+	color: #FFFFFF;
+}
+
+#sidebar-election2010 div#filters dl dd.filters-list a.filter.active:hover {
+	text-decoration: none;
+}

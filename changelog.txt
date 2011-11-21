@@ -1,0 +1,8 @@
+== NY City News Service theme changelog ==
+
+= v1.0.7 (Jan. 27, 2011) =
+* Custom template for staff listing based on BuddyPress groups
+* Updated all YAPB references to WordPress the_post_thumbnail()
+* Script for migrating YAPB images to WordPress attachments and post thumbnail
+* Changed 219Magazine link in header
+* Version number is declared as a constant
